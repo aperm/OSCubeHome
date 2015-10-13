@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<script laguage=JavaScript>
+	var f_selbox = new Array('일반물질','독성물질');
+	var f_selbox_val = new Array('ChmclsGnrlInfoInqireService','ChmclsGnrlToxctyInfoService');
+	
+	var s_selbox = new Array();
+	s_selbox[0] = new Array("물질검색","상세정보검색","요약정보검색");
+	s_selbox[1] = new Array("피부독성정보 조회","소화기계독성정보 조회","간독성정보 조회","심혈관계독성정보 조회","신장독성정보 조회","유전독성정보 조회","생식/기형유발성독성정보 조회",
+			"면역독성정보 조회","흡입독성정보 조회","신경독성정보 조회","발암성정보 조회","기타독성정보 조회");
+	
+	var s_selbox_val = new Array(); 
+	s_selbox_val[0] = new Array("getChmclsGnrlIntegSearchListInqire","getChmclsGnrlListAcctoDetailInqire","getChmclsGnrlSummayInfoInqire");
+	s_selbox_val[1] = new Array("getDermaToxctyInfoInqire","getGastroToxctyInfoInqire","getHepaToxctyInfoInqire",
+			"getCardiToxctyInfoInqire","getRenalToxctyInfoInqire","getOlflToxctyInfoInqire",
+			"getPrcrtnOccrrncToxctyInfoInqire","getImmuToxctyInfoInqire","getIinhlToxctyInfoInqire",
+			"getNeuroToxctyInfoInqire","getChmclsGnrlCrcngInfoInqire","getOthersToxctyInfoInqire");
+
+
+	function init(f){
+		var f_sel = f.first;
+		var s_sel = f.second;
+
+		for(var i =0; i<f_selbox.length; i++){
+			f_sel.options[i+1] = new Option(f_selbox[i], f_selbox_val[i]);
+		}
+	}
+
+	function itemChange(f){
+		var f_sel = f.first;
+		var s_sel = f.second;
+
+		var sel = f_sel.selectedIndex;
+		for(var i=s_sel.length; i>=0; i--){
+			s_sel.options[i] = null;
+		}
+		s_sel.options[0] = new Option("선택", "");
+		
+		if(sel != 0){
+			for(var i=0; i<s_selbox[sel-1].length; i++){
+				s_sel.options[i+1] = new Option(s_selbox[sel-1][i], s_selbox_val[sel-1][i]);
+			}
+		}
+	}	
+	
+</script>
+<html>
+<head>
+
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<body align="center">
+
+<br><br>
+	<form name="searchForm" id="searchForm" action="weather.jsp"   method="post"  style="padding:50px;" >
+		<table bordercolor="skyblue" width=400 align="center" >
+			<tr height="100" style="margin-left:20px;">
+				<td align="left" width=150>
+					검색할 물질 선택
+				</td>
+				<td>
+					<select id="first" name="first" onchange="itemChange(this.form);" style="width:100px;">	
+						<option value="">선택</option>
+						<option value="ChmclsGnrlInfoInqireService">일반물질</option>
+						<option value="ChmclsGnrlToxctyInfoService">독성물질</option>	
+					</select>
+				</td>
+				</tr>
+				<tr>
+				<td align="left" width=150> 세부항목 선택 </td>
+				<td>
+					<select name="second" id="second"  style="width:210px;" >
+						<option value="">선택</option>
+					</select>			
+				</td>
+			</tr>
+   			<tr height="100">
+   			<td align="left" width=150>
+		   		검색할 물질 : 
+		   		</td>
+		   		<td>
+		   			<input type="text" name="keyword" placeholder="영어 또는 casNo" >
+		   		</td> 
+		   	</tr>
+		   	<tr><td></td>
+		   		<td align="center">
+					<input type="hidden" name="numOfRows" value=10>
+					<input type="hidden" name="pageNo" value=1>
+					<input type="submit" value="확인">
+				</td>	
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
