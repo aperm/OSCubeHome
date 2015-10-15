@@ -28,9 +28,6 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-	// 	$("#range").load("test1.jsp");
-	//  	$("#test").load("test1.jsp");
-	
 	$(window).scroll(function() {
 		if ($(this).scrollTop() > 0) {
 			$('.btnTop').fadeIn();
@@ -45,10 +42,7 @@ $(document).ready(function() {
 		}, 450);
 		return false;
 	});
-	$('.pageBack').click(function() {
-		$("#divAll").load("scs_search.jsp");
-	});
-
+	
 });
 function butClick(idMyDiv) {
 	var objDiv = document.getElementById(idMyDiv);
@@ -62,9 +56,10 @@ function butClick(idMyDiv) {
 function imgClick(){
 	$("#body").load("mindex.jsp",{first:"no"});
 }
-function butclick() {
-	$("#divAll").load("scs_search.jsp");
+function loginclick() {
+	$("#divAll").load("scs_searchMain.jsp");
 }
+
 </script>
 
 <style type="text/css">
@@ -85,7 +80,6 @@ body{margin:0}
 
 <SCRIPT src="/js/jquery-2.1.3.min.js"></SCRIPT>
 <script src="/js/bootstrap.js"></script>
-
 <script src="/js/bootstrap_slider.js"></script>
 
 <body>
@@ -105,7 +99,7 @@ body{margin:0}
 <!-- 				<a href="scs_search.jsp">현재창으로 열기</a> -->
 			</H3> 
 			<br><br>
-			<input type="button" class="btn btn-primary " value="FACEBOOK 로그인" style="width:50%" class="but" onclick="butclick();"><br>
+			<input type="button" class="btn btn-primary " value="FACEBOOK 로그인" style="width:50%" class="but" onclick="loginclick();"><br>
 			<input type="button" class="btn btn-success" value="NAVER 로그인" style="width:50%"><br>
 			<input type="button" class="btn btn-danger" value="Google 로그인"style="width:50%"><br>
 		</div>

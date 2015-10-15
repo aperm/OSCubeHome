@@ -56,7 +56,8 @@ dl{
 </script>
 <%
 	Class.forName("oracle.jdbc.driver.OracleDriver");
-	Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1522:TestDB2", "rio2", "cube1234");
+// 	Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1522:TestDB2", "rio2", "cube1234");
+	Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1523:scsdbnew", "scsdbrio2", "cube1234");
 	Statement stmt = null;
 	ResultSet rs = null;
 	//일반물질 - 물질검색 / 상세검색 // 공통변수

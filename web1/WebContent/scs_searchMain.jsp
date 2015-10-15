@@ -27,13 +27,6 @@
 	height: 40px !important;
 }
 </style>
-<script type="text/javascript">
-	function searchButClick() {
-		 var searchWord = $('#searchWord').val();
-		 $("#divAll").load("scs_search2.jsp", {param:searchWord});
-		 
-	}
-</script>
 
 
 <script>
@@ -41,7 +34,7 @@
 		$(".searchResult").click(function(event) {
 		 	var th = $(this);
 		 	var th_id = th.attr('id');
-		 	$("#divAll").load("scs_searchResult.jsp", {param:th_id});
+		 	$("#divAll").load("scs_resultView.jsp", {param:th_id});
 		});
 	});
 	
@@ -65,7 +58,11 @@
 		}
 	}
 	
-	
+	function searchBntClick() {
+		 var searchWord = $('#searchWord').val();
+		 $("#divAll").load("scs_searchResult.jsp", {param:searchWord});
+		 
+	}
 </script>
 
 <body>
@@ -82,7 +79,7 @@
 			<table align="center" width=95%>
 				<tr>
 					<td width=70%><input type="text" id="searchWord" value="" style="border-radius:10px 0px 0px 10px; height: 50px; width:100%;" placeholder="  검색어를 입력하세요."></td>
-					<td width=30%><input type="button" style="border-radius:0px 10px 10px 0px; height: 50px; width:100%;" value="검색" onclick="searchButClick();">
+					<td width=30%><input type="button" style="border-radius:0px 10px 10px 0px; height: 50px; width:100%;" value="검색" onclick="searchBntClick();">
 					</td>
 				</tr>
 
