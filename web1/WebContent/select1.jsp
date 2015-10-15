@@ -2,67 +2,126 @@
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ page import="java.util.*, java.text.*"%>
-
-<html>
-<head>
-<link rel="shortcut icon" type="image/x-icon"
-	href="images/favicon/favicon.ico" />
-<link rel="stylesheet" href="/css/bootstrap-theme.css">
-<link rel="stylesheet" href="/css/bootstrap.css">
-
+<%
+	String s = request.getParameter("param");
+	// 	System.out.println(s);
+%>
 
 <script type="text/javascript">
-	function butClick(idMyDiv) {
-		 var objDiv = document.getElementById(idMyDiv);
+	$(document).ready(function() {
+		// 	$("#range").load("test1.jsp");
+		//  	$("#test").load("test1.jsp");
+		$(window).scroll(function() {
+			if ($(this).scrollTop() > 0) {
+				$('.btnTop').fadeIn();
+			} else {
+				$('.btnTop').fadeOut();
+			}
+		});
 
-	     if(objDiv.style.display=="block"){ objDiv.style.display = "none"; }
-	     else{ objDiv.style.display = "block"; }
-	}
+		$('.btnTop').click(function() {
+			$('html, body').animate({
+				scrollTop : 0
+			}, 450);
+			return false;
+		});
+		$('.pageBack').click(function() {
+			$("#divAll").load("scs_search.jsp");
+		});
+
+	});
+	// Without JQuery
+	var slider = new Slider('#ex1', {
+		formatter : function(value) {
+			return 'Current value: ' + value;
+		}
+	});
+
+	$("#ex1").on("slide", function(slideEvt) {
+		$("#ex6SliderVal").text(slideEvt.value);
+
+		// 		 몸무게 * ADI (일일섭취) / 기준치
+		// 		치즈 
+		$("#value1").text((slideEvt.value * 25 / 3).toFixed(1));
+		// 		식육
+		$("#value2").text((slideEvt.value * 25 / 2).toFixed(1));
+		// 		젓갈
+		$("#value3").text((slideEvt.value * 25 / 1).toFixed(1));
+
+	});
 </script>
 
 
-<!--모바일페이지크기조절메타태그-->
-<meta name="viewport" content="width=device-width" />
+<style type="text/css">
+.btnTop {
+	display: none;
+	overflow: hidden;
+	position: fixed;
+	bottom: 30px;
+	right: 5%;
+	z-index: 100;
+}
 
-<title>OSCube</title>
-</head>
-
-<SCRIPT src="/js/jquery-2.1.3.min.js"></SCRIPT>
-<script src="js/bootstrap.js"></script>
-
+#ex1Slider .slider-selection {
+	background: #BABABA;
+}
+</style>
 
 <body>
-	<!-- 전체 DIV -->
-	<div style="margin: auto;">
-		<br> <br>
-		
-		<div class="">
-			<table align="center">
-				<tr>
-					<td><input type="text" style="height: 50px;"
-						placeholder="검색어입력하시오"></td>
-					<td><input type="button" style="height: 50px;" value="검색" onclick="butClick('testdiv');return false;">
-					</td>
-				</tr>
-
-				<tr>
-					<td colspan="2">
-						<div class="list-group"  id="testdiv" style="display:none;">
-							<a href="select1.jsp" class="list-group-item list-group-item-success">Dapibus
-								ac facilisis in</a> <a href="#"
-								class="list-group-item list-group-item-info">Cras sit amet
-								nibh libero</a> <a href="#"
-								class="list-group-item list-group-item-warning">Porta ac
-								consectetur ac</a> <a href="#"
-								class="list-group-item list-group-item-danger">Vestibulum at
-								eros</a>
-						</div>
-					</td>
-				</tr>
-			</table>
-
-		</div>
+	<div class="btn-group btnTop">
+		<button type="button" class="btn btn-default btn-xs">
+			<span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
+			UP
+		</button>
 	</div>
 	<!-- 전체 DIV -->
-</body>
-</html>
+	<div style="margin: auto;">
+
+		<!-- 		상단 툴 + 검색바 -->
+		<div>
+			<!-- 	상단 홈바 -->
+			<div id="topMenu"
+				style="position: fixed; width: 100%; background-color: #ffffff; z-index: 100;">
+				<table width=100%
+					style="text-align: center; align: center; vertical-align: middle; height: 50px;">
+					<tr>
+						<td width=20%><div class="pageBack">
+								<span class="glyphicon glyphicon-chevron-left"
+									aria-hidden="true"></span>BACK
+							</div></td>
+						<td width=60%><img src="/images/logos/s2food.png" width=100px
+							onclick="imgClick();"></td>
+						<td width=20%>메뉴자리</td>
+					</tr>
+				</table>
+				<!-- 		검색메뉴 -->
+				<div id="searchBarDiv"
+					style="background-color: #4ba9f5; vertical-align: middle;">
+					<table align="center" width=95%
+						style="text-align: center; align: center; vertical-align: middle; height: 40px;">
+						<tr>
+							<td height=5px></td>
+							<td></td>
+						</tr>
+						<tr>
+							<!-- 검색바 -->
+
+							<td width=70%><input type="text"
+								style="border-radius: 10px 0px 0px 10px; height: 40px; width: 100%;"
+								placeholder="  검색어를 입력하세요." value="<%=s%>"></td>
+							<td width=30%><input type="button"
+								style="border-radius: 0px 10px 10px 0px; height: 40px; width: 100%;"
+								value="검색" onclick="butClick('testdiv');return false;"></td>
+
+						</tr>
+						<tr>
+							<td height=5px></td>
+							<td></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		 
+	</div>
+	<!-- 전체 DIV -->

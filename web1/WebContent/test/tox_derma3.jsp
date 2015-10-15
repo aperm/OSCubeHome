@@ -2,7 +2,7 @@
 <%@ page import="java.net.URL"%>
 <%@ page import="org.jdom.*"%>
 <%@ page import="org.jdom.Document"%>
-<%@ page import="org.jdom.Element"%> 
+<%@ page import="org.jdom.Element"%>
 <%@ page import="org.jdom.input.SAXBuilder"%>
 <%@ page import="org.xml.sax.*"%>
 <%@ page import="java.util.List"%>

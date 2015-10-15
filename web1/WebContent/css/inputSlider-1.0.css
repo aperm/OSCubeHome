@@ -1,0 +1,132 @@
+.clearfix:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+html,
+body {
+  font-family: sans-serif;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+}
+a {
+  color: #95a5a6;
+}
+a,
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+.row:after,
+.container:after,
+.panel-body:after,
+[class^=col-]:after,
+.nav:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+.sls-container {
+  width: 100%;
+  height: 46px;
+  padding-top: 8px;
+  background: rgba(0, 0, 0, 0.1);
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, rgba(255, 255, 255, 0.6) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.1)), color-stop(100%, rgba(255, 255, 255, 0.6)));
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, rgba(255, 255, 255, 0.6) 100%);
+  background: -o-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, rgba(255, 255, 255, 0.6) 100%);
+  background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, rgba(255, 255, 255, 0.6) 100%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(255, 255, 255, 0.6) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@top', endColorstr='@bottom', GradientType=0);
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 30px;
+}
+.sls-container input {
+  position: absolute;
+  z-index: -1;
+  visibility: hidden;
+}
+.sls-container .sls {
+  display: inline-block;
+  height: 30px;
+  background: #CCCCCC;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 15px;
+  margin-bottom: 7px;
+  -webkit-box-shadow: inset 0 3px 16px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: inset 0 3px 16px rgba(0, 0, 0, 0.4);
+  -o-box-shadow: inset 0 3px 16px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 3px 16px rgba(0, 0, 0, 0.4);
+}
+.sls-container .sls .sls-knob {
+  display: none;
+}
+.sls-container .sls .sls-handle {
+  height: 30px;
+  width: 60px;
+  background: #eeeeee;
+  background: -moz-linear-gradient(top, #eeeeee 0%, #dddddd 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #eeeeee), color-stop(100%, #dddddd));
+  background: -webkit-linear-gradient(top, #eeeeee 0%, #dddddd 100%);
+  background: -o-linear-gradient(top, #eeeeee 0%, #dddddd 100%);
+  background: -ms-linear-gradient(top, #eeeeee 0%, #dddddd 100%);
+  background: linear-gradient(to bottom, #eeeeee 0%, #dddddd 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@top', endColorstr='@bottom', GradientType=0);
+  display: inline-block;
+  position: absolute;
+  font-size: 12px;
+  font-weight: bold;
+  top: 0;
+  left: 0;
+  border-radius: 15px;
+  text-align: center;
+  color: #999;
+  line-height: 30px;
+  -webkit-box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  -o-box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  -webkit-transition: border-radius 0.5s;
+  -moz-transition: border-radius 0.5s;
+  -o-transition: border-radius 0.5s;
+  transition: border-radius 0.5s;
+}
+.sls-container .sls .sls-handle.merge-right {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.sls-container .sls .sls-handle.merge-left {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.sls-container .sls .sls-knob-stack {
+  display: table;
+  height: 30px;
+  table-layout: fixed;
+  padding: 0;
+  margin: 0;
+}
+.sls-container .sls .sls-knob-stack .sls-knob {
+  display: table-cell;
+}
+.sls-container .sls .sls-knob-stack .sls-knob:before {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  position: relative;
+  top: 12px;
+  left: 50%;
+  margin-left: 27px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  text-align: center;
+}
