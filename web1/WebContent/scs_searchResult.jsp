@@ -14,20 +14,7 @@
 		$("#divAll").load("scs_resultView.jsp", {param : th_id});
 	});
 
-	$(window).scroll(function() {
-		if ($(this).scrollTop() > 0) {
-			$('.btnTop').fadeIn();
-		} else {
-			$('.btnTop').fadeOut();
-		}
-	});
-
-	$('.btnTop').click(function() {
-		$('html, body').animate({
-			scrollTop : 0
-		}, 450);
-		return false;
-	});
+	
 	$('.pageBack').click(function() {
 		$("#divAll").load("scs_searchMain.jsp");
 	});
@@ -38,55 +25,61 @@
 		 $("#divAll").load("scs_searchResult.jsp", {param:searchWord});
 		 
 	}
+	
+// 	alert(($(window).height()/5)); 
+ 	$("#menuBarTable").attr('height',($(window).height()/9));
+ 	$("#searchBarTable").attr('height',($(window).height()/10));
+ 	$("#logoImgId").attr('height',($(window).height()/11));
+	
 </script>
 
 
 
 <style type="text/css">
-.btnTop {
-	display: none;
-	overflow: hidden;
-	position: fixed;
-	bottom: 30px;
-	right: 5%;
-	z-index: 100;
+
+.label-info{
+	min-width:100px;
+}
+.labelTag{
+ 	background-color: #5bc0de;
+	min-width:1000px;
+	width:1000px;
+}
+.logoImg{
+/* 	max-height:20%; */
+	
+}
+
+.searchBarTable{
+	max-height:60px;
 }
 </style>
 
 
 <body>
 
-	<!-- 	탑버튼 -->
-	<div class="btn-group btnTop">
-		<button type="button" class="btn btn-default btn-xs">
-			<span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
-			UP
-		</button>
-	</div>
-
-
 	<!-- 전체 DIV -->
-	<div style="margin: auto;">
+	<div style="margin: auto; z-index: 100;">
 		<!-- 		상단 툴 + 검색바 -->
 		<div>
 			<!-- 	상단 홈바 -->
-			<div id="topMenu" style= "position: fixed; width:100%; background-color:#ffffff;z-index:100; " >
-				<table width=100%
-					style="text-align: center; align: center; vertical-align: middle; height: 50px;">
+			<div id="topMenu" style= "position: fixed; width:100%; background-color:#ffffff;z-index:100;" >
+				<table id="menuBarTable" width=100%
+					style="text-align: center; align: center; vertical-align: middle;">
 					<tr>
 						<td width=20%><div class="pageBack">
 								<span class="glyphicon glyphicon-chevron-left"
 									aria-hidden="true"></span>BACK
 							</div></td>
-						<td width=60%><img src="/images/logos/s2food.png" width=100px
+						<td width=60% style="padding-right:5%;padding-left:3%;"><img src="/images/logos/s2food.png" id="logoImgId" class="logoImg"
 							onclick="imgClick();"></td>
-						<td width=20%>메뉴자리</td>
+						<td width=20%>메뉴</td>
 					</tr>
 					</table>
 					<!-- 		검색메뉴 -->
 					<div id="searchBarDiv" style="background-color:#4ba9f5; vertical-align:middle;">
-					<table align="center" width=95%
-					style="text-align: center; align: center; vertical-align: middle; height: 40px;">
+					<table id="searchBarTable" class="searchBarTable" align="center" width=95%
+					style="text-align: center; align: center; vertical-align: middle; " >
 					<tr>
 						<td height=5px></td>
 						<td></td>
@@ -95,10 +88,10 @@
 						<!-- 검색바 -->
 
 						<td width=70%><input type="text" id="searchWord"
-							style="border-radius:10px 0px 0px 10px; height: 40px; width: 100%;" placeholder="  검색어를 입력하세요."
+							style="border-radius:2px 0px 0px 2px; height: 40px; width: 100%;" placeholder="  검색어를 입력하세요."
 							value="<%=s%>"></td>
 						<td width=30%><input type="button"
-							style="border-radius:0px 10px 10px 0px; height: 40px; width: 100%;" value="검색"
+							style="border-radius:0px 2px 2px 0px; height: 40px; width: 100%;" value="검색"
 							class="searchBut" onclick="searchBntClick();"></td>
 							
 					</tr>
@@ -115,6 +108,9 @@
 			<div class="" style="margin-top:100px;">
 				<table align="center" text-align="left" width=95%>
 					<tr>
+						<td colspan="2" height=10px> </td>
+					</tr>
+					<tr>
 						<td colspan="2" style="height: 10px;">검색어 [<%=s%>]의 결과는 [3] 개
 							입니다.
 						</td>
@@ -124,7 +120,7 @@
 							<div class="list-group" id="testdiv" style="">
 								<a href="#"
 									class="list-group-item searchResult"
-									id="소르빈산 칼륨"><span class="label label-info">국문명</span> 소르빈산
+									id="소르빈산 칼륨"><alt class="labelTag" style="width:1000px;" >국문명</alt> 소르빈산
 									칼륨<br> <span class="label label-info">영문명</span> Potassium
 									sorbate<br> <span class="label label-info">CAS #</span>
 									24634-61-5</a> <a href="#"

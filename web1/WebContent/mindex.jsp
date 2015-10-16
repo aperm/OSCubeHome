@@ -26,24 +26,9 @@
 <link rel="stylesheet" href="/css/bootstrap.css">
 <link rel="stylesheet" href="/css/bootstrap_slider.css">
 
-<script type="text/javascript">
-$(document).ready(function() {
-	$(window).scroll(function() {
-		if ($(this).scrollTop() > 0) {
-			$('.btnTop').fadeIn();
-		} else {
-			$('.btnTop').fadeOut();
-		}
-	});
 
-	$('.btnTop').click(function() {
-		$('html, body').animate({
-			scrollTop : 0
-		}, 450);
-		return false;
-	});
-	
-});
+<script type="text/javascript">
+
 function butClick(idMyDiv) {
 	var objDiv = document.getElementById(idMyDiv);
 
@@ -63,12 +48,65 @@ function loginclick() {
 </script>
 
 <style type="text/css">
-html,body{height:100%}
+html,body{height:100%;
+font-size:13pt;}
 body{margin:0}
 #body{min-height:100%}
-#divAll{padding-bottom:2.0em}
+#divAll{padding-bottom:5.0em}
 
-#foot{margin-top:-2.0em;height:2.0em}
+#foot{margin-top:-4.79em;height:1.0em;}
+
+
+.titleText{
+	font-weight:bold;
+	font-size:20pt;
+	height:50px;
+	
+}
+
+.contentText{
+	font-size:15pt;
+
+}
+
+#searchWord{
+	padding : 0 0 0 10px;
+}
+
+.labelTag{
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 75%;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+}
+
+.line20{
+	height:20px;
+}
+
+.line30{
+	height:30px;
+}
+
+.line40{
+	height:40px;
+}
+
+
+.btnTop {
+	display: none;
+	overflow: hidden;
+	position: fixed;
+	bottom: 30px;
+	right: 5%;
+	z-index: 100;
+}
 
 </style>
 <!--모바일페이지크기조절메타태그-->
@@ -83,25 +121,70 @@ body{margin:0}
 <script src="/js/bootstrap_slider.js"></script>
 
 <body>
+<!-- 	탑버튼 -->
+<script>
+$(document).ready(function() {
+	$(window).scroll(function() {
+		if ($(this).scrollTop() > 0) {
+			$('.btnTop').fadeIn();
+		} else {
+			$('.btnTop').fadeOut();
+		}
+	});
+
+	$('.btnTop').click(function() {
+		$('html, body').animate({
+			scrollTop : 0
+		}, 450);
+		return false;
+	});
+	
+});
+</script>
 	<div id="body">
+	<div class="btn-group btnTop">
+		<button type="button" class="btn btn-default btn-xs">
+			<span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
+			UP
+		</button>
+	</div>
 	<!-- 전체 DIV -->
 	<div style="margin:auto;" id="divAll">
 		<!-- 이미지DIV  -->
+		<br>
 		<div align="center">
-			<img src="images/logos/s2food.png" width="86%" style="margin-top:36px;" >
+			<img src="images/logos/s2food.png" width="65%" style="margin-top:36px;" >
 		</div>
 		<!-- 이미지DIV  -->
 <br><br>
 		<div style="text-align: center;">
 			<!-- 아래 컨텐츠 -->
-			<H3>
-				화학물질 정보 서비스
-<!-- 				<a href="scs_search.jsp">현재창으로 열기</a> -->
-			</H3> 
-			<br><br>
+			<H2>
+				에스투푸드(SF)
+				<h3>Sustainable Safety for Food</h3>
+			</H2> 
+			<br>
 			<input type="button" class="btn btn-primary " value="FACEBOOK 로그인" style="width:50%" class="but" onclick="loginclick();"><br>
 			<input type="button" class="btn btn-success" value="NAVER 로그인" style="width:50%"><br>
 			<input type="button" class="btn btn-danger" value="Google 로그인"style="width:50%"><br>
+			<br>
+			<input type="button" class="btn " value="회원가입"style="width:50%"><br>
+			<input type="button" class="btn " value="Guest 접속" style="width:50%; background-color:#ffdab9;"><br>
+			<input type="button" class="btn " value="Guest 접속" style="width:50%; background-color:#ffdab9;"><br>
+			<input type="button" class="btn " value="Guest 접속" style="width:50%; background-color:#ffdab9;"><br>
+			<input type="button" class="btn " value="Guest 접속" style="width:50%; background-color:#ffdab9;"><br>
+			<input type="button" class="btn " value="Guest 접속" style="width:50%; background-color:#ffdab9;"><br>
+			<input type="button" class="btn " value="Guest 접속" style="width:50%; background-color:#ffdab9;"><br>
+			<input type="button" class="btn " value="Guest 접속" style="width:50%; background-color:#ffdab9;"><br>
+			<input type="button" class="btn " value="Guest 접속" style="width:50%; background-color:#ffdab9;"><br>
+			<input type="button" class="btn " value="Guest 접속" style="width:50%; background-color:#ffdab9;"><br>
+			<input type="button" class="btn " value="Guest 접속" style="width:50%; background-color:#ffdab9;"><br>
+			<input type="button" class="btn " value="Guest 접속" style="width:50%; background-color:#ffdab9;"><br>
+			<input type="button" class="btn " value="Guest 접속" style="width:50%; background-color:#ffdab9;"><br>
+			<input type="button" class="btn " value="Guest 접속" style="width:50%; background-color:#ffdab9;"><br>
+			<input type="button" class="btn " value="Guest 접속" style="width:50%; background-color:#ffdab9;"><br>
+			<input type="button" class="btn " value="Guest 접속" style="width:50%; background-color:#ffdab9;"><br>
+			<input type="button" class="btn " value="Guest 접속" style="width:50%; background-color:#ffdab9;"><br>
 		</div>
 		<!-- 아래 컨텐츠 -->
 	</div>
@@ -112,8 +195,12 @@ body{margin:0}
 		if(first==0)
 		{
 	%>
-	<div id="foot" style="text-align:center; background-color:black; line-height:30px; vertical-align:middle;">
-		<font color="white">오에스큐브 저작권 표시 </font><img src="images/footer_logo.png" width=20px>
+	
+	<div id="foot" style="text-align:center; font-size:10px;">
+		<font size=2.5pt>version 1.0</font><br>
+			<div style="background-color:#4ba9f5; line-height:30px; vertical-align:middle;">
+			<font size=2.5pt color="white">COPYRIGHT ⓒ OSCube. ALL RIGHTS RESERVED. </font><img src="images/footer_logo_inverse.png" width=20px>
+		 </div>
 	</div>
 	<% 
 		}

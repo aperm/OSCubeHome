@@ -8,20 +8,7 @@
 %>
 
 <script type="text/javascript">
-	$(window).scroll(function() {
-		if ($(this).scrollTop() > 0) {
-			$('.btnTop').fadeIn();
-		} else {
-			$('.btnTop').fadeOut();
-		}
-	});
-
-	$('.btnTop').click(function() {
-		$('html, body').animate({
-			scrollTop : 0
-		}, 450);
-		return false;
-	});
+	
 	$('.pageBack').click(function() {
 		$("#divAll").load("scs_searchResult.jsp",{param:'<%=s%>'});
 	});
@@ -64,24 +51,12 @@
 
 		 
 	}
-// 	$(function () {
-// 		$('body').keypress(function (event) {
-// 		alert(String.fromCharCode(event.keycode));
-// 		});
-// 		});
+
 </script>
 
 
 
 <style type="text/css">
-.btnTop {
-	display: none;
-	overflow: hidden;
-	position: fixed;
-	bottom: 30px;
-	right: 5%;
-	z-index: 100;
-}
 
  
 .mytable { border-collapse:collapse; }  
@@ -169,7 +144,7 @@
 										<td colspan="4" height=10px></td>
 									</tr>
 									<tr>
-										<td>체중입력&nbsp</td>
+										<td width=20%>체중입력</td>
 										<td colspan="2">
 											<div id="test">
 												<input id="ex1" data-slider-id='ex1Slider' type="text"
@@ -177,7 +152,7 @@
 													data-slider-step="1" data-slider-value="60" "/>
 											</div>
 										</td>
-										<td align="right"><input type="text" style="width:30px;"id="weightValue" value="" onkeydown="keydownFun();">Kg</td>
+										<td align="right" width=20%><input type="text" style="width:30px;"id="weightValue" value="" onkeydown="keydownFun();">Kg</td>
 									</tr>
 									
 									<tr style="background-color:#e0ffff">
@@ -213,8 +188,7 @@
 										</td>
 									</tr>
 									<tr>
-										<td >- 요약정보</td>
-										<td align="right" colspan="3"></td>
+										<td colspan="4">- 요약정보</td>
 									</tr>
 									<tr>
 										<td colspan="4">1. 소르빈산은 식품에서 보존제로 사용되는 천연 유기화합물이다. 마가목(Sorbus aucuparia)의 덜익은 열매에서 처음 분리되었고 이에 따라 이름이 지어졌다. </td>

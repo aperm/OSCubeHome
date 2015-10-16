@@ -3,32 +3,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ page import="java.util.*, java.text.*"%>
 
-
-<style>
-#searchDiv {
-	width: 50%;
-	float: left;
-}
-
-#center-box {
-	text-align: center;
-	background-color: yellow;
-	margin: 0 auto;
-}
-
-#searchBut {
-	width: 50%;
-	float: right;
-	text-align: right;
-}
-
-#searchButId {
-	height: 30px;
-	height: 40px !important;
-}
-</style>
-
-
 <script>
 	jQuery(document).ready(function($) {
 		$(".searchResult").click(function(event) {
@@ -67,10 +41,10 @@
 
 <body>
 	<!-- ÀüÃ¼ DIV -->
-	<div style="margin: auto;" id="divAll">
-		<br><br> <br><!-- ÀÌ¹ÌÁöDIV  -->
+	<div style="margin: auto;">
+		<br><!-- ÀÌ¹ÌÁöDIV  -->
 		<div align="center">
-			<img src="images/logos/s2food.png" width="86%" style="margin-top:36px;">
+			<img src="images/logos/s2food.png" width="65%" style="margin-top:36px;">
 		</div>
 		<!-- ÀÌ¹ÌÁöDIV  -->
 		<br> <br>
@@ -78,20 +52,28 @@
 		<div class="">
 			<table align="center" width=95%>
 				<tr>
-					<td width=70%><input type="text" id="searchWord" value="" style="border-radius:10px 0px 0px 10px; height: 50px; width:100%;" placeholder="  °Ë»ö¾î¸¦ ÀÔ·ÂÇÏ¼¼¿ä."></td>
-					<td width=30%><input type="button" style="border-radius:0px 10px 10px 0px; height: 50px; width:100%;" value="°Ë»ö" onclick="searchBntClick();">
+					<td width=70%><input type="text" id="searchWord" value="" style="border-radius:2px 0px 0px 2px; height: 50px; width:100%;" placeholder="  °Ë»ö¾î¸¦ ÀÔ·ÂÇÏ¼¼¿ä."></td>
+					<td width=30%><input type="button" style="border-radius:0px 2px 2px 0px; height: 50px; width:100%;" value="°Ë»ö" onclick="searchBntClick();">
 					</td>
 				</tr>
-
+				<tr>
+						<td colspan="2" class="line30"> </td>
+				</tr>				
+				<tr>
+					<td colspan="2" class="" height=90px>
+						<titleText class="titleText">°Ë»ö ¼øÀ§</titleText>
+				</tr>
 				<tr>
 					<td colspan="2">
-					<br><br>
-						<div class="list-group"  id="testdiv" style="">
-						°Ë»ö ¼øÀ§ 
-							<a href="#" class="list-group-item searchResult list-group-item-success" id="¼Ò¸£ºó»ê Ä®·ý">1. ¼Ò¸£ºó»ê Ä®·ý</a> 
-							<a href="#"	class="list-group-item searchResult list-group-item-success" id="¿¡¸®¼Ò¸£ºó»ê">2. ¿¡¸®¼Ò¸£ºó»ê</a> 
-							<a href="#"	class="list-group-item searchResult list-group-item-success" id="Sorbic acid">3. Sorbic acid</a> 
-							<a href="#"	class="list-group-item searchResult list-group-item-success" id="ÇöÅÊ">4. ÇöÅÊ</a>
+							
+							<div class="list-group line40"  id="testdiv" >
+								<contentText class="contentText"> 
+									<a href="#" class="list-group-item searchResult " id="¼Ò¸£ºó»ê Ä®·ý">1. ¼Ò¸£ºó»ê Ä®·ý<br>(Potassium sorbate)</a> 
+									<a href="#"	class="list-group-item searchResult " id="¿¡¸®¼Ò¸£ºó»ê">2. ¿¡¸®¼Ò¸£ºó»ê<br>(Erythorbic acid)</a> 
+									<a href="#"	class="list-group-item searchResult " id="Sorbic acid">3. ¼Ò¸£ºó»ê<br>(Sorbic acid)</a> 
+									<a href="#"	class="list-group-item searchResult " id="Sorbic acid">3. ¼Ò¸£ºó»ê<br>(Sorbic acid)</a> 
+									<a href="#"	class="list-group-item searchResult " id="Sorbic acid">3. ¼Ò¸£ºó»ê<br>(Sorbic acid)</a> 
+								</contentText>
 						</div>
 					</td>
 				</tr>
