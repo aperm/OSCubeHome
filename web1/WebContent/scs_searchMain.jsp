@@ -13,7 +13,21 @@
 	});
 	
 	
-	
+		$(window).scroll(function() {
+			if ($(this).scrollTop() > 0) {
+				$('.btnTop').fadeIn();
+			} else {
+				$('.btnTop').fadeOut();
+			}
+		});
+
+		$('.btnTop').click(function() {
+			$('html, body').animate({
+				scrollTop : 0
+			}, 450);
+			return false;
+		});
+		
 	$(document).bind('keydown', function(e) {
 		if (e.keyCode == 13) {
 			searchTest();
@@ -70,8 +84,6 @@
 								<contentText class="contentText"> 
 									<a href="#" class="list-group-item searchResult " id="家福后魂 漠俘">1. 家福后魂 漠俘<br>(Potassium sorbate)</a> 
 									<a href="#"	class="list-group-item searchResult " id="俊府家福后魂">2. 俊府家福后魂<br>(Erythorbic acid)</a> 
-									<a href="#"	class="list-group-item searchResult " id="Sorbic acid">3. 家福后魂<br>(Sorbic acid)</a> 
-									<a href="#"	class="list-group-item searchResult " id="Sorbic acid">3. 家福后魂<br>(Sorbic acid)</a> 
 									<a href="#"	class="list-group-item searchResult " id="Sorbic acid">3. 家福后魂<br>(Sorbic acid)</a> 
 								</contentText>
 						</div>

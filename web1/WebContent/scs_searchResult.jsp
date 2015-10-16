@@ -8,6 +8,22 @@
 %>
 
 <script type="text/javascript">
+$(window).scroll(function() {
+	if ($(this).scrollTop() > 0) {
+		$('.btnTop').fadeIn();
+	} else {
+		$('.btnTop').fadeOut();
+	}
+});
+
+$('.btnTop').click(function() {
+	$('html, body').animate({
+		scrollTop : 0
+	}, 450);
+	return false;
+});
+
+	
 	$(".searchResult").click(function(event) {
 		var th = $(this);
 		var th_id = th.attr('id');
@@ -108,7 +124,7 @@
 			<div class="" style="margin-top:100px;">
 				<table align="center" text-align="left" width=95%>
 					<tr>
-						<td colspan="2" height=10px> </td>
+						<td colspan="2" height=15px> </td>
 					</tr>
 					<tr>
 						<td colspan="2" style="height: 10px;">검색어 [<%=s%>]의 결과는 [3] 개

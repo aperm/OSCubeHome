@@ -26,18 +26,37 @@
 <link rel="stylesheet" href="/css/bootstrap.css">
 <link rel="stylesheet" href="/css/bootstrap_slider.css">
 
+<script>
+$(document).ready(function() {
+	$(window).scroll(function() {
+		if ($(this).scrollTop() > 0) {
+			$('.btnTop').fadeIn();
+		} else {
+			$('.btnTop').fadeOut();
+		}
+	});
 
+	$('.btnTop').click(function() {
+		$('html, body').animate({
+			scrollTop : 0
+		}, 450);
+		return false;
+	});
+	
+});
+</script>
 <script type="text/javascript">
 
 function butClick(idMyDiv) {
 	var objDiv = document.getElementById(idMyDiv);
-
 	if (objDiv.style.display == "block") {
 		objDiv.style.display = "none";
 	} else {
 		objDiv.style.display = "block";
 	}
 }
+
+
 function imgClick(){
 	$("#body").load("mindex.jsp",{first:"no"});
 }
@@ -61,11 +80,12 @@ body{margin:0}
 	font-weight:bold;
 	font-size:20pt;
 	height:50px;
-	
+	color:#666;
+	text-shadow:0 0 0 !important;
 }
 
 .contentText{
-	font-size:15pt;
+	font-size:13pt;
 
 }
 
@@ -122,25 +142,7 @@ body{margin:0}
 
 <body>
 <!-- 	啪滚瓢 -->
-<script>
-$(document).ready(function() {
-	$(window).scroll(function() {
-		if ($(this).scrollTop() > 0) {
-			$('.btnTop').fadeIn();
-		} else {
-			$('.btnTop').fadeOut();
-		}
-	});
 
-	$('.btnTop').click(function() {
-		$('html, body').animate({
-			scrollTop : 0
-		}, 450);
-		return false;
-	});
-	
-});
-</script>
 	<div id="body">
 	<div class="btn-group btnTop">
 		<button type="button" class="btn btn-default btn-xs">
@@ -160,7 +162,7 @@ $(document).ready(function() {
 		<div style="text-align: center;">
 			<!-- 酒贰 牧刨明 -->
 			<H2>
-				俊胶捧仟靛(SF)
+				俊胶捧仟靛
 				<h3>Sustainable Safety for Food</h3>
 			</H2> 
 			<br>
@@ -170,21 +172,7 @@ $(document).ready(function() {
 			<br>
 			<input type="button" class="btn " value="雀盔啊涝"style="width:50%"><br>
 			<input type="button" class="btn " value="Guest 立加" style="width:50%; background-color:#ffdab9;"><br>
-			<input type="button" class="btn " value="Guest 立加" style="width:50%; background-color:#ffdab9;"><br>
-			<input type="button" class="btn " value="Guest 立加" style="width:50%; background-color:#ffdab9;"><br>
-			<input type="button" class="btn " value="Guest 立加" style="width:50%; background-color:#ffdab9;"><br>
-			<input type="button" class="btn " value="Guest 立加" style="width:50%; background-color:#ffdab9;"><br>
-			<input type="button" class="btn " value="Guest 立加" style="width:50%; background-color:#ffdab9;"><br>
-			<input type="button" class="btn " value="Guest 立加" style="width:50%; background-color:#ffdab9;"><br>
-			<input type="button" class="btn " value="Guest 立加" style="width:50%; background-color:#ffdab9;"><br>
-			<input type="button" class="btn " value="Guest 立加" style="width:50%; background-color:#ffdab9;"><br>
-			<input type="button" class="btn " value="Guest 立加" style="width:50%; background-color:#ffdab9;"><br>
-			<input type="button" class="btn " value="Guest 立加" style="width:50%; background-color:#ffdab9;"><br>
-			<input type="button" class="btn " value="Guest 立加" style="width:50%; background-color:#ffdab9;"><br>
-			<input type="button" class="btn " value="Guest 立加" style="width:50%; background-color:#ffdab9;"><br>
-			<input type="button" class="btn " value="Guest 立加" style="width:50%; background-color:#ffdab9;"><br>
-			<input type="button" class="btn " value="Guest 立加" style="width:50%; background-color:#ffdab9;"><br>
-			<input type="button" class="btn " value="Guest 立加" style="width:50%; background-color:#ffdab9;"><br>
+			
 		</div>
 		<!-- 酒贰 牧刨明 -->
 	</div>
