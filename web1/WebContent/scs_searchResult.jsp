@@ -44,7 +44,7 @@ $('.btnTop').click(function() {
 	
 // 	alert(($(window).height()/5)); 
  	$("#menuBarTable").attr('height',($(window).height()/9));
- 	$("#searchBarTable").attr('height',($(window).height()/10));
+//  	$("#searchBarTable").attr('height',($(window).height()/10));
  	$("#logoImgId").attr('height',($(window).height()/11));
 	
 </script>
@@ -53,21 +53,39 @@ $('.btnTop').click(function() {
 
 <style type="text/css">
 
-.label-info{
-	min-width:100px;
+.list-group-item2 {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.imgtag{
+	background:url(images/footer_logo.png) no-repeat;
+	border:none;
+	z-index:100;
+}
+a.list-group-item2 {
+  color: #555;
+}
+a.list-group-item2 .list-group-item2-heading {
+  color: #333;
+}
+a.list-group-item2:hover,
+a.list-group-item2:focus {
+  color: #555;
+  text-decoration: none;
+  background-color: #f5f5f5;
 }
 .labelTag{
  	background-color: #5bc0de;
-	min-width:1000px;
 	width:1000px;
 }
-.logoImg{
-/* 	max-height:20%; */
-	
-}
-
-.searchBarTable{
-	max-height:60px;
+td {
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 </style>
 
@@ -87,14 +105,15 @@ $('.btnTop').click(function() {
 								<span class="glyphicon glyphicon-chevron-left"
 									aria-hidden="true"></span>BACK
 							</div></td>
-						<td width=60% style="padding-right:5%;padding-left:3%;"><img src="/images/logos/s2food.png" id="logoImgId" class="logoImg"
+						<td width=60% style="padding-right:5%;padding-left:3%;">
+						<img src="/images/logos/s2food.png" id="logoImgId" class="logoImg"
 							onclick="imgClick();"></td>
-						<td width=20%>¸Þ´º</td>
+						<td width=20%></td>
 					</tr>
 					</table>
 					<!-- 		°Ë»ö¸Þ´º -->
 					<div id="searchBarDiv" style="background-color:#4ba9f5; vertical-align:middle;">
-					<table id="searchBarTable" class="searchBarTable" align="center" width=95%
+					<table id="searchBarTable" class="" align="center" width=95% height=52px
 					style="text-align: center; align: center; vertical-align: middle; " >
 					<tr>
 						<td height=5px></td>
@@ -105,7 +124,7 @@ $('.btnTop').click(function() {
 
 						<td width=70%><input type="text" id="searchWord"
 							style="border-radius:2px 0px 0px 2px; height: 40px; width: 100%;" placeholder="  °Ë»ö¾î¸¦ ÀÔ·ÂÇÏ¼¼¿ä."
-							value="<%=s%>"></td>
+							value="¼Ò¸£ºó»ê"></td>
 						<td width=30%><input type="button"
 							style="border-radius:0px 2px 2px 0px; height: 40px; width: 100%;" value="°Ë»ö"
 							class="searchBut" onclick="searchBntClick();"></td>
@@ -127,89 +146,47 @@ $('.btnTop').click(function() {
 						<td colspan="2" height=15px> </td>
 					</tr>
 					<tr>
-						<td colspan="2" style="height: 10px;">°Ë»ö¾î [<%=s%>]ÀÇ °á°ú´Â [3] °³
+						<td colspan="2" style="height: 10px;">°Ë»ö¾î [¼Ò¸£ºó»ê]ÀÇ °á°ú´Â [7] °³
 							ÀÔ´Ï´Ù.
 						</td>
 					</tr>
 					<tr>
 						<td colspan="2">
 							<div class="list-group" id="testdiv" style="">
-								<a href="#"
-									class="list-group-item searchResult"
-									id="¼Ò¸£ºó»ê Ä®·ý"><alt class="labelTag" style="width:1000px;" >±¹¹®¸í</alt> ¼Ò¸£ºó»ê
-									Ä®·ý<br> <span class="label label-info">¿µ¹®¸í</span> Potassium
-									sorbate<br> <span class="label label-info">CAS #</span>
-									24634-61-5</a> <a href="#"
-									class="list-group-item searchResult list-group-item-info"
-									id="¿¡¸®¼Ò¸£ ºó»ê"><span class="label label-info">±¹¹®¸í</span> ¿¡¸£¼Ò¸£
-									ºó»ê<br> <span class="label label-info">¿µ¹®¸í</span>
-									Erythorbic acid<br> <span class="label label-info">CAS
-										#</span> 89-65-6</a> <a href="#"
-									class="list-group-item searchResult "
-									id="¼Ò¸£ºó»ê"><span class="label label-info">±¹¹®¸í</span> ¼Ò¸£ºó»ê<br>
-									<span class="label label-info">¿µ¹®¸í</span> Sorbic acid<br>
-									<span class="label label-info">CAS #</span> 110-44-1</a> <a
-									href="#"
-									class="list-group-item searchResult list-group-item-info"
-									id="¼Ò¸£ºó»ê Ä®·ý"><span class="label label-info">±¹¹®¸í</span> ¼Ò¸£ºó»ê
-									Ä®·ý<br> <span class="label label-info">¿µ¹®¸í</span> Potassium
-									sorbate<br> <span class="label label-info">CAS #</span>
-									24634-61-5</a> <a href="#"
-									class="list-group-item searchResult "
-									id="¿¡¸®¼Ò¸£ ºó»ê"><span class="label label-info">±¹¹®¸í</span> ¿¡¸£¼Ò¸£
-									ºó»ê<br> <span class="label label-info">¿µ¹®¸í</span>
-									Erythorbic acid<br> <span class="label label-info">CAS
-										#</span> 89-65-6</a> 
-										<a href="#"
-									class="list-group-item searchResult list-group-item-info"
-									id="¼Ò¸£ºó»ê"><span class="label label-info">±¹¹®¸í</span> ¼Ò¸£ºó»ê<br>
-									<span class="label label-info">¿µ¹®¸í</span> Sorbic acid<br>
-									<span class="label label-info">CAS #</span> 110-44-1</a> 
-									<a href="#"	class="list-group-item searchResult " id="¼Ò¸£ºó»ê Ä®·ý">
-									<span class="label label-info">±¹¹®¸í</span> ¼Ò¸£ºó»ê
-									Ä®·ý<br> <span class="label label-info">¿µ¹®¸í</span> Potassium
-									sorbate<br> <span class="label label-info">CAS #</span>
-									24634-61-5</a>
-									<a href="#"
-									class="list-group-item searchResult list-group-item-info"
-									id="¼Ò¸£ºó»ê"><span class="label label-info">±¹¹®¸í</span> ¼Ò¸£ºó»ê<br>
-									<span class="label label-info">¿µ¹®¸í</span> Sorbic acid<br>
-									<span class="label label-info">CAS #</span> 110-44-1</a> 
-									<a href="#"	class="list-group-item searchResult " id="¼Ò¸£ºó»ê Ä®·ý">
-									<span class="label label-info">±¹¹®¸í</span> ¼Ò¸£ºó»ê
-									Ä®·ý<br> <span class="label label-info">¿µ¹®¸í</span> Potassium
-									sorbate<br> <span class="label label-info">CAS #</span>
-									24634-61-5</a>
-									<a href="#"
-									class="list-group-item searchResult list-group-item-info"
-									id="¼Ò¸£ºó»ê"><span class="label label-info">±¹¹®¸í</span> ¼Ò¸£ºó»ê<br>
-									<span class="label label-info">¿µ¹®¸í</span> Sorbic acid<br>
-									<span class="label label-info">CAS #</span> 110-44-1</a> 
-									<a href="#"	class="list-group-item searchResult " id="¼Ò¸£ºó»ê Ä®·ý">
-									<span class="label label-info">±¹¹®¸í</span> ¼Ò¸£ºó»ê
-									Ä®·ý<br> <span class="label label-info">¿µ¹®¸í</span> Potassium
-									sorbate<br> <span class="label label-info">CAS #</span>
-									24634-61-5</a>
-									<a href="#"
-									class="list-group-item searchResult list-group-item-info"
-									id="¼Ò¸£ºó»ê"><span class="label label-info">±¹¹®¸í</span> ¼Ò¸£ºó»ê<br>
-									<span class="label label-info">¿µ¹®¸í</span> Sorbic acid<br>
-									<span class="label label-info">CAS #</span> 110-44-1</a> 
-									<a href="#"	class="list-group-item searchResult " id="¼Ò¸£ºó»ê Ä®·ý">
-									<span class="label label-info">±¹¹®¸í</span> ¼Ò¸£ºó»ê
-									Ä®·ý<br> <span class="label label-info">¿µ¹®¸í</span> Potassium
-									sorbate<br> <span class="label label-info">CAS #</span>
-									24634-61-5</a>
-									<a href="#"
-									class="list-group-item searchResult list-group-item-info"
-									id="¼Ò¸£ºó»ê"><span class="label label-info">±¹¹®¸í</span> ¼Ò¸£ºó»ê<br>
-									<span class="label label-info">¿µ¹®¸í</span> Sorbic acid<br>
-									<span class="label label-info">CAS #</span> 110-44-1</a> 
-									<a href="#"	class="list-group-item searchResult " id="¼Ò¸£ºó»ê Ä®·ý">
-									<span class="label label-info">±¹¹®¸í</span> ¼Ò¸£ºó»ê
-									Ä®·ý<br> <span class="label label-info">¿µ¹®¸í</span> Potassium
-									sorbate<br> <span class="label label-info">CAS #</span>
-									24634-61-5</a> 
+								<a href="#" class="list-group-item searchResult" id="¼Ò¸£ºó»ê">
+								<span class="label label-info">±¹¹®¸í</span> ¼Ò¸£ºó»ê<br>
+								<span class="label label-info">¿µ¹®¸í</span> Sorbic acid<br>
+								<span class="label label-info">CAS #</span> 110-44-1</a>
+								
+								<a href="#" class="list-group-item searchResult list-group-item-info" id="d-¼Ò¸£ºñÅç">
+								<span class="label label-info">±¹¹®¸í</span> d-¼Ò¸£ºñÅç<br>
+								<span class="label label-info">¿µ¹®¸í</span> D-Sorbitol<br>
+								<span class="label label-info">CAS #</span> 50-70-4</a> 
+								
+								<a href="#"	class="list-group-item searchResult " id="·¹¼Ò¸£½Ã³î">
+								<span class="label label-info">±¹¹®¸í</span> ·¹¼Ò¸£½Ã³î<br> 
+								<span class="label label-info">¿µ¹®¸í</span> Resorcinol<br>
+								<span class="label label-info">CAS #</span> 108-46-3</a> 
+								
+								<a href="#"	class="list-group-item searchResult list-group-item-info" id="Áú»ê ÀÌ¼Ò¼Ò¸£ºñµå">
+								<span class="label label-info">±¹¹®¸í</span> Áú»ê ÀÌ¼Ò¼Ò¸£ºñµå<br> 
+								<span class="label label-info">¿µ¹®¸í</span> Isosorbide dinitrate<br>
+								<span class="label label-info">CAS #</span> 87-33-2</a> 
+								
+								<a href="#" class="list-group-item searchResult" id="¼Ò¸£ºó»ê Ä®½·" >
+								<span class="label label-info">±¹¹®¸í</span> ¼Ò¸£ºó»ê Ä®½·<br>
+								<span class="label label-info">¿µ¹®¸í</span> Calcium sorbate<br>
+								<span class="label label-info">CAS #</span> 7492-55-9</a>
+								
+								<a href="#"	class="list-group-item searchResult list-group-item-info" id="¿¡¸®¼Ò¸£ ºó»ê">
+								<span class="label label-info">±¹¹®¸í</span> ¿¡¸£¼Ò¸£ ºó»ê<br> 
+								<span class="label label-info">¿µ¹®¸í</span> Erythorbic acid<br>
+								<span class="label label-info">CAS #</span> 89-65-6</a> 
+								
+								<a href="#"	class="list-group-item2 searchResult" id="¼Ò¸£ºó»ê Ä®·ý">
+								<alt class="labelTag" style="">±¹¹®¸í</alt> ¼Ò¸£ºó»ê Ä®·ý<br>
+								<span class="label label-info">¿µ¹®¸í</span> Potassium sorbate<br> 
+								<span class="label label-info">CAS #</span> 24634-61-5</a> 
 								
 									
 								</div>
@@ -224,3 +201,4 @@ $('.btnTop').click(function() {
 	</div>
 
 	<!-- ÀüÃ¼ DIV -->
+	</body>

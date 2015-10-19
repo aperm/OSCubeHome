@@ -8,6 +8,20 @@
 %>
 
 <script type="text/javascript">
+
+// 	$(".scroll").click(function(event) {
+		
+// 		var target = $(this.hash);
+// 		alert(target);
+// 	      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+// 	      if (target.length) {
+// 	        $('html,body').animate({
+// 	          scrollTop: target.offset().top
+// 	        }, 1000);
+// 	        return false;
+// 	      }
+// 	});
+	
 	$(window).scroll(function() {
 		if ($(this).scrollTop() > 0) {
 			$('.btnTop').fadeIn();
@@ -83,7 +97,7 @@
 
 	}
 	$("#menuBarTable").attr('height', ($(window).height() / 9));
-	$("#searchBarTable").attr('height', ($(window).height() / 10));
+// 	$("#searchBarTable").attr('height', ($(window).height() / 10));
 	$("#contentDown").css('margin-top', ($(window).height() / 5));
 	$("#logoImgId").attr('height', ($(window).height() / 11));
 	$("#progressBar").attr('width', ($(window).width() / 2.2));
@@ -137,10 +151,6 @@
 	border: 1px solid black;
 }
 
-.searchBarTable {
-	max-height: 60px;
-}
-
 .progress2 {
 	height: 20px;
 	margin-bottom: 0px;
@@ -168,7 +178,7 @@
 	transition: width .6s ease;
 }
 
-.titleTextLine {border-top:1px solid #d9d9d9; padding:10px 3px; color:#666; margin-top:15px; margin-bottom:9px;line-height:23px;letter-spacing:-1px; text-shadow:0 0 0 !important; }
+.titleTextLine {border-top:1px solid #d9d9d9; padding:30px 5px 15px; color:#666; margin-top:10px;line-height:10px;letter-spacing:-1px; text-shadow:0 0 0 !important; }
 
 
 
@@ -255,28 +265,33 @@ td {
 							</div></td>
 						<td width=60% style="padding-right: 5%; padding-left: 3%;">
 						<img src="/images/logos/s2food.png" id="logoImgId" class="logoImg" onclick="imgClick();"></td>
-						<td width=20%>메뉴</td>
+						<td width=20%>MENU</td>
 					</tr>
 				</table>
 				<!-- 		검색메뉴 -->
-				<div id="searchBarDiv" style="background-color: #4ba9f5; vertical-align: middle;">
-					<table id="searchBarTable" class="searchBarTable" align="center" width=95% style="text-align: center; align: center; vertical-align: middle;">
-						<tr>
-							<td height=5px></td>
-							<td></td>
-						</tr>
-						<tr>
-							<!-- 검색바 -->
+					<div id="searchBarDiv" style="background-color:#4ba9f5; vertical-align:middle;">
+					<table id="searchBarTable" class="searchBarTable" align="center" width=95% height=56px
+					style="text-align: center; align: center; vertical-align: middle; " >
+					<tr>
+						<td height=5px></td>
+						<td></td>
+					</tr>
+					<tr>
+						<!-- 검색바 -->
 
-							<td width=70%><input type="text" id="searchWord" style="border-radius: 2px 0px 0px 2px; height: 40px; width: 100%;"	placeholder="  검색어를 입력하세요." value="<%=s%>"></td>
-							<td width=30%><input type="button" style="border-radius: 0px 2px 2px 0px; height: 40px; width: 100%;" value="검색" class="searchBut" onclick="searchBntClick();"></td>
-
-						</tr>
-						<tr>
-							<td height=5px></td>
-							<td></td>
-						</tr>
-					</table>
+						<td width=70%><input type="text" id="searchWord"
+							style="border-radius:2px 0px 0px 2px; height: 40px; width: 100%;" placeholder="  검색어를 입력하세요."
+							value="소르빈산"></td>
+						<td width=30%><input type="button"
+							style="border-radius:0px 2px 2px 0px; height: 40px; width: 100%;" value="검색"
+							class="searchBut" onclick="searchBntClick();"></td>
+							
+					</tr>
+					<tr>
+						<td height=5px></td>
+						<td></td> 
+					</tr>
+				</table>
 				</div>
 			</div>
 			<br>
@@ -288,7 +303,7 @@ td {
 					</tr>
 					<tr>
 						<!-- 섭취 허용량 -->
-						<td colspan="2"><input type="button" class=""
+						<td colspan="2"><input type="button" class="scroll"
 							style="height: 50px; width: 100%;" value="1.섭취 허용량"
 							onclick="butClick('div1');return false;"></td>
 					</tr>
@@ -304,6 +319,7 @@ td {
 									</tr>
 									<tr>
 										<td width=20%>체중입력</td>
+										
 										<td colspan="2">
 											<div id="test">
 												<input id="ex1" data-slider-id='ex1Slider' type="text"
@@ -313,6 +329,10 @@ td {
 										</td>
 										<td align="right" width=20%><input type="text"
 											style="width: 30px;" id="weightValue" value="60"> Kg</td>
+									</tr>
+									
+									<tr>
+										<td colspan="4" ><font size=2pt>체중 조절 시 제품군별 섭취허용량이 계산됩니다.</font></td>
 									</tr>
 									<tr>
 										<td colspan="4">
@@ -516,17 +536,17 @@ td {
 													
 													
 													<tr>
-														<td height=40px align="left" colspan="2"> 
+														<td height=40px align="center" colspan="1"> 
 														<!-- Button trigger modal -->
-															<button type="button" class="btn btn-primary btn-xs"
+															<button type="button" class="btn btn-primary btn-sm"
 																data-toggle="modal" data-target="#myModal2">
-																사용기준 조회</button>
+																사용기준</button>
 														</td>
-														<td align="right" colspan="2">
+														<td align="right" colspan="3">
 															<!-- Button trigger modal -->
-															<button type="button" class="btn btn-primary btn-xs"
+															<button type="button" class="btn btn-primary btn-sm"
 																data-toggle="modal" data-target="#myModal">
-																자세히보기</button>
+																산출방법</button>
 														</td>
 													</tr>
 													
@@ -575,13 +595,17 @@ td {
 					<tr>
 						<td colspan="2" align="center">
 							<div class="list-group listBox01" id="div2" style="display: none;">
-								<img src="images/grade1.png">
+								<div class="titleText" align="left">일일 섭취 허용량 등급</div>
+									<div style="margin-top:10px; margin-bottom:10px;"><img src="images/grade1.png"></div>
+									<div align="left" style="margin-top:10px; margin-bottom:10px;">
+										<font size=4pt>
+											안전성 정보로 부터 정한 일일 섭취 허용량은 <b><u>25 mg/kg·bw/day</u></b> 입니다.
+										</font>
+									</div>
+								
 								<div  class="listBox02" >
 
 								<table width="100%">
-									<tr>
-										<td colspan="4" height=10px;></td>
-									</tr>
 									<tr>
 										<td colspan="4"><div class="titleText titleTextBox">안전성 결과(실험값)</div></td>
 									</tr>
@@ -623,9 +647,6 @@ td {
 								<div style="margin-top:30px;"></div>
 								<div class="listBox02"> 
 								<table width="100%" >
-									<tr>
-										<td colspan="4" height=10px;></td>
-									</tr>
 									<tr>
 										<td colspan="4"><div class="titleText titleTextBox">안전성 결과(예측값)</div></td>
 									</tr>
@@ -671,10 +692,7 @@ td {
 									</tr>
 								</table>
 								</div>
-								<font size=3.5pt>
-								안전성 정보로 부터 정한 일일 섭취 허용량은<br>
-											25 mg/kg·bw/day 입니다.
-											</font>
+								
 								<table width="100%" >
 									<tr>
 										<td colspan="4" height=10px;></td>
@@ -705,7 +723,7 @@ td {
 						<td colspan="2">
 							<div class="list-group listBox01" id="div3" style="display: none;">
 								
-								<table width="100%" class="mytable">
+								<table width="100%" class="mytable" style="text-align:center">
 									
 									<tr>
 										<td colspan="2" class="titleText titleTextLine">물질정보</td>
@@ -762,10 +780,10 @@ td {
 									</tr>
 
 									<tr
-										style="background-color: #ffffff; height: 40px; vertical-align: bottom;">
+										style="height: 40px; vertical-align: bottom;">
 										<td><div class="titleText titleTextLine">기타정보</div></td>
 									</tr>
-									<tr style="background-color: #ffffff">
+									<tr style="">
 										<td><div id="Span3">“대형마트 판매 반려동물 간식·배합사료 내 소르빈산·아질산염, 안전해”-데일리벳...<span onclick="morebutClick('Span3','noneSpan3');return false;"><font color=blue> <u>더보기</u></font></span></div></td>
 
 									</tr>
@@ -795,7 +813,7 @@ td {
 					
 					<tr>
 						<!-- 용어집-->
-						<td colspan="2"><input type="button"
+						<td colspan="2"><input type="button" class="scroll"
 							style="height: 50px; width: 100%" value="4.용어집"
 							onclick="butClick('div4');return false;"></td>
 					</tr>
@@ -805,9 +823,9 @@ td {
 								
 								<div class="listBox02">								
 									<div class="titleText" >1. 섭취 허용량</div>
-										<li>일일 섭취 허용량(ADI)</li>	
+										<li><b>일일 섭취 허용량(ADI)</b></li>	
 										<div style="padding-left:10px;">
-										인간이 한평생 매일 섭취하더라도 장해가 인정되지 않는다고 생각되는 화학물질의 1일 섭취량(mg/kg · bw/day)을 의미하고 식품첨가물, 농약 등에 대하여 잘 사용한다.<br>
+										&nbsp;인간이 한평생 매일 섭취하더라도 장해가 인정되지 않는다고 생각되는 화학물질의 1일 섭취량(mg/kg · bw/day)을 의미하고 식품첨가물, 농약 등에 대하여 잘 사용한다.<br>
 <info value="http://terms.naver.com/entry.nhn?docId=296210&cid=42412&categoryId=42412"/>출처 : 네이버 식품과학기술대사전</div>
 								</div>
 								
@@ -815,9 +833,9 @@ td {
 								
 								<div class="listBox02">								
 									<div class="titleText" >2. 안전성 정보</div>
-										<li>LD50(반수 치사량)</li>	
+										<li><b>LD50(반수 치사량)</b></li>	
 										<div style="padding-left:10px;">
-										피 실험동물에 실험대상물질을 투여할 때 피 실험동물의 절반이 죽게 되는 양을 말한다.
+										&nbsp;피 실험동물에 실험대상물질을 투여할 때 피 실험동물의 절반이 죽게 되는 양을 말한다.
 독성물질의 경우, 해당 약물의 LD50을 나타낼 때는 체중 kg당 mg으로 나타낸다. 예를 들어 니코틴의 경우 LD50은 50 mg/kg이며, 아스피린의 경우 LD50은 200 mg/kg이다. 
 대체로 설치류 등의 시험동물에 시험물질을 한 번 투여하고 2주일 동안의 사망률을 관찰해 반수치사량을 계산한다. 
 LD50은 유해화학물질관리법의 유독물과 특정유독물 지정기준으로 이용되는데, 
@@ -829,9 +847,9 @@ LD50은 유해화학물질관리법의 유독물과 특정유독물 지정기준으로 이용되는데,
 								
 								<div class="listBox02">								
 									<div class="titleText" >3. 추가정보</div>
-										<li>CAS Number(CAS 등록번호)</li>	
+										<li><B>CAS Number(CAS 등록번호)</B></li>	
 										<div style="padding-left:10px;">
-										알려진 모든 화합물, 중합체 등을 기록하는 번호이다. 미국 화학회에서 운영하는 서비스이며, 모든 화학 물질을 중복 없이 찾을 수 있도록 한다. <br>
+										&nbsp;알려진 모든 화합물, 중합체 등을 기록하는 번호이다. 미국 화학회에서 운영하는 서비스이며, 모든 화학 물질을 중복 없이 찾을 수 있도록 한다. <br>
 <info value="https://ko.wikipedia.org/wiki/CAS_등록번호"></info>출처:위키피디아</div>
 								</div>
 
@@ -860,16 +878,45 @@ LD50은 유해화학물질관리법의 유독물과 특정유독물 지정기준으로 이용되는데,
 						<span aria-hidden="true">&times;</span>
 					</button>
 					<h4 class="modal-title" id="myModalLabel">
-						[<%=s%>] 의 ADI
+						소르빈산 의 섭취 허용량 산출
 					</h4>
 				</div>
 				<div class="modal-body">
-					25 mg/kg·bw/day<br> (출처 : JECFA )<br> 그림<br> *실제 식품에
-					사용하는 첨가물은 <br> 기준 규격 보다 훨씬 낮게 사용 됩니다.<br>
+				<table cellspacing="0" border="1" style="border-collapse:collapse; border:0px gray solid;text-align:center;" >
+					
+					<tr>
+						<td colspan="2">예시) 체중 60 kg 인 사람의 소르빈산의 섭취 허용량 산출 방법
+						</td>
+					</tr>
+					<tr>
+						<td width=65px>단계 1</td>
+						<td>일일 섭취 허용량 <br>-> 25 mg/kg (출처 : JECFA)</td>
+					</tr>
+					<tr>
+						<td>단계 2</td>
+						<td>체중 반영 일일 섭취 허용량<br> -> 1.5 g</td>
+					</tr>
+					<tr>
+						<td>단계 3</td>
+						<td>소르빈산의 사용 규격<br>
+						치즈류 -> 3.0g/kg 이하</td>
+					</tr>
+					<tr>
+						<td>단계 4</td>
+						<td>각 제품군의 섭취 허용량<br>
+						치즈류 -> 500g 이하</td>
+					</tr>
+					<tr>
+						<td colspan="2"> <font size=3pt>*실제 식품에 사용하는 첨가물은 <br>
+						 기준 규격 보다 훨씬 낮게 사용 됩니다.<br></font>
+						</td>
+					</tr>
+					 
+					 </table>
 				</div>
 				<div class="modal-footer">
-					<div align="left">ADI : 일일 섭취 허용량</div> 
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<div align="right"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div> 
+					
 				</div>
 			</div>
 		</div>
@@ -889,28 +936,25 @@ LD50은 유해화학물질관리법의 유독물과 특정유독물 지정기준으로 이용되는데,
 						<span aria-hidden="true">&times;</span>
 					</button>
 					<h4 class="modal-title" id="myModalLabel">
-						[<%=s%>] 의 사용기준
+						소르빈산 의 사용기준
 					</h4>
 				</div>
 				<div class="modal-body">
-					- 자연치즈, 가공치즈 : 3.0 g/kg 이하<br>
-					- 식육가공품 : 2.0 g/kg 이하<br>
-					- 콜라겐케이싱 : 0.1 g/kg 이하<br>
-					- 젓갈류 : 1.0 g/kg 이하<br>
-					- 알로에전잎 및 건강기능식품 : 1.0 g/kg 이하<br>
-					- 농축과 실즙 : 1.0 g/kg 이하<br>
-					- 잼류 : 0.4 g/kg 이하<br>
-					- 건조과실류, 케첩 : 0.5 g/kg 이하<br>
-					- 식초절임 : 0.5 g/kg 이하<br>
-					- 발효음료류 : 0.05 g/kg 이하<br>
-					- 과실주 : 0.2 g/kg 이하<br>
-					- 마가린 : 1.0 g/kg 이하<br>
-					- 저지방마가린 : 2.0 g/kg 이하<br>
-					- 당류가공품 : 1.0 g/kg 이하<br>
-					- 향신료조제품 : 1.0 g/kg 이하<br>
-					
-					
-					
+					<li>자연치즈, 가공치즈 : 3.0 g/kg 이하</li>
+					<li>식육가공품: 2.0 g/kg 이하</li>
+					<li>콜라겐케이싱: 0.1 g/kg 이하</li>
+					<li>젓갈류: 1.0 g/kg 이하</li>
+					<li>알로에전잎 및 건강기능식품: 1.0 g/kg 이하</li>
+					<li>농축과실즙: 1.0 g/kg 이하</li>
+					<li>잼류: 0.4 g/kg 이하</li>
+					<li>건조과실류, 케첩: 0.5 g/kg 이하</li>
+					<li>식초절임: 0.5 g/kg 이하</li>
+					<li>발효음료류: 0.05 g/kg 이하</li>
+					<li>과실주: 0.2 g/kg 이하</li>
+					<li>마가린: 1.0 g/kg 이하</li>
+					<li>저지방마가린: 2.0 g/kg 이하</li>
+					<li>당류가공품: 1.0 g/kg 이하</li>
+					<li>향신료조제품: 1.0 g/kg 이하</li>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

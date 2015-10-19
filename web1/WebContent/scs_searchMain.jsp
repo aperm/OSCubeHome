@@ -2,6 +2,10 @@
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ page import="java.util.*, java.text.*"%>
+<%
+// 	String s = request.getParameter("param");
+	// 	System.out.println(s);
+%>
 
 <script>
 	jQuery(document).ready(function($) {
@@ -55,10 +59,10 @@
 
 <body>
 	<!-- ÀüÃ¼ DIV -->
-	<div style="margin: auto;">
+	<div style="margin: auto; z-index:1;">
 		<br><!-- ÀÌ¹ÌÁöDIV  -->
 		<div align="center">
-			<img src="images/logos/s2food.png" width="65%" style="margin-top:36px;">
+			<img src="images/logos/s2food.png" width="65%"  class="logoImg"onclick="imgClick();" style="margin-top:36px;">
 		</div>
 		<!-- ÀÌ¹ÌÁöDIV  -->
 		<br> <br>
@@ -71,7 +75,7 @@
 					</td>
 				</tr>
 				<tr>
-						<td colspan="2" class="line30"> </td>
+						<td colspan="2" class=""> </td>
 				</tr>				
 				<tr>
 					<td colspan="2" class="" height=90px>
@@ -79,18 +83,20 @@
 				</tr>
 				<tr>
 					<td colspan="2">
-							
-							<div class="list-group line40"  id="testdiv" >
-								<contentText class="contentText"> 
-									<a href="#" class="list-group-item searchResult " id="¼Ò¸£ºó»ê Ä®·ý">1. ¼Ò¸£ºó»ê Ä®·ý<br>(Potassium sorbate)</a> 
-									<a href="#"	class="list-group-item searchResult " id="¿¡¸®¼Ò¸£ºó»ê">2. ¿¡¸®¼Ò¸£ºó»ê<br>(Erythorbic acid)</a> 
-									<a href="#"	class="list-group-item searchResult " id="Sorbic acid">3. ¼Ò¸£ºó»ê<br>(Sorbic acid)</a> 
-								</contentText>
+							<div class=""  id="">
+									<a href="#"	class="list-group-item searchResult listRank " id="¼Ò¸£ºó»ê">1. ¼Ò¸£ºó»ê<br>(Sorbic acid)</a>
+									<a href="#" class="list-group-item searchResult listRank" id="¾ÆÁú»ê ³ªÆ®·ý">2. ¾ÆÁú»ê ³ªÆ®·ý<br>(Sodium nitrite)</a> 
+									<a href="#"	class="list-group-item searchResult listRank" id="¼öÅ©¶ö·Î½º">3. ¼öÅ©¶ö·Î½º<br>(Sucralose)</a> 
 						</div>
 					</td>
+				</tr>
+				<tr>
+					<td style="height:10px;"></td>
 				</tr>
 			</table>
 
 		</div>
 	</div>
+
 	<!-- ÀüÃ¼ DIV -->
+</body>

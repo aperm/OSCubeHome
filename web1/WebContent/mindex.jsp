@@ -49,11 +49,19 @@ $(document).ready(function() {
 
 function butClick(idMyDiv) {
 	var objDiv = document.getElementById(idMyDiv);
+	var topMargin;
 	if (objDiv.style.display == "block") {
 		objDiv.style.display = "none";
 	} else {
 		objDiv.style.display = "block";
+		
+		topMargin = ($(window).height() / 9)+  ($(window).height() / 10) +70;
+		
+		$('html,body').animate({
+	        scrollTop: ($(objDiv).offset().top - topMargin)
+	    }, 2);
 	}
+	
 }
 
 
@@ -62,6 +70,7 @@ function imgClick(){
 }
 function loginclick() {
 	$("#divAll").load("scs_searchMain.jsp");
+// 	$("#divAll").load("scs_resultView.jsp");
 }
 
 </script>
@@ -74,13 +83,17 @@ body{margin:0}
 #divAll{padding-bottom:5.0em}
 
 #foot{margin-top:-4.79em;height:1.0em;}
-
-
+.pageBack{
+	cursor:pointer;
+}
+.logoImg{
+	cursor:pointer;
+}
 .titleText{
 	font-weight:bold;
 	font-size:20pt;
-	height:50px;
 	color:#666;
+	vertical-align:bottom;
 	text-shadow:0 0 0 !important;
 }
 
@@ -106,19 +119,6 @@ body{margin:0}
   border-radius: .25em;
 }
 
-.line20{
-	height:20px;
-}
-
-.line30{
-	height:30px;
-}
-
-.line40{
-	height:40px;
-}
-
-
 .btnTop {
 	display: none;
 	overflow: hidden;
@@ -127,6 +127,13 @@ body{margin:0}
 	right: 5%;
 	z-index: 100;
 }
+
+.listRank{
+  
+  padding: 5px 15px !important;
+  
+}
+
 
 </style>
 <!--모바일페이지크기조절메타태그-->
@@ -155,7 +162,7 @@ body{margin:0}
 		<!-- 이미지DIV  -->
 		<br>
 		<div align="center">
-			<img src="images/logos/s2food.png" width="65%" style="margin-top:36px;" >
+			<img src="images/logos/s2food.png" width="65%" class="logoImg"onclick="imgClick();" style="margin-top:36px;" >
 		</div>
 		<!-- 이미지DIV  -->
 <br><br>
@@ -163,15 +170,18 @@ body{margin:0}
 			<!-- 아래 컨텐츠 -->
 			<H2>
 				에스투푸드
-				<h3>Sustainable Safety for Food</h3>
+				<h3></h3>
 			</H2> 
 			<br>
-			<input type="button" class="btn btn-primary " value="FACEBOOK 로그인" style="width:50%" class="but" onclick="loginclick();"><br>
+			
+			<input type="button" class="btn " value="Guest 접속" style="width:50%; background-color:#ffdab9;" onclick="loginclick();"><br>
+			<input type="button" class="btn " value="회원가입"style="width:50%"><br>
+			<br>
+			<input type="button" class="btn btn-primary " value="FACEBOOK 로그인" style="width:50%" class="but" ><br>
 			<input type="button" class="btn btn-success" value="NAVER 로그인" style="width:50%"><br>
 			<input type="button" class="btn btn-danger" value="Google 로그인"style="width:50%"><br>
-			<br>
-			<input type="button" class="btn " value="회원가입"style="width:50%"><br>
-			<input type="button" class="btn " value="Guest 접속" style="width:50%; background-color:#ffdab9;"><br>
+			
+			
 			
 		</div>
 		<!-- 아래 컨텐츠 -->
