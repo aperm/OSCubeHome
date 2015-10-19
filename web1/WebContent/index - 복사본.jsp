@@ -10,6 +10,7 @@
 	System.out.println("Remote Addr: " + request.getRemoteAddr());
 	System.out.println("Remote Host: " + request.getRemoteHost());
 	System.out.println("X-Forwarded-For: " + request.getHeader("x-forwarded-for"));
+			
 %>
 <html>
 <head>
