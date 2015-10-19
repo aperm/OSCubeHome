@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%> 
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ page import="java.util.*, java.text.*"%>
 <%
@@ -136,7 +136,7 @@ body{margin:0}
 
 
 </style>
-<!--∏πŸ¿œ∆‰¿Ã¡ˆ≈©±‚¡∂¿˝∏ﬁ≈∏≈¬±◊-->
+<!--Î™®Î∞îÏùºÌéòÏù¥ÏßÄÌÅ¨Í∏∞Ï°∞Ï†àÎ©îÌÉÄÌÉúÍ∑∏-->
 <meta name="viewport" content="width=device-width" />
 
 <title>OSCube</title>
@@ -148,7 +148,7 @@ body{margin:0}
 <script src="/js/bootstrap_slider.js"></script>
 
 <body>
-<!-- 	≈æπˆ∆∞ -->
+<!-- 	ÌÉëÎ≤ÑÌäº -->
 
 	<div id="body">
 	<div class="btn-group btnTop">
@@ -157,36 +157,36 @@ body{margin:0}
 			UP
 		</button>
 	</div>
-	<!-- ¿¸√º DIV -->
+	<!-- Ï†ÑÏ≤¥ DIV -->
 	<div style="margin:auto;" id="divAll">
-		<!-- ¿ÃπÃ¡ˆDIV  -->
+		<!-- Ïù¥ÎØ∏ÏßÄDIV  -->
 		<br>
 		<div align="center">
 			<img src="images/logos/s2food.png" width="65%" class="logoImg"onclick="imgClick();" style="margin-top:36px;" >
 		</div>
-		<!-- ¿ÃπÃ¡ˆDIV  -->
+		<!-- Ïù¥ÎØ∏ÏßÄDIV  -->
 <br><br>
 		<div style="text-align: center;">
-			<!-- æ∆∑° ƒ¡≈Ÿ√˜ -->
+			<!-- ÏïÑÎûò Ïª®ÌÖêÏ∏† -->
 			<H2>
-				ø°Ω∫≈ı«™µÂ
+				ÏóêÏä§Ìà¨Ìë∏Îìú
 				<h3></h3>
 			</H2> 
 			<br>
 			
-			<input type="button" class="btn " value="Guest ¡¢º”" style="width:50%; background-color:#ffdab9;" onclick="loginclick();"><br>
-			<input type="button" class="btn " value="»∏ø¯∞°¿‘"style="width:50%"><br>
+			<input type="button" class="btn " value="Guest Ï†ëÏÜç" style="width:50%; background-color:#ffdab9;" onclick="loginclick();"><br>
+			<input type="button" class="btn " value="ÌöåÏõêÍ∞ÄÏûÖ"style="width:50%"><br>
 			<br>
-			<input type="button" class="btn btn-primary " value="FACEBOOK ∑Œ±◊¿Œ" style="width:50%" class="but" ><br>
-			<input type="button" class="btn btn-success" value="NAVER ∑Œ±◊¿Œ" style="width:50%"><br>
-			<input type="button" class="btn btn-danger" value="Google ∑Œ±◊¿Œ"style="width:50%"><br>
+			<input type="button" class="btn btn-primary " value="FACEBOOK Î°úÍ∑∏Ïù∏" style="width:50%" class="but" ><br>
+			<input type="button" class="btn btn-success" value="NAVER Î°úÍ∑∏Ïù∏" style="width:50%"><br>
+			<input type="button" class="btn btn-danger" value="Google Î°úÍ∑∏Ïù∏"style="width:50%"><br>
 			
 			
 			
 		</div>
-		<!-- æ∆∑° ƒ¡≈Ÿ√˜ -->
+		<!-- ÏïÑÎûò Ïª®ÌÖêÏ∏† -->
 	</div>
-	<!-- ¿¸√º DIV -->
+	<!-- Ï†ÑÏ≤¥ DIV -->
 	</div>
 	
 	<% 
@@ -197,7 +197,7 @@ body{margin:0}
 	<div id="foot" style="text-align:center; font-size:10px;">
 		<font size=2.5pt>version 1.0</font><br>
 			<div style="background-color:#4ba9f5; line-height:30px; vertical-align:middle;">
-			<font size=2.5pt color="white">COPYRIGHT ®œ OSCube. ALL RIGHTS RESERVED. </font><img src="images/footer_logo_inverse.png" width=20px>
+			<font size=2.5pt color="white">COPYRIGHT ‚ìí OSCube. ALL RIGHTS RESERVED. </font><img src="images/footer_logo_inverse.png" width=20px>
 		 </div>
 	</div>
 	<% 

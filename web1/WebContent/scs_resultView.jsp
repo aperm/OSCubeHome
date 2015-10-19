@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ page import="java.util.*, java.text.*"%>
 <%
@@ -44,7 +44,7 @@
 	// Without JQuery
 	var slider = new Slider('#ex1', {
 		formatter : function(value) {
-			// 			return '¸ö¹«°Ô : ' + value;
+			// 			return 'ëª¸ë¬´ê²Œ : ' + value;
 		}
 	});
 
@@ -242,7 +242,7 @@ td {
 
 <body>
 
-	<!-- 	Å¾¹öÆ° -->
+	<!-- 	íƒ‘ë²„íŠ¼ -->
 	<div class="btn-group btnTop">
 		<button type="button" class="btn btn-default btn-xs">
 			<span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
@@ -251,11 +251,11 @@ td {
 	</div>
 
 
-	<!-- ÀüÃ¼ DIV -->
+	<!-- ì „ì²´ DIV -->
 	<div style="margin: auto;">
-		<!-- 		»ó´Ü Åø + °Ë»ö¹Ù -->
+		<!-- 		ìƒë‹¨ íˆ´ + ê²€ìƒ‰ë°” -->
 		<div>
-			<!-- 	»ó´Ü È¨¹Ù -->
+			<!-- 	ìƒë‹¨ í™ˆë°” -->
 			<div id="topMenu"
 				style="position: fixed; width: 100%; background-color: #ffffff; z-index: 100;">
 				<table id="menuBarTable" width=100% style="text-align: center; align: center; vertical-align: middle;">
@@ -268,7 +268,7 @@ td {
 						<td width=20%>MENU</td>
 					</tr>
 				</table>
-				<!-- 		°Ë»ö¸Þ´º -->
+				<!-- 		ê²€ìƒ‰ë©”ë‰´ -->
 					<div id="searchBarDiv" style="background-color:#4ba9f5; vertical-align:middle;">
 					<table id="searchBarTable" class="searchBarTable" align="center" width=95% height=56px
 					style="text-align: center; align: center; vertical-align: middle; " >
@@ -277,13 +277,13 @@ td {
 						<td></td>
 					</tr>
 					<tr>
-						<!-- °Ë»ö¹Ù -->
+						<!-- ê²€ìƒ‰ë°” -->
 
 						<td width=70%><input type="text" id="searchWord"
-							style="border-radius:2px 0px 0px 2px; height: 40px; width: 100%;" placeholder="  °Ë»ö¾î¸¦ ÀÔ·ÂÇÏ¼¼¿ä."
-							value="¼Ò¸£ºó»ê"></td>
+							style="border-radius:2px 0px 0px 2px; height: 40px; width: 100%;" placeholder="  ê²€ìƒ‰ì–´ë¥¼ ìž…ë ¥í•˜ì„¸ìš”."
+							value="ì†Œë¥´ë¹ˆì‚°"></td>
 						<td width=30%><input type="button"
-							style="border-radius:0px 2px 2px 0px; height: 40px; width: 100%;" value="°Ë»ö"
+							style="border-radius:0px 2px 2px 0px; height: 40px; width: 100%;" value="ê²€ìƒ‰"
 							class="searchBut" onclick="searchBntClick();"></td>
 							
 					</tr>
@@ -295,16 +295,16 @@ td {
 				</div>
 			</div>
 			<br>
-			<!-- 			¾Æ·¡³»¿ë -->
+			<!-- 			ì•„ëž˜ë‚´ìš© -->
 			<div class="" id="contentDown">
 				<table align="center" text-align="center" width=95% >
 					<tr>
 						<td colspan="2" height=10px></td>
 					</tr>
 					<tr>
-						<!-- ¼·Ãë Çã¿ë·® -->
+						<!-- ì„­ì·¨ í—ˆìš©ëŸ‰ -->
 						<td colspan="2"><input type="button" class="scroll"
-							style="height: 50px; width: 100%;" value="1.¼·Ãë Çã¿ë·®"
+							style="height: 50px; width: 100%;" value="1.ì„­ì·¨ í—ˆìš©ëŸ‰"
 							onclick="butClick('div1');return false;"></td>
 					</tr>
 					<tr>
@@ -315,10 +315,10 @@ td {
 
 								<table align="center" width=100%>
 									<tr>
-										<td colspan="4" height=10px class="titleText">¼·ÃëÇã¿ë·® »êÃâ</td>
+										<td colspan="4" height=10px class="titleText">ì„­ì·¨í—ˆìš©ëŸ‰ ì‚°ì¶œ</td>
 									</tr>
 									<tr>
-										<td width=20%>Ã¼ÁßÀÔ·Â</td>
+										<td width=20%>ì²´ì¤‘ìž…ë ¥</td>
 										
 										<td colspan="2">
 											<div id="test">
@@ -332,7 +332,7 @@ td {
 									</tr>
 									
 									<tr>
-										<td colspan="4" ><font size=2pt>Ã¼Áß Á¶Àý ½Ã Á¦Ç°±ºº° ¼·ÃëÇã¿ë·®ÀÌ °è»êµË´Ï´Ù.</font></td>
+										<td colspan="4" ><font size=2pt>ì²´ì¤‘ ì¡°ì ˆ ì‹œ ì œí’ˆêµ°ë³„ ì„­ì·¨í—ˆìš©ëŸ‰ì´ ê³„ì‚°ë©ë‹ˆë‹¤.</font></td>
 									</tr>
 									<tr>
 										<td colspan="4">
@@ -340,7 +340,7 @@ td {
 												<table style="text-align: center; vertical-align: middle;" width="100%" >
 												<font size=2pt>
 													<tr>
-														<td colspan="2">Ä¡Áî·ù</td>
+														<td colspan="2">ì¹˜ì¦ˆë¥˜</td>
 														<td style="" id="progressBar">
 															<div class="progress2">
 																<div class="progress-bar2" id="progressRateBar1"
@@ -354,7 +354,7 @@ td {
 													</tr>
 
 													<tr>
-														<td colspan="2">½ÄÀ°°¡°øÇ°</td>
+														<td colspan="2">ì‹ìœ¡ê°€ê³µí’ˆ</td>
 														<td style="" id="progressBar">
 															<div class="progress2">
 																<div class="progress-bar2" role="progressbar"
@@ -366,7 +366,7 @@ td {
 														<td align="right"><span id="value2"> 750 </span>g</td>
 													</tr>
 													<tr>
-														<td colspan="2"><font size=2pt>ÄÝ¶ó°ÕÄÉÀÌ½Ì</font></td>
+														<td colspan="2"><font size=2pt>ì½œë¼ê²ì¼€ì´ì‹±</font></td>
 														<td style="" id="progressBar">
 															<div class="progress2">
 																<div class="progress-bar2" role="progressbar"
@@ -379,7 +379,7 @@ td {
 													</tr>
 													
 													<tr>
-														<td colspan="2">Á£°¥·ù</td>
+														<td colspan="2">ì “ê°ˆë¥˜</td>
 														<td style="" id="progressBar">
 															<div class="progress2">
 																<div class="progress-bar2" role="progressbar"
@@ -392,7 +392,7 @@ td {
 													</tr>
 													
 													<tr>
-														<td colspan="2"><font size=2pt>¾Ë·Î¿¡ÀüÀÙ ¹× °Ç°­±â´É½ÄÇ°</font></td>
+														<td colspan="2"><font size=2pt>ì•Œë¡œì—ì „ìžŽ ë° ê±´ê°•ê¸°ëŠ¥ì‹í’ˆ</font></td>
 														<td style="" id="progressBar">
 															<div class="progress2">
 																<div class="progress-bar2" role="progressbar"
@@ -405,7 +405,7 @@ td {
 													</tr>
 													
 													<tr>
-														<td colspan="2">³óÃæ°ú½Ç½À</td>
+														<td colspan="2">ë†ì¶©ê³¼ì‹¤ìŠµ</td>
 														<td style="" id="progressBar">
 															<div class="progress2">
 																<div class="progress-bar2" role="progressbar"
@@ -418,7 +418,7 @@ td {
 													</tr>
 													
 													<tr>
-														<td colspan="2">Àë·ù</td>
+														<td colspan="2">ìž¼ë¥˜</td>
 														<td style="" id="progressBar">
 															<div class="progress2">
 																<div class="progress-bar2" role="progressbar"
@@ -431,7 +431,7 @@ td {
 													</tr>
 													
 													<tr>
-														<td colspan="2"><font size=2pt>°ÇÁ¶°ú½Ç·ù,ÄÉÃ¸</font></td>
+														<td colspan="2"><font size=2pt>ê±´ì¡°ê³¼ì‹¤ë¥˜,ì¼€ì²©</font></td>
 														<td style="" id="progressBar">
 															<div class="progress2">
 																<div class="progress-bar2" role="progressbar"
@@ -444,7 +444,7 @@ td {
 													</tr>
 													
 													<tr>
-														<td colspan="2">½ÄÃÊÀýÀÓ</td>
+														<td colspan="2">ì‹ì´ˆì ˆìž„</td>
 														<td style="" id="progressBar">
 															<div class="progress2">
 																<div class="progress-bar2" role="progressbar"
@@ -457,7 +457,7 @@ td {
 													</tr>
 													
 													<tr>
-														<td colspan="2">¹ßÈ¿À½·á·ù</td>
+														<td colspan="2">ë°œíš¨ìŒë£Œë¥˜</td>
 														<td style="" id="progressBar">
 															<div class="progress2">
 																<div class="progress-bar2" role="progressbar"
@@ -470,7 +470,7 @@ td {
 													</tr>
 													
 													<tr>
-														<td colspan="2">°ú½ÇÁÖ</td>
+														<td colspan="2">ê³¼ì‹¤ì£¼</td>
 														<td style="" id="progressBar">
 															<div class="progress2">
 																<div class="progress-bar2" role="progressbar"
@@ -483,7 +483,7 @@ td {
 													</tr>
 													
 													<tr>
-														<td colspan="2">¸¶°¡¸°</td>
+														<td colspan="2">ë§ˆê°€ë¦°</td>
 														<td style="" id="progressBar">
 															<div class="progress2">
 																<div class="progress-bar2" role="progressbar"
@@ -496,7 +496,7 @@ td {
 													</tr>
 													
 													<tr>
-														<td colspan="2"><font size=2pt>ÀúÁö¹æ¸¶°¡¸°</font></td>
+														<td colspan="2"><font size=2pt>ì €ì§€ë°©ë§ˆê°€ë¦°</font></td>
 														<td style="" id="progressBar">
 															<div class="progress2">
 																<div class="progress-bar2" role="progressbar"
@@ -509,7 +509,7 @@ td {
 													</tr>
 													
 													<tr>
-														<td colspan="2">´ç·ù°¡°øÇ°</td>
+														<td colspan="2">ë‹¹ë¥˜ê°€ê³µí’ˆ</td>
 														<td style="" id="progressBar">
 															<div class="progress2">
 																<div class="progress-bar2" role="progressbar"
@@ -522,7 +522,7 @@ td {
 													</tr>
 													
 													<tr>
-														<td colspan="2"><font size=2pt>Çâ½Å·áÁ¶Á¦Ç°</font></td>
+														<td colspan="2"><font size=2pt>í–¥ì‹ ë£Œì¡°ì œí’ˆ</font></td>
 														<td style="" id="progressBar">
 															<div class="progress2">
 																<div class="progress-bar2" role="progressbar"
@@ -540,13 +540,13 @@ td {
 														<!-- Button trigger modal -->
 															<button type="button" class="btn btn-primary btn-sm"
 																data-toggle="modal" data-target="#myModal2">
-																»ç¿ë±âÁØ</button>
+																ì‚¬ìš©ê¸°ì¤€</button>
 														</td>
 														<td align="right" colspan="3">
 															<!-- Button trigger modal -->
 															<button type="button" class="btn btn-primary btn-sm"
 																data-toggle="modal" data-target="#myModal">
-																»êÃâ¹æ¹ý</button>
+																ì‚°ì¶œë°©ë²•</button>
 														</td>
 													</tr>
 													
@@ -564,21 +564,21 @@ td {
 					
 
 									<tr >
-										<td colspan="4"><div class="titleText titleTextLine">¿ä¾àÁ¤º¸</div></td>
+										<td colspan="4"><div class="titleText titleTextLine">ìš”ì•½ì •ë³´</div></td>
 									</tr>
 									<tr>
 										<td colspan="4"><div id="Span1">
-												&nbsp¼Ò¸£ºó»êÀº ½ÄÇ°¿¡¼­ º¸Á¸Á¦·Î »ç¿ëµÇ´Â Ãµ¿¬ À¯±âÈ­ÇÕ¹°ÀÌ´Ù. ¸¶°¡¸ñ(Sorbus aucuparia)ÀÇ ´úÀÍÀº
-												¿­¸Å¿¡¼­ Ã³À½ ºÐ¸®µÇ¾ú°í ÀÌ¿¡ ...
-												<span onclick="morebutClick('Span1','noneSpan1');return false;"><font color=blue> <u>´õº¸±â</u></font></span>
+												&nbspì†Œë¥´ë¹ˆì‚°ì€ ì‹í’ˆì—ì„œ ë³´ì¡´ì œë¡œ ì‚¬ìš©ë˜ëŠ” ì²œì—° ìœ ê¸°í™”í•©ë¬¼ì´ë‹¤. ë§ˆê°€ëª©(Sorbus aucuparia)ì˜ ëœìµì€
+												ì—´ë§¤ì—ì„œ ì²˜ìŒ ë¶„ë¦¬ë˜ì—ˆê³  ì´ì— ...
+												<span onclick="morebutClick('Span1','noneSpan1');return false;"><font color=blue> <u>ë”ë³´ê¸°</u></font></span>
 											</div>
 											<div id="noneSpan1" style="display: none">
-												&nbsp¼Ò¸£ºó»êÀº ½ÄÇ°¿¡¼­ º¸Á¸Á¦·Î »ç¿ëµÇ´Â Ãµ¿¬ À¯±âÈ­ÇÕ¹°ÀÌ´Ù. ¸¶°¡¸ñ(Sorbus aucuparia)ÀÇ ´úÀÍÀº
-												¿­¸Å¿¡¼­ Ã³À½ ºÐ¸®µÇ¾ú°í ÀÌ¿¡ µû¶ó ÀÌ¸§ÀÌ Áö¾îÁ³´Ù. ¼Ò¸£ºó»ê°ú ¼Ò¸£ºó»ê ³ªÆ®·ý, ¼Ò¸£ºó»ê Ä®·ý ¹× ¼Ò¸£ºó»ê
-												Ä®½·°ú °°Àº ¹«±â ¿°·ù´Â À½½Ä ¹× À½·á¼ö¿¡¼­ Á¾Á¾ º¸Á¸Á¦·Î »ç¿ëµÇ´Â ¹Ì»ý¹°»ýÀ°¾ïÁ¦Á¦(antimicrobial
-												agent)·Î °õÆÎÀÌ, È¿¸ð, Áø±Õ·ùÀÇ ¼ºÀåÀ» ¸·¾ÆÁØ´Ù. ÀÏ¹ÝÀûÀ¸·Î ¿°·ù´Â ¹°¿¡ Àß ³ì±â ¶§¹®¿¡ »ê ÇüÅÂº¸´Ù
-												¼±È£µÈ´Ù.
-												<span onclick="morebutClick('Span1','noneSpan1');return false;"><font color=blue> <u>°¨Ãß±â</u></font></span>
+												&nbspì†Œë¥´ë¹ˆì‚°ì€ ì‹í’ˆì—ì„œ ë³´ì¡´ì œë¡œ ì‚¬ìš©ë˜ëŠ” ì²œì—° ìœ ê¸°í™”í•©ë¬¼ì´ë‹¤. ë§ˆê°€ëª©(Sorbus aucuparia)ì˜ ëœìµì€
+												ì—´ë§¤ì—ì„œ ì²˜ìŒ ë¶„ë¦¬ë˜ì—ˆê³  ì´ì— ë”°ë¼ ì´ë¦„ì´ ì§€ì–´ì¡Œë‹¤. ì†Œë¥´ë¹ˆì‚°ê³¼ ì†Œë¥´ë¹ˆì‚° ë‚˜íŠ¸ë¥¨, ì†Œë¥´ë¹ˆì‚° ì¹¼ë¥¨ ë° ì†Œë¥´ë¹ˆì‚°
+												ì¹¼ìŠ˜ê³¼ ê°™ì€ ë¬´ê¸° ì—¼ë¥˜ëŠ” ìŒì‹ ë° ìŒë£Œìˆ˜ì—ì„œ ì¢…ì¢… ë³´ì¡´ì œë¡œ ì‚¬ìš©ë˜ëŠ” ë¯¸ìƒë¬¼ìƒìœ¡ì–µì œì œ(antimicrobial
+												agent)ë¡œ ê³°íŒ¡ì´, íš¨ëª¨, ì§„ê· ë¥˜ì˜ ì„±ìž¥ì„ ë§‰ì•„ì¤€ë‹¤. ì¼ë°˜ì ìœ¼ë¡œ ì—¼ë¥˜ëŠ” ë¬¼ì— ìž˜ ë…¹ê¸° ë•Œë¬¸ì— ì‚° í˜•íƒœë³´ë‹¤
+												ì„ í˜¸ëœë‹¤.
+												<span onclick="morebutClick('Span1','noneSpan1');return false;"><font color=blue> <u>ê°ì¶”ê¸°</u></font></span>
 											</div></td>
 									</tr>
 								</table>
@@ -586,20 +586,20 @@ td {
 						</td>
 					</tr>
 									<tr>
-										<td colspan="2" height=10px value="¹öÆ°°£°Ý"></td>
+										<td colspan="2" height=10px value="ë²„íŠ¼ê°„ê²©"></td>
 									</tr>
 					<tr>
-						<!-- ¾ÈÀü¼º Á¤º¸-->
-						<td colspan="2"><input type="button" class="" style="height: 50px; width: 100%;" value="2.¾ÈÀü¼º Á¤º¸" onclick="butClick('div2');return false;"></td>
+						<!-- ì•ˆì „ì„± ì •ë³´-->
+						<td colspan="2"><input type="button" class="" style="height: 50px; width: 100%;" value="2.ì•ˆì „ì„± ì •ë³´" onclick="butClick('div2');return false;"></td>
 					</tr>
 					<tr>
 						<td colspan="2" align="center">
 							<div class="list-group listBox01" id="div2" style="display: none;">
-								<div class="titleText" align="left">ÀÏÀÏ ¼·Ãë Çã¿ë·® µî±Þ</div>
+								<div class="titleText" align="left">ì¼ì¼ ì„­ì·¨ í—ˆìš©ëŸ‰ ë“±ê¸‰</div>
 									<div style="margin-top:10px; margin-bottom:10px;"><img src="images/grade1.png"></div>
 									<div align="left" style="margin-top:10px; margin-bottom:10px;">
 										<font size=4pt>
-											¾ÈÀü¼º Á¤º¸·Î ºÎÅÍ Á¤ÇÑ ÀÏÀÏ ¼·Ãë Çã¿ë·®Àº <b><u>25 mg/kg¡¤bw/day</u></b> ÀÔ´Ï´Ù.
+											ì•ˆì „ì„± ì •ë³´ë¡œ ë¶€í„° ì •í•œ ì¼ì¼ ì„­ì·¨ í—ˆìš©ëŸ‰ì€ <b><u>25 mg/kgÂ·bw/day</u></b> ìž…ë‹ˆë‹¤.
 										</font>
 									</div>
 								
@@ -607,11 +607,11 @@ td {
 
 								<table width="100%">
 									<tr>
-										<td colspan="4"><div class="titleText titleTextBox">¾ÈÀü¼º °á°ú(½ÇÇè°ª)</div></td>
+										<td colspan="4"><div class="titleText titleTextBox">ì•ˆì „ì„± ê²°ê³¼(ì‹¤í—˜ê°’)</div></td>
 									</tr>
 									<tr>
-										<td>µ¿¹°Á¾ :</td>
-										<td><select name="µ¿¹°Á¾" style="width:80px;">
+										<td>ë™ë¬¼ì¢… :</td>
+										<td><select name="ë™ë¬¼ì¢…" style="width:80px;">
 												<option value="Rat">Rat</option>
 												<option value="Mouse">Mouse</option>
 												<option value="Rabbit">Rabbit</option>
@@ -619,23 +619,23 @@ td {
 												<option value="Daphnia magna">Daphnia magna</option>
 												<option value="T.pyriformis">T.pyriformis</option>
 										</select></td>
-										<td>&nbsp;Åõ¿©°æ·Î :</td>
-										<td><select name="°æ·Î">
-												<option value="ÇÇºÎ">ÇÇºÎ</option>
-												<option value="º¹°­">º¹°­</option>
-												<option value="°æ±¸">°æ±¸</option>
-												<option value="ÇÇÇÏ">ÇÇÇÏ</option>
+										<td>&nbsp;íˆ¬ì—¬ê²½ë¡œ :</td>
+										<td><select name="ê²½ë¡œ">
+												<option value="í”¼ë¶€">í”¼ë¶€</option>
+												<option value="ë³µê°•">ë³µê°•</option>
+												<option value="ê²½êµ¬">ê²½êµ¬</option>
+												<option value="í”¼í•˜">í”¼í•˜</option>
 										</select></td>
 									</tr>
 									<tr>
-										<td>Á¾¸»Á¡ :</td>
-										<td><select name="Á¾¸»Á¡" style="width:80px;">
+										<td>ì¢…ë§ì  :</td>
+										<td><select name="ì¢…ë§ì " style="width:80px;">
 												<option value="LD">LD</option>
 												<option value="LD50">LD50</option>
 												<option value="LC50">LC50</option>
 												<option value="IGC50">IGC50</option>
 										</select></td>
-										<td>&nbsp;µ¶¼º¼öÄ¡ :</td>
+										<td>&nbsp;ë…ì„±ìˆ˜ì¹˜ :</td>
 										<td>2,820 mg/kg</td>
 									</tr>
 									<tr>
@@ -648,11 +648,11 @@ td {
 								<div class="listBox02"> 
 								<table width="100%" >
 									<tr>
-										<td colspan="4"><div class="titleText titleTextBox">¾ÈÀü¼º °á°ú(¿¹Ãø°ª)</div></td>
+										<td colspan="4"><div class="titleText titleTextBox">ì•ˆì „ì„± ê²°ê³¼(ì˜ˆì¸¡ê°’)</div></td>
 									</tr>
 									<tr>
-										<td>µ¿¹°Á¾ :</td>
-										<td><select name="µ¿¹°Á¾" style="width:80px;">
+										<td>ë™ë¬¼ì¢… :</td>
+										<td><select name="ë™ë¬¼ì¢…" style="width:80px;">
 												<option value="Rat">Rat</option>
 												<option value="Mouse">Mouse</option>
 												<option value="Rabbit">Rabbit</option>
@@ -660,33 +660,33 @@ td {
 												<option value="Daphnia magna">Daphnia magna</option>
 												<option value="T.pyriformis">T.pyriformis</option>
 										</select></td>
-										<td>&nbsp;Åõ¿©°æ·Î :</td>
-										<td><select name="°æ·Î">
-												<option value="°æ±¸">°æ±¸</option>
-												<option value="ÇÇºÎ">ÇÇºÎ</option>
-												<option value="º¹°­">º¹°­</option>
-												<option value="ÇÇÇÏ">ÇÇÇÏ</option>
+										<td>&nbsp;íˆ¬ì—¬ê²½ë¡œ :</td>
+										<td><select name="ê²½ë¡œ">
+												<option value="ê²½êµ¬">ê²½êµ¬</option>
+												<option value="í”¼ë¶€">í”¼ë¶€</option>
+												<option value="ë³µê°•">ë³µê°•</option>
+												<option value="í”¼í•˜">í”¼í•˜</option>
 										</select></td>
 									</tr>
 									<tr>
-										<td>Á¾¸»Á¡ :</td>
-										<td><select name="Á¾¸»Á¡" style="width:80px;">
+										<td>ì¢…ë§ì  :</td>
+										<td><select name="ì¢…ë§ì " style="width:80px;">
 												<option value="LD50">LD50</option>
 												<option value="LC50">LC50</option>
 												<option value="IGC50">IGC50</option>
 												<option value="LD">LD</option>
 										</select></td>
-										<td>&nbsp;µ¶¼º¼öÄ¡ :</td>
+										<td>&nbsp;ë…ì„±ìˆ˜ì¹˜ :</td>
 										<td>5,651 mg/L</td>
 									</tr>
 									<tr>
-										<td colspan="4" height=10px value="¹öÆ°°£°Ý"></td>
+										<td colspan="4" height=10px value="ë²„íŠ¼ê°„ê²©"></td>
 										
 									</tr>
 									
 									<tr>
-										<td colspan="4" height=10px align="right"><font size=2pt>À§ ¿¹Ãø°ªÀº <B>T.E.S.T.</B>
-											ÇÁ·Î±×·¥À» ÅëÇØ ¿¹Ãø µÇ¾úÀ½. <br>
+										<td colspan="4" height=10px align="right"><font size=2pt>ìœ„ ì˜ˆì¸¡ê°’ì€ <B>T.E.S.T.</B>
+											í”„ë¡œê·¸ëž¨ì„ í†µí•´ ì˜ˆì¸¡ ë˜ì—ˆìŒ. <br>
 											</font>
 										</td>
 									</tr>
@@ -698,25 +698,25 @@ td {
 										<td colspan="4" height=10px;></td>
 									</tr>
 									<tr style="height: 40px; vertical-align: bottom;">
-										<td><div class="titleText titleTextLine">¿ä¾àÁ¤º¸</div></td>
+										<td><div class="titleText titleTextLine">ìš”ì•½ì •ë³´</div></td>
 										<td align="right" colspan="3"></td>
 									</tr>
 									<tr style="">
-										<td colspan="4"><div id="Span2">&nbsp¼Ò¸£ºó»êÀÇ LD50 °ªÀº 10~7.4g/kgÀ¸·Î ÃßÃøµÇ¾îÁö¸ç, ÀÌ °ªÀº ¸Å¿ì ³ôÀº °ªÀÌ´Ù....<span onclick="morebutClick('Span2','noneSpan2');return false;"><font color=blue> <u>´õº¸±â</u></font></span></div>
-										<div id="noneSpan2" style="display:none">&nbsp¼Ò¸£ºó»êÀÇ LD50 °ªÀº 10~7.4g/kgÀ¸·Î ÃßÃøµÇ¾îÁö¸ç, ÀÌ °ªÀº ¸Å¿ì ³ôÀº °ªÀÌ´Ù. µû¶ó¼­ ¼Ò¸£ºó»êÀ» ÇÔÀ¯ÇÑ ½ÄÇ°À» ¼·ÃëÇØµµ À§Çè¼ºÀº ¾ø´Â °ÍÀ¸·Î ¿©°ÜÁø´Ù.[1] ÇÏÁö¸¸, ¼Ò¸£ºó»êÀÌ ÇÔÀ¯µÈ ±¹¼Ò Ä¡·áÁ¦ ¹× È­ÀåÇ°ÀÇ °æ¿ì ´«, ÇÇºÎ ¹× È£Èí±â¿¡ ÀÚ±ØÀûÀÌ¸ç, ¹Ýº¹ÀûÀ¸·Î ¶Ç´Â Àå±â°£ Á¢ÃËÇÏ¸é ÇÇºÎ °¨ÀÛÀÌ ¹ß»ýÇÒ ¼ö ÀÖ´Ù.[2] 
-										<br> ÃâÃ³ : [1] À§Å°ÇÇµð¾Æ <br>[2] ½ÄÇ°ÀÇ¾àÇ°¾ÈÀüÃ³ <span onclick="morebutClick('Span2','noneSpan2');return false;"><font color=blue> <u>°¨Ãß±â</u></font></span></div></td> 
+										<td colspan="4"><div id="Span2">&nbspì†Œë¥´ë¹ˆì‚°ì˜ LD50 ê°’ì€ 10~7.4g/kgìœ¼ë¡œ ì¶”ì¸¡ë˜ì–´ì§€ë©°, ì´ ê°’ì€ ë§¤ìš° ë†’ì€ ê°’ì´ë‹¤....<span onclick="morebutClick('Span2','noneSpan2');return false;"><font color=blue> <u>ë”ë³´ê¸°</u></font></span></div>
+										<div id="noneSpan2" style="display:none">&nbspì†Œë¥´ë¹ˆì‚°ì˜ LD50 ê°’ì€ 10~7.4g/kgìœ¼ë¡œ ì¶”ì¸¡ë˜ì–´ì§€ë©°, ì´ ê°’ì€ ë§¤ìš° ë†’ì€ ê°’ì´ë‹¤. ë”°ë¼ì„œ ì†Œë¥´ë¹ˆì‚°ì„ í•¨ìœ í•œ ì‹í’ˆì„ ì„­ì·¨í•´ë„ ìœ„í—˜ì„±ì€ ì—†ëŠ” ê²ƒìœ¼ë¡œ ì—¬ê²¨ì§„ë‹¤.[1] í•˜ì§€ë§Œ, ì†Œë¥´ë¹ˆì‚°ì´ í•¨ìœ ëœ êµ­ì†Œ ì¹˜ë£Œì œ ë° í™”ìž¥í’ˆì˜ ê²½ìš° ëˆˆ, í”¼ë¶€ ë° í˜¸í¡ê¸°ì— ìžê·¹ì ì´ë©°, ë°˜ë³µì ìœ¼ë¡œ ë˜ëŠ” ìž¥ê¸°ê°„ ì ‘ì´‰í•˜ë©´ í”¼ë¶€ ê°ìž‘ì´ ë°œìƒí•  ìˆ˜ ìžˆë‹¤.[2] 
+										<br> ì¶œì²˜ : [1] ìœ„í‚¤í”¼ë””ì•„ <br>[2] ì‹í’ˆì˜ì•½í’ˆì•ˆì „ì²˜ <span onclick="morebutClick('Span2','noneSpan2');return false;"><font color=blue> <u>ê°ì¶”ê¸°</u></font></span></div></td> 
 									</tr>
 								</table>
 							</div>
 						</td>
 					</tr>
 					<tr>
-						<td colspan="2" height=10px value="¹öÆ°°£°Ý"></td>
+						<td colspan="2" height=10px value="ë²„íŠ¼ê°„ê²©"></td>
 					</tr>
 					<tr>
-						<!-- Ãß°¡Á¤º¸-->
+						<!-- ì¶”ê°€ì •ë³´-->
 						<td colspan="2"><input type="button" class=""
-							style="height: 50px; width: 100%;" value="3.Ãß°¡ Á¤º¸"
+							style="height: 50px; width: 100%;" value="3.ì¶”ê°€ ì •ë³´"
 							onclick="butClick('div3');return false;"></td>
 					</tr>
 					<tr>
@@ -726,38 +726,38 @@ td {
 								<table width="100%" class="mytable" style="text-align:center">
 									
 									<tr>
-										<td colspan="2" class="titleText titleTextLine">¹°ÁúÁ¤º¸</td>
+										<td colspan="2" class="titleText titleTextLine">ë¬¼ì§ˆì •ë³´</td>
 									</tr>
 									<tr>
-										<td width=40% style="background: #dcdcdc">¹°Áú¸í</td>
-										<td width=60%>¼Ò¸£ºó»ê (Sorbic Acid)</td>
+										<td width=40% style="background: #dcdcdc">ë¬¼ì§ˆëª…</td>
+										<td width=60%>ì†Œë¥´ë¹ˆì‚° (Sorbic Acid)</td>
 									</tr>
 									<tr>
 										<td style="background: #dcdcdc">CasNo</td>
 										<td>110-44-1</td>
 									</tr>
 									<tr>
-										<td style="background: #dcdcdc">ºÐÀÚ½Ä</td>
+										<td style="background: #dcdcdc">ë¶„ìžì‹</td>
 										<td>C<sub>6</sub>H<sub>8</sub>O<sub>2</sub></td>
 									</tr>
 									<tr>
-										<td style="background: #dcdcdc">ºÐÀÚ·®</td>
+										<td style="background: #dcdcdc">ë¶„ìžëŸ‰</td>
 										<td>112.13</td>
 									</tr>
 									<tr>
-										<td style="background: #dcdcdc">¹Ðµµ</td>
+										<td style="background: #dcdcdc">ë°€ë„</td>
 										<td>1.347 g/cm3</td>
 									</tr>
 									<tr>
-										<td style="background: #dcdcdc">»ê¼ºµµ</td>
+										<td style="background: #dcdcdc">ì‚°ì„±ë„</td>
 										<td>4.76</td>
 									</tr>
 									<tr>
-										<td style="background: #dcdcdc">À¯·´¿¬ÇÕ¹øÈ£</td>
+										<td style="background: #dcdcdc">ìœ ëŸ½ì—°í•©ë²ˆí˜¸</td>
 										<td>203-768-7</td>
 									</tr>
 									<tr>
-										<td style="background: #dcdcdc">CCRIS¹øÈ£</td>
+										<td style="background: #dcdcdc">CCRISë²ˆí˜¸</td>
 										<td>5748</td>
 									</tr>
 								</table>
@@ -767,33 +767,33 @@ td {
 										<td height=10px;></td>
 									</tr>
 									<tr>
-										<td class="titleText titleTextLine">¿ëµµ</td>
+										<td class="titleText titleTextLine">ìš©ë„</td>
 									</tr>
 									<tr>
 										<td>
-											<li>°õÆÎÀÌ ¹× È¿¸ð ¾ïÁ¦Á¦</li>
-											<li>½ÄÇ°(Æ¯È÷ Ä¡Áî)ÀÇ Á¤Áø±ÕÁ¦</li>
-											<li>º¸Á¸Á¦</li>
-											<li>Àú¿Â °í¹«ÀÇ Á¦ºÐ Æ¯¼º Çâ»ó</li>
-											<li>°¡¼ÒÁ¦ ¹× À±È°Á¦ÀÇ Áß°£¹°Áú</li>
+											<li>ê³°íŒ¡ì´ ë° íš¨ëª¨ ì–µì œì œ</li>
+											<li>ì‹í’ˆ(íŠ¹ížˆ ì¹˜ì¦ˆ)ì˜ ì •ì§„ê· ì œ</li>
+											<li>ë³´ì¡´ì œ</li>
+											<li>ì €ì˜¨ ê³ ë¬´ì˜ ì œë¶„ íŠ¹ì„± í–¥ìƒ</li>
+											<li>ê°€ì†Œì œ ë° ìœ¤í™œì œì˜ ì¤‘ê°„ë¬¼ì§ˆ</li>
 										</td>
 									</tr>
 
 									<tr
 										style="height: 40px; vertical-align: bottom;">
-										<td><div class="titleText titleTextLine">±âÅ¸Á¤º¸</div></td>
+										<td><div class="titleText titleTextLine">ê¸°íƒ€ì •ë³´</div></td>
 									</tr>
 									<tr style="">
-										<td><div id="Span3">¡°´ëÇü¸¶Æ® ÆÇ¸Å ¹Ý·Áµ¿¹° °£½Ä¡¤¹èÇÕ»ç·á ³» ¼Ò¸£ºó»ê¡¤¾ÆÁú»ê¿°, ¾ÈÀüÇØ¡±-µ¥ÀÏ¸®ºª...<span onclick="morebutClick('Span3','noneSpan3');return false;"><font color=blue> <u>´õº¸±â</u></font></span></div></td>
+										<td><div id="Span3">â€œëŒ€í˜•ë§ˆíŠ¸ íŒë§¤ ë°˜ë ¤ë™ë¬¼ ê°„ì‹Â·ë°°í•©ì‚¬ë£Œ ë‚´ ì†Œë¥´ë¹ˆì‚°Â·ì•„ì§ˆì‚°ì—¼, ì•ˆì „í•´â€-ë°ì¼ë¦¬ë²³...<span onclick="morebutClick('Span3','noneSpan3');return false;"><font color=blue> <u>ë”ë³´ê¸°</u></font></span></div></td>
 
 									</tr>
 
 									<tr>
 										<td><div id="noneSpan3" style="display: none;">
-										¡°´ëÇü¸¶Æ® ÆÇ¸Å ¹Ý·Áµ¿¹° °£½Ä¡¤¹èÇÕ»ç·á ³» ¼Ò¸£ºó»ê¡¤¾ÆÁú»ê¿°, ¾ÈÀüÇØ¡±-µ¥ÀÏ¸®ºª<br/>
-										¿ï»êº¸°ÇÈ¯°æ¿¬±¸¿øÀÌ ¡°´ëÇü¸¶Æ®¿¡¼­ ÆÇ¸ÅÁßÀÎ ¹Ý·Áµ¿¹° °£½Ä·ù ¹× ¹èÇÕ»ç·á Á¦Ç°À» °Ë»çÇÑ °á°ú, 
-										°£½Ä·ù ¹× ¹èÇÕ»ç·á¸¦ ÅëÇÑ ¹Ý·Áµ¿¹°ÀÇ ¼Ò¸£ºó»ê ¹× ¾ÆÁú»ê¿° ¼·Ãë°¡ 	¾ÈÀüÇÑ °ÍÀ¸·Î »ý°¢µÈ´Ù¡±°í ¹àÇû´Ù.<br>
-										<a href="http://www.dailyvet.co.kr/news/academy/49240" target="_blank">¸µÅ©:¿ø¹®±â»ç</a><span onclick="morebutClick('Span3','noneSpan3');return false;"><font color=blue> <u>°¨Ãß±â</u></font></span></div></td>
+										â€œëŒ€í˜•ë§ˆíŠ¸ íŒë§¤ ë°˜ë ¤ë™ë¬¼ ê°„ì‹Â·ë°°í•©ì‚¬ë£Œ ë‚´ ì†Œë¥´ë¹ˆì‚°Â·ì•„ì§ˆì‚°ì—¼, ì•ˆì „í•´â€-ë°ì¼ë¦¬ë²³<br/>
+										ìš¸ì‚°ë³´ê±´í™˜ê²½ì—°êµ¬ì›ì´ â€œëŒ€í˜•ë§ˆíŠ¸ì—ì„œ íŒë§¤ì¤‘ì¸ ë°˜ë ¤ë™ë¬¼ ê°„ì‹ë¥˜ ë° ë°°í•©ì‚¬ë£Œ ì œí’ˆì„ ê²€ì‚¬í•œ ê²°ê³¼, 
+										ê°„ì‹ë¥˜ ë° ë°°í•©ì‚¬ë£Œë¥¼ í†µí•œ ë°˜ë ¤ë™ë¬¼ì˜ ì†Œë¥´ë¹ˆì‚° ë° ì•„ì§ˆì‚°ì—¼ ì„­ì·¨ê°€ 	ì•ˆì „í•œ ê²ƒìœ¼ë¡œ ìƒê°ëœë‹¤â€ê³  ë°í˜”ë‹¤.<br>
+										<a href="http://www.dailyvet.co.kr/news/academy/49240" target="_blank">ë§í¬:ì›ë¬¸ê¸°ì‚¬</a><span onclick="morebutClick('Span3','noneSpan3');return false;"><font color=blue> <u>ê°ì¶”ê¸°</u></font></span></div></td>
 									</tr>
 
 								</table>
@@ -808,13 +808,13 @@ td {
 						</td>
 					</tr>
 									<tr>
-										<td colspan="2" height=10px value="¹öÆ°°£°Ý"></td>
+										<td colspan="2" height=10px value="ë²„íŠ¼ê°„ê²©"></td>
 									</tr>
 					
 					<tr>
-						<!-- ¿ë¾îÁý-->
+						<!-- ìš©ì–´ì§‘-->
 						<td colspan="2"><input type="button" class="scroll"
-							style="height: 50px; width: 100%" value="4.¿ë¾îÁý"
+							style="height: 50px; width: 100%" value="4.ìš©ì–´ì§‘"
 							onclick="butClick('div4');return false;"></td>
 					</tr>
 					<tr>
@@ -822,35 +822,35 @@ td {
 							<div class="list-group listBox01" id="div4" style="display: none;">
 								
 								<div class="listBox02">								
-									<div class="titleText" >1. ¼·Ãë Çã¿ë·®</div>
-										<li><b>ÀÏÀÏ ¼·Ãë Çã¿ë·®(ADI)</b></li>	
+									<div class="titleText" >1. ì„­ì·¨ í—ˆìš©ëŸ‰</div>
+										<li><b>ì¼ì¼ ì„­ì·¨ í—ˆìš©ëŸ‰(ADI)</b></li>	
 										<div style="padding-left:10px;">
-										&nbsp;ÀÎ°£ÀÌ ÇÑÆò»ý ¸ÅÀÏ ¼·ÃëÇÏ´õ¶óµµ ÀåÇØ°¡ ÀÎÁ¤µÇÁö ¾Ê´Â´Ù°í »ý°¢µÇ´Â È­ÇÐ¹°ÁúÀÇ 1ÀÏ ¼·Ãë·®(mg/kg ¡¤ bw/day)À» ÀÇ¹ÌÇÏ°í ½ÄÇ°Ã·°¡¹°, ³ó¾à µî¿¡ ´ëÇÏ¿© Àß »ç¿ëÇÑ´Ù.<br>
-<info value="http://terms.naver.com/entry.nhn?docId=296210&cid=42412&categoryId=42412"/>ÃâÃ³ : ³×ÀÌ¹ö ½ÄÇ°°úÇÐ±â¼ú´ë»çÀü</div>
+										&nbsp;ì¸ê°„ì´ í•œí‰ìƒ ë§¤ì¼ ì„­ì·¨í•˜ë”ë¼ë„ ìž¥í•´ê°€ ì¸ì •ë˜ì§€ ì•ŠëŠ”ë‹¤ê³  ìƒê°ë˜ëŠ” í™”í•™ë¬¼ì§ˆì˜ 1ì¼ ì„­ì·¨ëŸ‰(mg/kg Â· bw/day)ì„ ì˜ë¯¸í•˜ê³  ì‹í’ˆì²¨ê°€ë¬¼, ë†ì•½ ë“±ì— ëŒ€í•˜ì—¬ ìž˜ ì‚¬ìš©í•œë‹¤.<br>
+<info value="http://terms.naver.com/entry.nhn?docId=296210&cid=42412&categoryId=42412"/>ì¶œì²˜ : ë„¤ì´ë²„ ì‹í’ˆê³¼í•™ê¸°ìˆ ëŒ€ì‚¬ì „</div>
 								</div>
 								
 
 								
 								<div class="listBox02">								
-									<div class="titleText" >2. ¾ÈÀü¼º Á¤º¸</div>
-										<li><b>LD50(¹Ý¼ö Ä¡»ç·®)</b></li>	
+									<div class="titleText" >2. ì•ˆì „ì„± ì •ë³´</div>
+										<li><b>LD50(ë°˜ìˆ˜ ì¹˜ì‚¬ëŸ‰)</b></li>	
 										<div style="padding-left:10px;">
-										&nbsp;ÇÇ ½ÇÇèµ¿¹°¿¡ ½ÇÇè´ë»ó¹°ÁúÀ» Åõ¿©ÇÒ ¶§ ÇÇ ½ÇÇèµ¿¹°ÀÇ Àý¹ÝÀÌ Á×°Ô µÇ´Â ¾çÀ» ¸»ÇÑ´Ù.
-µ¶¼º¹°ÁúÀÇ °æ¿ì, ÇØ´ç ¾à¹°ÀÇ LD50À» ³ªÅ¸³¾ ¶§´Â Ã¼Áß kg´ç mgÀ¸·Î ³ªÅ¸³½´Ù. ¿¹¸¦ µé¾î ´ÏÄÚÆ¾ÀÇ °æ¿ì LD50Àº 50 mg/kgÀÌ¸ç, ¾Æ½ºÇÇ¸°ÀÇ °æ¿ì LD50Àº 200 mg/kgÀÌ´Ù. 
-´ëÃ¼·Î ¼³Ä¡·ù µîÀÇ ½ÃÇèµ¿¹°¿¡ ½ÃÇè¹°ÁúÀ» ÇÑ ¹ø Åõ¿©ÇÏ°í 2ÁÖÀÏ µ¿¾ÈÀÇ »ç¸Á·üÀ» °üÂûÇØ ¹Ý¼öÄ¡»ç·®À» °è»êÇÑ´Ù. 
-LD50Àº À¯ÇØÈ­ÇÐ¹°Áú°ü¸®¹ýÀÇ À¯µ¶¹°°ú Æ¯Á¤À¯µ¶¹° ÁöÁ¤±âÁØÀ¸·Î ÀÌ¿ëµÇ´Âµ¥, 
-°æ±¸Åõ¿©¸¦ ÀÌ¿ëÇÑ ¼³Ä¡·ù ½ÇÇè¿¡¼­ ÇØ´ç ¾à¹°ÀÇ LD50ÀÌ 300§·/§¸ÀÌÇÏÀÌ¸é À¯µ¶¹°, 
-15§·/§¸ ÀÌÇÏÀÌ¸é Æ¯Á¤À¯µ¶¹°·Î ÁöÁ¤ÇÑ´Ù. <br> 
-ÃâÃ³ : À§Å°ÇÇµð¾Æ<info value="https://ko.wikipedia.org/wiki/¹Ý¼ö_Ä¡»ç·®"/></div>
+										&nbsp;í”¼ ì‹¤í—˜ë™ë¬¼ì— ì‹¤í—˜ëŒ€ìƒë¬¼ì§ˆì„ íˆ¬ì—¬í•  ë•Œ í”¼ ì‹¤í—˜ë™ë¬¼ì˜ ì ˆë°˜ì´ ì£½ê²Œ ë˜ëŠ” ì–‘ì„ ë§í•œë‹¤.
+ë…ì„±ë¬¼ì§ˆì˜ ê²½ìš°, í•´ë‹¹ ì•½ë¬¼ì˜ LD50ì„ ë‚˜íƒ€ë‚¼ ë•ŒëŠ” ì²´ì¤‘ kgë‹¹ mgìœ¼ë¡œ ë‚˜íƒ€ë‚¸ë‹¤. ì˜ˆë¥¼ ë“¤ì–´ ë‹ˆì½”í‹´ì˜ ê²½ìš° LD50ì€ 50 mg/kgì´ë©°, ì•„ìŠ¤í”¼ë¦°ì˜ ê²½ìš° LD50ì€ 200 mg/kgì´ë‹¤. 
+ëŒ€ì²´ë¡œ ì„¤ì¹˜ë¥˜ ë“±ì˜ ì‹œí—˜ë™ë¬¼ì— ì‹œí—˜ë¬¼ì§ˆì„ í•œ ë²ˆ íˆ¬ì—¬í•˜ê³  2ì£¼ì¼ ë™ì•ˆì˜ ì‚¬ë§ë¥ ì„ ê´€ì°°í•´ ë°˜ìˆ˜ì¹˜ì‚¬ëŸ‰ì„ ê³„ì‚°í•œë‹¤. 
+LD50ì€ ìœ í•´í™”í•™ë¬¼ì§ˆê´€ë¦¬ë²•ì˜ ìœ ë…ë¬¼ê³¼ íŠ¹ì •ìœ ë…ë¬¼ ì§€ì •ê¸°ì¤€ìœ¼ë¡œ ì´ìš©ë˜ëŠ”ë°, 
+ê²½êµ¬íˆ¬ì—¬ë¥¼ ì´ìš©í•œ ì„¤ì¹˜ë¥˜ ì‹¤í—˜ì—ì„œ í•´ë‹¹ ì•½ë¬¼ì˜ LD50ì´ 300ãŽŽ/ãŽì´í•˜ì´ë©´ ìœ ë…ë¬¼, 
+15ãŽŽ/ãŽ ì´í•˜ì´ë©´ íŠ¹ì •ìœ ë…ë¬¼ë¡œ ì§€ì •í•œë‹¤. <br> 
+ì¶œì²˜ : ìœ„í‚¤í”¼ë””ì•„<info value="https://ko.wikipedia.org/wiki/ë°˜ìˆ˜_ì¹˜ì‚¬ëŸ‰"/></div>
 								</div>
 								
 								
 								<div class="listBox02">								
-									<div class="titleText" >3. Ãß°¡Á¤º¸</div>
-										<li><B>CAS Number(CAS µî·Ï¹øÈ£)</B></li>	
+									<div class="titleText" >3. ì¶”ê°€ì •ë³´</div>
+										<li><B>CAS Number(CAS ë“±ë¡ë²ˆí˜¸)</B></li>	
 										<div style="padding-left:10px;">
-										&nbsp;¾Ë·ÁÁø ¸ðµç È­ÇÕ¹°, ÁßÇÕÃ¼ µîÀ» ±â·ÏÇÏ´Â ¹øÈ£ÀÌ´Ù. ¹Ì±¹ È­ÇÐÈ¸¿¡¼­ ¿î¿µÇÏ´Â ¼­ºñ½ºÀÌ¸ç, ¸ðµç È­ÇÐ ¹°ÁúÀ» Áßº¹ ¾øÀÌ Ã£À» ¼ö ÀÖµµ·Ï ÇÑ´Ù. <br>
-<info value="https://ko.wikipedia.org/wiki/CAS_µî·Ï¹øÈ£"></info>ÃâÃ³:À§Å°ÇÇµð¾Æ</div>
+										&nbsp;ì•Œë ¤ì§„ ëª¨ë“  í™”í•©ë¬¼, ì¤‘í•©ì²´ ë“±ì„ ê¸°ë¡í•˜ëŠ” ë²ˆí˜¸ì´ë‹¤. ë¯¸êµ­ í™”í•™íšŒì—ì„œ ìš´ì˜í•˜ëŠ” ì„œë¹„ìŠ¤ì´ë©°, ëª¨ë“  í™”í•™ ë¬¼ì§ˆì„ ì¤‘ë³µ ì—†ì´ ì°¾ì„ ìˆ˜ ìžˆë„ë¡ í•œë‹¤. <br>
+<info value="https://ko.wikipedia.org/wiki/CAS_ë“±ë¡ë²ˆí˜¸"></info>ì¶œì²˜:ìœ„í‚¤í”¼ë””ì•„</div>
 								</div>
 
 
@@ -865,9 +865,9 @@ LD50Àº À¯ÇØÈ­ÇÐ¹°Áú°ü¸®¹ýÀÇ À¯µ¶¹°°ú Æ¯Á¤À¯µ¶¹° ÁöÁ¤±âÁØÀ¸·Î ÀÌ¿ëµÇ´Âµ¥,
 		</div>
 	</div>
 
-	<!-- ÀüÃ¼ DIV -->
+	<!-- ì „ì²´ DIV -->
 
-	<!-- ÀÚ¼¼È÷º¸±â Modal -->
+	<!-- ìžì„¸ížˆë³´ê¸° Modal -->
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
@@ -878,37 +878,37 @@ LD50Àº À¯ÇØÈ­ÇÐ¹°Áú°ü¸®¹ýÀÇ À¯µ¶¹°°ú Æ¯Á¤À¯µ¶¹° ÁöÁ¤±âÁØÀ¸·Î ÀÌ¿ëµÇ´Âµ¥,
 						<span aria-hidden="true">&times;</span>
 					</button>
 					<h4 class="modal-title" id="myModalLabel">
-						¼Ò¸£ºó»ê ÀÇ ¼·Ãë Çã¿ë·® »êÃâ
+						ì†Œë¥´ë¹ˆì‚° ì˜ ì„­ì·¨ í—ˆìš©ëŸ‰ ì‚°ì¶œ
 					</h4>
 				</div>
 				<div class="modal-body">
 				<table cellspacing="0" border="1" style="border-collapse:collapse; border:0px gray solid;text-align:center;" >
 					
 					<tr>
-						<td colspan="2">¿¹½Ã) Ã¼Áß 60 kg ÀÎ »ç¶÷ÀÇ ¼Ò¸£ºó»êÀÇ ¼·Ãë Çã¿ë·® »êÃâ ¹æ¹ý
+						<td colspan="2">ì˜ˆì‹œ) ì²´ì¤‘ 60 kg ì¸ ì‚¬ëžŒì˜ ì†Œë¥´ë¹ˆì‚°ì˜ ì„­ì·¨ í—ˆìš©ëŸ‰ ì‚°ì¶œ ë°©ë²•
 						</td>
 					</tr>
 					<tr>
-						<td width=65px>´Ü°è 1</td>
-						<td>ÀÏÀÏ ¼·Ãë Çã¿ë·® <br>-> 25 mg/kg (ÃâÃ³ : JECFA)</td>
+						<td width=65px>ë‹¨ê³„ 1</td>
+						<td>ì¼ì¼ ì„­ì·¨ í—ˆìš©ëŸ‰ <br>-> 25 mg/kg (ì¶œì²˜ : JECFA)</td>
 					</tr>
 					<tr>
-						<td>´Ü°è 2</td>
-						<td>Ã¼Áß ¹Ý¿µ ÀÏÀÏ ¼·Ãë Çã¿ë·®<br> -> 1.5 g</td>
+						<td>ë‹¨ê³„ 2</td>
+						<td>ì²´ì¤‘ ë°˜ì˜ ì¼ì¼ ì„­ì·¨ í—ˆìš©ëŸ‰<br> -> 1.5 g</td>
 					</tr>
 					<tr>
-						<td>´Ü°è 3</td>
-						<td>¼Ò¸£ºó»êÀÇ »ç¿ë ±Ô°Ý<br>
-						Ä¡Áî·ù -> 3.0g/kg ÀÌÇÏ</td>
+						<td>ë‹¨ê³„ 3</td>
+						<td>ì†Œë¥´ë¹ˆì‚°ì˜ ì‚¬ìš© ê·œê²©<br>
+						ì¹˜ì¦ˆë¥˜ -> 3.0g/kg ì´í•˜</td>
 					</tr>
 					<tr>
-						<td>´Ü°è 4</td>
-						<td>°¢ Á¦Ç°±ºÀÇ ¼·Ãë Çã¿ë·®<br>
-						Ä¡Áî·ù -> 500g ÀÌÇÏ</td>
+						<td>ë‹¨ê³„ 4</td>
+						<td>ê° ì œí’ˆêµ°ì˜ ì„­ì·¨ í—ˆìš©ëŸ‰<br>
+						ì¹˜ì¦ˆë¥˜ -> 500g ì´í•˜</td>
 					</tr>
 					<tr>
-						<td colspan="2"> <font size=3pt>*½ÇÁ¦ ½ÄÇ°¿¡ »ç¿ëÇÏ´Â Ã·°¡¹°Àº <br>
-						 ±âÁØ ±Ô°Ý º¸´Ù ÈÎ¾À ³·°Ô »ç¿ë µË´Ï´Ù.<br></font>
+						<td colspan="2"> <font size=3pt>*ì‹¤ì œ ì‹í’ˆì— ì‚¬ìš©í•˜ëŠ” ì²¨ê°€ë¬¼ì€ <br>
+						 ê¸°ì¤€ ê·œê²© ë³´ë‹¤ í›¨ì”¬ ë‚®ê²Œ ì‚¬ìš© ë©ë‹ˆë‹¤.<br></font>
 						</td>
 					</tr>
 					 
@@ -925,7 +925,7 @@ LD50Àº À¯ÇØÈ­ÇÐ¹°Áú°ü¸®¹ýÀÇ À¯µ¶¹°°ú Æ¯Á¤À¯µ¶¹° ÁöÁ¤±âÁØÀ¸·Î ÀÌ¿ëµÇ´Âµ¥,
 	
 	
 	
-	<!-- ½ÄÇ°±º Modal -->
+	<!-- ì‹í’ˆêµ° Modal -->
 	<div class="modal fade" id="myModal2" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
@@ -936,25 +936,25 @@ LD50Àº À¯ÇØÈ­ÇÐ¹°Áú°ü¸®¹ýÀÇ À¯µ¶¹°°ú Æ¯Á¤À¯µ¶¹° ÁöÁ¤±âÁØÀ¸·Î ÀÌ¿ëµÇ´Âµ¥,
 						<span aria-hidden="true">&times;</span>
 					</button>
 					<h4 class="modal-title" id="myModalLabel">
-						¼Ò¸£ºó»ê ÀÇ »ç¿ë±âÁØ
+						ì†Œë¥´ë¹ˆì‚° ì˜ ì‚¬ìš©ê¸°ì¤€
 					</h4>
 				</div>
 				<div class="modal-body">
-					<li>ÀÚ¿¬Ä¡Áî, °¡°øÄ¡Áî : 3.0 g/kg ÀÌÇÏ</li>
-					<li>½ÄÀ°°¡°øÇ°: 2.0 g/kg ÀÌÇÏ</li>
-					<li>ÄÝ¶ó°ÕÄÉÀÌ½Ì: 0.1 g/kg ÀÌÇÏ</li>
-					<li>Á£°¥·ù: 1.0 g/kg ÀÌÇÏ</li>
-					<li>¾Ë·Î¿¡ÀüÀÙ ¹× °Ç°­±â´É½ÄÇ°: 1.0 g/kg ÀÌÇÏ</li>
-					<li>³óÃà°ú½ÇÁó: 1.0 g/kg ÀÌÇÏ</li>
-					<li>Àë·ù: 0.4 g/kg ÀÌÇÏ</li>
-					<li>°ÇÁ¶°ú½Ç·ù, ÄÉÃ¸: 0.5 g/kg ÀÌÇÏ</li>
-					<li>½ÄÃÊÀýÀÓ: 0.5 g/kg ÀÌÇÏ</li>
-					<li>¹ßÈ¿À½·á·ù: 0.05 g/kg ÀÌÇÏ</li>
-					<li>°ú½ÇÁÖ: 0.2 g/kg ÀÌÇÏ</li>
-					<li>¸¶°¡¸°: 1.0 g/kg ÀÌÇÏ</li>
-					<li>ÀúÁö¹æ¸¶°¡¸°: 2.0 g/kg ÀÌÇÏ</li>
-					<li>´ç·ù°¡°øÇ°: 1.0 g/kg ÀÌÇÏ</li>
-					<li>Çâ½Å·áÁ¶Á¦Ç°: 1.0 g/kg ÀÌÇÏ</li>
+					<li>ìžì—°ì¹˜ì¦ˆ, ê°€ê³µì¹˜ì¦ˆ : 3.0 g/kg ì´í•˜</li>
+					<li>ì‹ìœ¡ê°€ê³µí’ˆ: 2.0 g/kg ì´í•˜</li>
+					<li>ì½œë¼ê²ì¼€ì´ì‹±: 0.1 g/kg ì´í•˜</li>
+					<li>ì “ê°ˆë¥˜: 1.0 g/kg ì´í•˜</li>
+					<li>ì•Œë¡œì—ì „ìžŽ ë° ê±´ê°•ê¸°ëŠ¥ì‹í’ˆ: 1.0 g/kg ì´í•˜</li>
+					<li>ë†ì¶•ê³¼ì‹¤ì¦™: 1.0 g/kg ì´í•˜</li>
+					<li>ìž¼ë¥˜: 0.4 g/kg ì´í•˜</li>
+					<li>ê±´ì¡°ê³¼ì‹¤ë¥˜, ì¼€ì²©: 0.5 g/kg ì´í•˜</li>
+					<li>ì‹ì´ˆì ˆìž„: 0.5 g/kg ì´í•˜</li>
+					<li>ë°œíš¨ìŒë£Œë¥˜: 0.05 g/kg ì´í•˜</li>
+					<li>ê³¼ì‹¤ì£¼: 0.2 g/kg ì´í•˜</li>
+					<li>ë§ˆê°€ë¦°: 1.0 g/kg ì´í•˜</li>
+					<li>ì €ì§€ë°©ë§ˆê°€ë¦°: 2.0 g/kg ì´í•˜</li>
+					<li>ë‹¹ë¥˜ê°€ê³µí’ˆ: 1.0 g/kg ì´í•˜</li>
+					<li>í–¥ì‹ ë£Œì¡°ì œí’ˆ: 1.0 g/kg ì´í•˜</li>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

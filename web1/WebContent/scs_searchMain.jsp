@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ page import="java.util.*, java.text.*"%>
 <%
@@ -42,11 +42,11 @@
 	function searchTest(){
 		var searchVal = jQuery('#searchWord').val();
 		
-		if (searchVal != '' && searchVal != '°Ë»ö¾î¸¦ ÀÔ·ÂÇÏ¼¼¿ä.') {
+		if (searchVal != '' && searchVal != 'ê²€ìƒ‰ì–´ë¥¼ ì…ë ¥í•˜ì„¸ìš”.') {
 			jQuery('#keyword').val(jQuery('#searchWord').val());
 // 			alert(jQuery('#keyword').val());
 		} else {
-// 			alert('°Ë»ö¾î¸¦ ÀÔ·ÂÇÏ¼¼¿ä.');
+// 			alert('ê²€ìƒ‰ì–´ë¥¼ ì…ë ¥í•˜ì„¸ìš”.');
 		}
 	}
 	
@@ -58,20 +58,20 @@
 </script>
 
 <body>
-	<!-- ÀüÃ¼ DIV -->
+	<!-- ì „ì²´ DIV -->
 	<div style="margin: auto; z-index:1;">
-		<br><!-- ÀÌ¹ÌÁöDIV  -->
+		<br><!-- ì´ë¯¸ì§€DIV  -->
 		<div align="center">
 			<img src="images/logos/s2food.png" width="65%"  class="logoImg"onclick="imgClick();" style="margin-top:36px;">
 		</div>
-		<!-- ÀÌ¹ÌÁöDIV  -->
+		<!-- ì´ë¯¸ì§€DIV  -->
 		<br> <br>
 		<input type="hidden" id="keyword" value="">
 		<div class="">
 			<table align="center" width=95%>
 				<tr>
-					<td width=70%><input type="text" id="searchWord" value="" style="border-radius:2px 0px 0px 2px; height: 50px; width:100%;" placeholder="  °Ë»ö¾î¸¦ ÀÔ·ÂÇÏ¼¼¿ä."></td>
-					<td width=30%><input type="button" style="border-radius:0px 2px 2px 0px; height: 50px; width:100%;" value="°Ë»ö" onclick="searchBntClick();">
+					<td width=70%><input type="text" id="searchWord" value="" style="border-radius:2px 0px 0px 2px; height: 50px; width:100%;" placeholder="  ê²€ìƒ‰ì–´ë¥¼ ì…ë ¥í•˜ì„¸ìš”."></td>
+					<td width=30%><input type="button" style="border-radius:0px 2px 2px 0px; height: 50px; width:100%;" value="ê²€ìƒ‰" onclick="searchBntClick();">
 					</td>
 				</tr>
 				<tr>
@@ -79,14 +79,14 @@
 				</tr>				
 				<tr>
 					<td colspan="2" class="" height=90px>
-						<titleText class="titleText">°Ë»ö ¼øÀ§</titleText>
+						<titleText class="titleText">ê²€ìƒ‰ ìˆœìœ„</titleText>
 				</tr>
 				<tr>
 					<td colspan="2">
 							<div class=""  id="">
-									<a href="#"	class="list-group-item searchResult listRank " id="¼Ò¸£ºó»ê">1. ¼Ò¸£ºó»ê<br>(Sorbic acid)</a>
-									<a href="#" class="list-group-item searchResult listRank" id="¾ÆÁú»ê ³ªÆ®·ı">2. ¾ÆÁú»ê ³ªÆ®·ı<br>(Sodium nitrite)</a> 
-									<a href="#"	class="list-group-item searchResult listRank" id="¼öÅ©¶ö·Î½º">3. ¼öÅ©¶ö·Î½º<br>(Sucralose)</a> 
+									<a href="#"	class="list-group-item searchResult listRank " id="ì†Œë¥´ë¹ˆì‚°">1. ì†Œë¥´ë¹ˆì‚°<br>(Sorbic acid)</a>
+									<a href="#" class="list-group-item searchResult listRank" id="ì•„ì§ˆì‚° ë‚˜íŠ¸ë¥¨">2. ì•„ì§ˆì‚° ë‚˜íŠ¸ë¥¨<br>(Sodium nitrite)</a> 
+									<a href="#"	class="list-group-item searchResult listRank" id="ìˆ˜í¬ë„ë¡œìŠ¤">3. ìˆ˜í¬ë„ë¡œìŠ¤<br>(Sucralose)</a> 
 						</div>
 					</td>
 				</tr>
@@ -98,5 +98,5 @@
 		</div>
 	</div>
 
-	<!-- ÀüÃ¼ DIV -->
+	<!-- ì „ì²´ DIV -->
 </body>
