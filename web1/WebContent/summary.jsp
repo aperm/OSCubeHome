@@ -18,7 +18,7 @@
 <%
 	Class.forName("oracle.jdbc.driver.OracleDriver");
 	Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1523:scsdbnew", "scsdbrio2", "cube1234");
-	Statement stmt = null;
+	Statemednt stmt = null;
 	ResultSet rs = null;
 	ResultSet rs2 = null;
 	String casNo="";
