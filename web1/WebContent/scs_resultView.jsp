@@ -2,25 +2,96 @@
 	pageEncoding="utf-8"%> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ page import="java.util.*, java.text.*"%>
+<%@ page import="java.io.IOException"%>
+<%@ page
+	import="java.sql.SQLException, java.sql.DriverManager, 
+        java.sql.Connection, java.sql.Statement, java.sql.ResultSet"%>
 <%
-	String s = request.getParameter("param");
-	System.out.println("resultView");
+
+	Class.forName("oracle.jdbc.driver.OracleDriver");
+	Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1523:scsdbnew", "scsdbrio2", "cube1234");
+	Statement stmt = null;
+	ResultSet rs3 = null;
+	ResultSet rs4 = null;
+	
+	//일반물질 - 물질검색 / 상세검색 
+	String chemNameKor = ""; 
+	String chemNameEng = "";
+	String chemId = "";
+	String casNo = "";
+	String keyword = "";
+	 
+	if (request.getParameter("chemNameKor") != null) {
+		keyword = request.getParameter("chemNameKor");
+	}
+	if (request.getParameter("cas") != null) {
+		casNo= request.getParameter("cas");
+	}
+
+	List list = null;
+	ArrayList<HashMap<String, String>> searchList = new ArrayList<HashMap<String, String>>();
+	
+	StringBuffer strQuery = new StringBuffer();
+	StringBuffer strUpdateCountQuery = new StringBuffer();
+	strQuery.setLength(0);
+	strUpdateCountQuery.setLength(0);
+	
+	String test ="update normal_detail_info set count=count+1 where casno ='"+ casNo +"'";
+	strUpdateCountQuery.append("update normal_detail_info set count=count+1 where casno ='");	
+	strUpdateCountQuery.append(casNo+"'");
+	
+	String query2 = strUpdateCountQuery + "";
+ 	System.out.println(test);
+ 	
+	
+	strQuery.append("select chemid, chemnamekor, chemnameeng, casno from normal_detail_info where casno = '");
+	strQuery.append(casNo+"'");
+	
+	String query = strQuery + "";
+	System.out.println(query);
+
+	
+	try {
+		
+		stmt = conn.createStatement();
+ 		rs3 = stmt.executeQuery(test);
+ 		
+ 		
+ 		rs4 = stmt.executeQuery(query);
+		int i = 0; 
+		while (rs4.next()) {
+			
+			HashMap<String, String> hm = new HashMap<String, String>();
+			chemNameKor = rs4.getString("CHEMNAMEKOR");
+			chemNameEng = rs4.getString("CHEMNAMEENG");
+			chemId = rs4.getString("CHEMID");
+			casNo = rs4.getString("CASNO");
+			hm.put("chemNameKor", chemNameKor);
+			hm.put("chemNameEng", chemNameEng);
+			hm.put("chemId", chemId);
+			hm.put("casNo", casNo);
+			
+			searchList.add(hm);
+		}
+		System.out.println(searchList);
+	}
+
+finally {
+	try {
+		if (rs3 != null)
+			rs3.close();
+		if (rs4 != null)
+			rs4.close();
+		if (stmt != null)
+			stmt.close();
+		if (conn != null)
+			conn.close();
+	} catch (Exception e) {
+	}
+}
 %>
 
 <script type="text/javascript">
-
-// 	$(".scroll").click(function(event) {
-		
-// 		var target = $(this.hash);
-// 		alert(target);
-// 	      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-// 	      if (target.length) {
-// 	        $('html,body').animate({
-// 	          scrollTop: target.offset().top
-// 	        }, 1000);
-// 	        return false;
-// 	      }
-// 	});
 	
 	$(window).scroll(function() {
 		if ($(this).scrollTop() > 0) {
@@ -41,7 +112,7 @@
 		$('html, body').animate({
 			scrollTop : 0
 		}, 0);
-		$("#divAll").load("scs_searchResult.jsp",{param:'<%=s%>'});
+		$("#divAll").load("scs_searchResult.jsp",{param:'<%=keyword%>'});
 	});
 
 	// Without JQuery
@@ -79,9 +150,7 @@
 			scrollTop : 0
 		}, 0);
 		var searchWord = $('#searchWord').val();
-		$("#divAll").load("scs_searchResult.jsp", {
-			param : searchWord
-		});
+		$("#divAll").load("scs_searchResult.jsp", {param : searchWord});
 
 	}
 	function keydownFun() {
@@ -103,7 +172,6 @@
 
 	}
 	$("#menuBarTable").attr('height', ($(window).height() / 9));
-// 	$("#searchBarTable").attr('height', ($(window).height() / 10));
 	$("#contentDown").css('margin-top', ($(window).height() / 5));
 	$("#logoImgId").attr('height', ($(window).height() / 11));
 	$("#progressBar").attr('width', ($(window).width() / 2.2));
@@ -186,58 +254,6 @@
 
 .titleTextLine {border-top:1px solid #d9d9d9; padding:30px 5px 15px; color:#666; margin-top:10px;line-height:10px;letter-spacing:-1px; text-shadow:0 0 0 !important; }
 
-
-
-.btn-custom2 {
-  background-color: hsl(188, 88%, 57%) !important;
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#caf5fb", endColorstr="#30d8f1");
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#caf5fb), to(#30d8f1));
-  background-image: -moz-linear-gradient(top, #caf5fb, #30d8f1);
-  background-image: -ms-linear-gradient(top, #caf5fb, #30d8f1);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #caf5fb), color-stop(100%, #30d8f1));
-  background-image: -webkit-linear-gradient(top, #caf5fb, #30d8f1);
-  background-image: -o-linear-gradient(top, #caf5fb, #30d8f1);
-  background-image: linear-gradient(#caf5fb, #30d8f1);
-  border-color: #30d8f1 #30d8f1 hsl(188, 88%, 49%);
-  color: #333 !important;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.52);
-  -webkit-font-smoothing: antialiased;
-}
-
-.btn-custom3 {
-  background-color: hsl(161, 12%, 50%) !important;
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b4c4bf", endColorstr="#708e85");
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#b4c4bf), to(#708e85));
-  background-image: -moz-linear-gradient(top, #b4c4bf, #708e85);
-  background-image: -ms-linear-gradient(top, #b4c4bf, #708e85);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #b4c4bf), color-stop(100%, #708e85));
-  background-image: -webkit-linear-gradient(top, #b4c4bf, #708e85);
-  background-image: -o-linear-gradient(top, #b4c4bf, #708e85);
-  background-image: linear-gradient(#b4c4bf, #708e85);
-  border-color: #708e85 #708e85 hsl(161, 12%, 44%);
-  color: #333 !important;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.39);
-  -webkit-font-smoothing: antialiased;
-}
-
-.btn-custom4 {
-  background-color: hsl(168, 100%, 87%) !important;
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#bcfff1", endColorstr="#bcfff1");
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#bcfff1), to(#bcfff1));
-  background-image: -moz-linear-gradient(top, #bcfff1, #bcfff1);
-  background-image: -ms-linear-gradient(top, #bcfff1, #bcfff1);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #bcfff1), color-stop(100%, #bcfff1));
-  background-image: -webkit-linear-gradient(top, #bcfff1, #bcfff1);
-  background-image: -o-linear-gradient(top, #bcfff1, #bcfff1);
-  background-image: linear-gradient(#bcfff1, #bcfff1);
-  border-color: #bcfff1 #bcfff1 hsl(168, 100%, 87%);
-  color: #333 !important;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.00);
-  -webkit-font-smoothing: antialiased;
-}
 
 td {
   padding-top: 4px;

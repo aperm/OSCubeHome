@@ -17,19 +17,23 @@
 
 <%
 	Class.forName("oracle.jdbc.driver.OracleDriver");
-	Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1522:TestDB2", "rio2","cube1234");
+	Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1523:scsdbnew", "scsdbrio2", "cube1234");
 	Statement stmt = null;
 	ResultSet rs = null;
 	ResultSet rs2 = null;
-
-	String itemDetail = "";
-	int searchCount = 0;
+	String casNo="";
 	String chemId = "";
-	String query = "";
 	String nameKey = "";
 	String keyword = "";
+	String totalCount = "1";
+	String query = "";
+	String useSummary = "";
+	int totalC = 1;
+	int pageNo = 1;
 	URL url;
-	int count = 0;
+	String nameEng="";
+	String rownum="";
+	int count=0;
 	//1 성진이 인증키 XDdQwgagRrOoZQaTQPnlX6ODoKuyXZpXXhBnoMLClGwUzCv6dLFjyazFHnL2laDEsYyqEBZGdJ4%2BzL%2BVE%2F2IvA%3D%3D
 	//1 성진이 서버용 Y%2BxS%2F3tCi6sMzhfvBCLT74vNM4oBc4w45a8cTIu69UsVMew1%2BRD87hiIfWl18R4o4WexyennCcKAwIpsh6Pv4Q%3D%3D 
 	//2 팀장님 인증키 Teex%2F252QFVJdaJ1IG5HHrIqXSLre2RRWPT64DGjzBSKVG2u0jhQBwuRHH2bx%2FOYO%2FGJicNPoY2ICxuCQeljxg%3D%3D
@@ -52,26 +56,16 @@
 	String key12 = "lwLBez9Jg8BSZPpb99z1XKZDvGejPNs7cXh%2FouTiLes2ej8MvCX2hoeOLhy6vkYLxktAL5Oyc7Bxo5FfHhxA6A%3D%3D";
 	
 	StringBuffer strAddr = new StringBuffer();
-	strAddr.append("http://msds.kosha.or.kr/openapi/service/msdschem/chemdetail03?ServiceKey=");
-	strAddr.append(key1);
-	int keyCount =1;
-			//시작 key 값 하고 keyCount 맞춰
-	
-	
-
+	strAddr.append("http://www.nifds.go.kr/toxinfo/openapi/openapi/service/rest/ChmclsGnrlInfoInqireService/getChmclsGnrlSummayInfoInqire?numOfRows=3&gubun=2&ServiceKey=");
+	strAddr.append(key4);
+	int keyCount = 1;
+	strAddr.append("&keyword=");
 	StringBuffer strQuery = new StringBuffer();
-	
-	
-	
 	List list = null;
 	ArrayList<HashMap<String, String>> nameList = new ArrayList<HashMap<String, String>>();
-	ArrayList<HashMap<String, String>> detailList = new ArrayList<HashMap<String, String>>();
+	String selectQuery = ("select CHEMNAMEENG from normal_info where chemid > (select min(chemid) from normal_summary where usesummary = 'null')-1 order by chemid");
 	
-	HashMap<String, String> detailHash = new HashMap<String, String>();
 	
-// 	String selectQuery = ("select rownum,rn,chemid from (select rownum rn, chemid from msds_data order by chemid) a where 13958 < chemid");
-	String selectQuery = ("select chemid from msds_data_detail where chemid > (select min(chemid) from msds_data_detail where nvl(common_name,0) = '0')-1 order by chemid");
-	System.out.println(selectQuery);
 	try {
 		SAXBuilder parser = new SAXBuilder();
 		parser.setValidation(false);
@@ -79,114 +73,61 @@
 
 		stmt = conn.createStatement();
 		rs2 = stmt.executeQuery(selectQuery);
-		
 		while (rs2.next()) {
 			HashMap<String, String> hm = new HashMap<String, String>();
-			chemId = rs2.getString("CHEMID");
-			hm.put("chemId", chemId);
+			nameEng = rs2.getString("CHEMNAMEENG");
+			hm.put("nameEng", nameEng);
 			nameList.add(hm);
-			
 		}
-		System.out.println(nameList);
-		
-		for (int j = 0; j < 1; j++) {
-	
-			keyword = nameList.get(j).get("chemId");
-			searchCount++;
-			
-			if(searchCount == 999)
-			{
-				System.out.println(searchCount+"   searchCount");
-				strAddr.setLength(0);
-				strAddr.append("http://msds.kosha.or.kr/openapi/service/msdschem/chemdetail03?ServiceKey=");
-				if(keyCount==1)
-				{
-					strAddr.append(key2);
-				}else if(keyCount==2)
-				{
-					strAddr.append(key3);
-				}else if(keyCount==3)
-				{
-					strAddr.append(key4);
-				}else if(keyCount==4)
-				{
-					strAddr.append(key5);
-					
-				}else if(keyCount==5)
-				{
-					strAddr.append(key6);
-				}else if(keyCount==6)
-				{
-					strAddr.append(key7);
-				}else if(keyCount==7)
-				{
-					strAddr.append(key8);
-				}else if(keyCount==8)
-				{
-					strAddr.append(key9);
-				}else if(keyCount==9)
-				{
-					strAddr.append(key10);
-				}else if(keyCount==10)
-				{
-					strAddr.append(key11);
-				}else if(keyCount==11)
-				{
-					strAddr.append(key12);
-				}else if(keyCount == 12)
-				{
-					System.out.println("12번끝");
-					
-					keyCount=1;
-				}
-				keyCount++;
-				searchCount=0;
-			}
-			
-			strQuery.setLength(0);
-			strQuery.append("update msds_data_detail set COMMON_NAME = '");
-			
-			url = new URL(strAddr + "&chemId="+keyword);
-// 			System.out.println(url);
-			InputSource is = new InputSource(url.openStream());
-			Document doc = parser.build(is);
 
-			// 우선 root 엘리먼트를 가져온다. 여기서는 inventory
-			Element root = doc.getRootElement();
-			Element eBody = root.getChild("body");
-			Element items = eBody.getChild("items");
-			list = items.getChildren("item");
+		for (int j = 0; j < nameList.size(); j++) {
 
-			for (int i = 0; i < list.size(); i++) {
-				Element el = (Element) list.get(i);
-				itemDetail = el.getChildText("itemDetail");
-				if (itemDetail != null) {
-					itemDetail = itemDetail.replace("\'", "\''").replace("\"", "\\\"");
-				}else if(itemDetail==null)
-				{
-					itemDetail = "자료없음";			
-				}
+			for (int k = 1; k < totalC + 1; k++) {
+				count++;
+				nameKey = nameList.get(j).get("nameEng");
+				keyword = URLEncoder.encode(nameKey, "UTF-8");
+				url = new URL(strAddr + keyword + "&pageNo=" + pageNo);
+// 				System.out.println(url);
+				InputSource is = new InputSource(url.openStream());
+				Document doc = parser.build(is);
+
+				// 우선 root 엘리먼트를 가져온다. 여기서는 inventory
+				Element root = doc.getRootElement();
+				Element eBody = root.getChild("body");
+				Element items = eBody.getChild("items");
+				list = items.getChildren("item");
 				
-				detailHash.put(Integer.toString(i),itemDetail);
-			}
-			detailList.add(detailHash);
+				// 전체 검색 개수 많을 때 3으로 나눠서 페이지 이동 하는 부분 
+				totalCount = eBody.getChildText("totalCount");
+				totalC = (int) Math.ceil((double) (Integer.parseInt(totalCount)) / 3);
+				if (totalC > pageNo) {
+					pageNo++;
+				} else if (totalC == pageNo) {
+					pageNo = 1;
+				}
 
-			strQuery.append(detailList.get(0).get("1"));
-			strQuery.append("', CAS_NUMBER='");
-			strQuery.append(detailList.get(0).get("2"));
-			
-			strQuery.append("', CONTENT_RATE='");
-			strQuery.append(detailList.get(0).get("3"));
-			
-			strQuery.append("' where chemid=");
-			strQuery.append(keyword);
-			
-			query = strQuery+"";
-			rs = stmt.executeQuery(query);
-// 			System.out.println(strQuery);
-			System.out.println(j + " : " +keyCount +"  / " + searchCount +" / "+ keyword);
-		} //pageNo 에 따른 포문
-
+				for (int i = 0; i < list.size(); i++) {
+					Element el = (Element) list.get(i);
+					casNo = el.getChildText("casNo");
+					
+					useSummary = el.getChildText("useSumary");
+					if (useSummary != null) {
+						useSummary = useSummary.replace("\'", "\''").replace("\"", "\\\"");
+					}else if(useSummary == null) {
+						useSummary = "해당사항 없음";
+					}
+					
+					strQuery.setLength(0);
+					strQuery.append("update normal_summary set usesummary = '"+useSummary+"' where casno='");
+					strQuery.append(casNo+"'");
+					
+					query = strQuery+"";			
+ 					System.out.println(query);
+					rs = stmt.executeQuery(query);
+				}
+				System.out.println(j + " : " + casNo+"  "+count);
+			} //pageNo 에 따른 포문
+		}
 	} catch (JDOMException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();

@@ -70,7 +70,6 @@ function imgClick(){
 }
 function loginclick() {
 	$("#divAll").load("scs_searchMain.jsp");
-// 	$("#divAll").load("scs_resultView.jsp");
 }
 
 </script>

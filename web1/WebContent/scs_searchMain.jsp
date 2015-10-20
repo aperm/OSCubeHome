@@ -8,14 +8,15 @@
 %>
 
 <script>
-	jQuery(document).ready(function($) {
 		$(".searchResult").click(function(event) {
-		 	var th = $(this);
-		 	var th_id = th.attr('id');
-		 	$("#divAll").load("scs_resultView.jsp", {param:th_id});
+			var th = $(this);
+			var th_cnk = th.attr('id');
+			var th_cas = th.attr('cas')
+			$('html, body').animate({ 
+				scrollTop : 0
+			}, 0);
+			$("#divAll").load("scs_resultView.jsp", {chemNameKor : th_cnk, cas : th_cas});
 		});
-	});
-	
 	
 		$(window).scroll(function() {
 			if ($(this).scrollTop() > 0) {
@@ -44,17 +45,27 @@
 		
 		if (searchVal != '' && searchVal != '검색어를 입력하세요.') {
 			jQuery('#keyword').val(jQuery('#searchWord').val());
-// 			alert(jQuery('#keyword').val());
 		} else {
-// 			alert('검색어를 입력하세요.');
 		}
 	}
 	
 	function searchBntClick() {
 		 var searchWord = $('#searchWord').val();
-		 $("#divAll").load("scs_searchResult.jsp", {param:searchWord});
+		 $("#divAll").load("scs_searchResult.jsp", {chemNameKor:searchWord});
 		 
 	}
+	
+	
+	$(function () {
+		
+	    $("#searchWord").keydown(function (key) {
+	        if (key.keyCode == 13) {
+	            alert($("#searchWord").val());
+	            $("#searchWord").val("");
+	        }
+	    });
+	
+	});
 </script>
 
 <body>
@@ -84,9 +95,9 @@
 				<tr>
 					<td colspan="2">
 							<div class=""  id="">
-									<a href="#"	class="list-group-item searchResult listRank " id="소르빈산">1. 소르빈산<br>(Sorbic acid)</a>
-									<a href="#" class="list-group-item searchResult listRank" id="아질산 나트륨">2. 아질산 나트륨<br>(Sodium nitrite)</a> 
-									<a href="#"	class="list-group-item searchResult listRank" id="수크랄로스">3. 수크랄로스<br>(Sucralose)</a> 
+									<a href="#"	class="list-group-item searchResult listRank " id="소르빈산" cas="">1. 소르빈산<br>(Sorbic acid)</a>
+									<a href="#" class="list-group-item searchResult listRank" id="아질산 나트륨" cas="">2. 아질산 나트륨<br>(Sodium nitrite)</a> 
+									<a href="#"	class="list-group-item searchResult listRank" id="수크랄로스" cas="">3. 수크랄로스<br>(Sucralose)</a> 
 						</div>
 					</td>
 				</tr>

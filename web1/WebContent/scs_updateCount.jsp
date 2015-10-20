@@ -15,14 +15,11 @@
 	ResultSet rs = null;
 	
 	//일반물질 - 물질검색 / 상세검색 
-	String chemNameKor = ""; 
-	String chemNameEng = "";
-	String chemId = "";
 	String casNo = "";
 	String keyword = "";
 	 
-	if (request.getParameter("chemNameKor") != null) {
-		keyword = request.getParameter("chemNameKor");
+	if (request.getParameter("param") != null) {
+		keyword = request.getParameter("param");
 	}
 
 	List list = null;
@@ -40,7 +37,7 @@
 	strQuery.append("\')||'%\'");
 	
 	String query = strQuery + "";
-// 	System.out.println(query);
+	System.out.println(query);
 	try {
 	
 		stmt = conn.createStatement();
@@ -60,7 +57,7 @@
 			
 			searchList.add(hm);
 		}
-// 		System.out.println(searchList);
+		System.out.println(searchList);
 	}
 
 finally {
@@ -98,12 +95,11 @@ finally {
 	
 	$(".searchResult").click(function(event) {
 		var th = $(this);
-		var th_cnk = th.attr('id');
-		var th_cas = th.attr('cas')
+		var th_id = th.attr('id');
 		$('html, body').animate({ 
 			scrollTop : 0
 		}, 0);
-		$("#divAll").load("scs_resultView.jsp", {chemNameKor : th_cnk, cas : th_cas});
+		$("#divAll").load("scs_resultView.jsp", {param : th_id});
 	});
 
 	
@@ -262,13 +258,13 @@ td {
 										if(i%2 == 0 || i%2==2)
 										{
 											%>
-											<a href="#" class="list-group-item searchResult" id="<%=chemNameKor%>" cas="<%=casNo%>">
+											<a href="#" class="list-group-item searchResult" id="<%=chemNameKor%>">
 										<%
 										}
 										else if(i%2==1)
 										{
 										%>
-											<a href="#" class="list-group-item searchResult list-group-item-info" id="<%=chemNameKor%>" cas="<%=casNo%>">
+											<a href="#" class="list-group-item searchResult list-group-item-info" id="<%=chemNameKor%>">
 										<%
 										}
 										%>
