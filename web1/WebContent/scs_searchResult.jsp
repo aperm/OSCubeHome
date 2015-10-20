@@ -2,39 +2,122 @@
 	pageEncoding="utf-8"%> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ page import="java.util.*, java.text.*"%>
+<%@ page import="java.io.IOException"%>
+<%@ page
+	import="java.sql.SQLException, java.sql.DriverManager, 
+        java.sql.Connection, java.sql.Statement, java.sql.ResultSet"%>
+        
 <%
-	String s = request.getParameter("param");
-	// 	System.out.println(s);
+	Class.forName("oracle.jdbc.driver.OracleDriver");
+	Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1523:scsdbnew", "scsdbrio2", "cube1234");
+	Statement stmt = null;
+	ResultSet rs = null;
+	
+	//일반물질 - 물질검색 / 상세검색 
+	String chemNameKor = ""; 
+	String chemNameEng = "";
+	String chemId = "";
+	String casNo = "";
+// 	String keyword = "";
+	 
+	if (request.getParameter("param") != null) {
+		keyword = request.getParameter("param");
+	}
+
+	List list = null;
+	ArrayList<HashMap<String, String>> searchList = new ArrayList<HashMap<String, String>>();
+	
+	StringBuffer strQuery = new StringBuffer();
+	strQuery.append("select a.chemid, a.chemnamekor, a.chemnameeng, a.casno from normal_info a where chemid like \'%");
+	strQuery.append(keyword);
+	strQuery.append("%\' or chemnamekor like \'%");
+	strQuery.append(keyword);
+	strQuery.append("%\' or casno like \'%");
+	strQuery.append(keyword);
+	strQuery.append("%\' or upper(chemnameeng) like \'%\'|| upper(\'");
+	strQuery.append(keyword);
+	strQuery.append("\')||'%\'");
+	
+	String query = strQuery + "";
+	System.out.println(query);
+	try {
+	
+		stmt = conn.createStatement();
+		rs = stmt.executeQuery(query);
+		int i = 0; 
+		while (rs.next()) {
+			
+			HashMap<String, String> hm = new HashMap<String, String>();
+			chemNameKor = rs.getString("CHEMNAMEKOR");
+			chemNameEng = rs.getString("CHEMNAMEENG");
+			chemId = rs.getString("CHEMID");
+			casNo = rs.getString("CASNO");
+			hm.put("chemNameKor", chemNameKor);
+			hm.put("chemNameEng", chemNameEng);
+			hm.put("chemId", chemId);
+			hm.put("casNo", casNo);
+			
+			searchList.add(hm);
+		}
+		System.out.println(searchList);
+	}
+
+finally {
+	try {
+		if (rs != null)
+			rs.close();
+		if (stmt != null)
+			stmt.close();
+		if (conn != null)
+			conn.close();
+	} catch (Exception e) {
+	}
+}
+	
 %>
 
 <script type="text/javascript">
-$(window).scroll(function() {
+	$(window).scroll(function() {
 	if ($(this).scrollTop() > 0) {
 		$('.btnTop').fadeIn();
 	} else {
 		$('.btnTop').fadeOut();
 	}
-});
+	});
 
-$('.btnTop').click(function() {
-	$('html, body').animate({
-		scrollTop : 0
-	}, 450);
-	return false;
-});
+	$('.btnTop').click(function() {
+		$('html, body').animate({
+			scrollTop : 0
+		}, 450);
+		return false;
+	});
 
 	
 	$(".searchResult").click(function(event) {
 		var th = $(this);
 		var th_id = th.attr('id');
+		$('html, body').animate({ 
+			scrollTop : 0
+		}, 0);
 		$("#divAll").load("scs_resultView.jsp", {param : th_id});
 	});
 
 	
 	$('.pageBack').click(function() {
+		$('html, body').animate({
+			scrollTop : 0
+		}, 0);
 		$("#divAll").load("scs_searchMain.jsp");
 	});
 	
+	
+	window.onload=function()
+	{
+		$('html, body').animate({
+			scrollTop : 0
+		}, 0);
+		alert("d");
+	}
 	
 	function searchBntClick() {
 		 var searchWord = $('#searchWord').val();
@@ -153,6 +236,13 @@ td {
 					<tr>
 						<td colspan="2">
 							<div class="list-group" id="testdiv" style="">
+								<% 
+// 									여기에 포문
+								
+								
+								
+								%>
+								
 								<a href="#" class="list-group-item searchResult" id="소르빈산">
 								<span class="label label-info">국문명</span> 소르빈산<br>
 								<span class="label label-info">영문명</span> Sorbic acid<br>

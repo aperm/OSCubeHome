@@ -61,7 +61,7 @@ dl{
 	Statement stmt = null;
 	ResultSet rs = null;
 
-	//일반물질 - 물질검색 / 상세검색 
+	//일df반물질 - 물질검색 / 상세검색 
 	String categoryName = "";
 	String chemNameKor = "";
 	String chemNameEng = "";

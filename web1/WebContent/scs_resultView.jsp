@@ -38,6 +38,9 @@
 	});
 
 	$('.pageBack').click(function() {
+		$('html, body').animate({
+			scrollTop : 0
+		}, 0);
 		$("#divAll").load("scs_searchResult.jsp",{param:'<%=s%>'});
 	});
 
@@ -72,6 +75,9 @@
 	});
 
 	function searchBntClick() {
+		$('html, body').animate({
+			scrollTop : 0
+		}, 0);
 		var searchWord = $('#searchWord').val();
 		$("#divAll").load("scs_searchResult.jsp", {
 			param : searchWord

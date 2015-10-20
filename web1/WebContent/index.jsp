@@ -94,7 +94,7 @@
 			<b>MENU</b><span class="caret"></span>
 		</button>
 		<ul class="dropdown-menu" role="menu">
-			<li><a href="#target1" class="scroll"><b>HOME</b></a></li>
+			<li><a href="#target0" class="scroll"><b>HOME</b></a></li>
 			<li><a href="#target2" class="scroll"><b>MISSION</b></a></li>
 			<li><a href="#target3" class="scroll"><b>EXPERTISE</b></a></li>
 			<li><a href="#target4" class="scroll"><b>MEMBERS</b></a></li>
@@ -179,7 +179,7 @@
 			</div>
 			
 			
-			<div id="target5" style="height: 300px; margin-top: 100px;">
+			<div id="target4" style="height: 300px; margin-top: 100px;">
 				<div class="page-header">
 					<h1><b>MEMBERS</b></h1>
 				</div>
