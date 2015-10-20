@@ -91,27 +91,38 @@
 		style="position: fixed; left: 10%; top: 100px; z-index: 100;">
 		<button class="btn btn-default btn-lg dropdown-toggle" type="button"
 			data-toggle="dropdown" aria-expanded="false">
-			MENU <span class="caret"></span>
+			<b>MENU</b><span class="caret"></span>
 		</button>
 		<ul class="dropdown-menu" role="menu">
-			<li><a href="#target1" class="scroll">HOME</a></li>
-			<li><a href="#target2" class="scroll">MISSION</a></li>
-			<li><a href="#target3" class="scroll">EXPERTISE</a></li>
-			<li><a href="#target4" class="scroll">OPEN POSITIONS</a></li>
-			<li><a href="#target6" class="scroll">PARTNERS</a></li>
+			<li><a href="#target1" class="scroll"><b>HOME</b></a></li>
+			<li><a href="#target2" class="scroll"><b>MISSION</b></a></li>
+			<li><a href="#target3" class="scroll"><b>EXPERTISE</b></a></li>
+			<li><a href="#target4" class="scroll"><b>MEMBERS</b></a></li>
+			<li><a href="#target5" class="scroll"><b>OPEN POSITIONS</b></a></li>
+			<li><a href="#target6" class="scroll"><b>PARTNERS</b></a></li>
 			<li class="divider"></li>
-			<li><a href="#target7" class="scroll">CONTACT</a></li>
-			<li><a href="#target9" class="scroll">소개</a></li>
+			<li><a href="#target7" class="scroll"><b>CONTACT</b></a></li>
 		</ul>
 	</div>
 	
 	
-	<table id="target0"  background="images/back.png" style="marhin:auto; text-align:center; width:100%;" >
+<!-- 	<table id="target0"  background="images/back.png" style="marhin:auto; text-align:center; width:100%;" > -->
+<!-- 		<tr> -->
+<!-- 			<td width="25%" background="back.png"> -->
+<!-- 			</td> -->
+<!-- 			<td style="" align="right" valign="middle"> -->
+<!-- 				<img src="images/main_logo_inverse.png"> -->
+<!-- 			</td> -->
+<!-- 			<td  width="25%"> -->
+<!-- 			</td> -->
+<!-- 		</tr> -->
+		
+	<table id="target0" style="marhin:auto; text-align:center; width:100%; margin-top:100px;">
 		<tr>
-			<td width="25%" background="back.png">
+			<td width="25%" >
 			</td>
-			<td style="" align="right" valign="middle">
-				<img src="images/main_logo_inverse.png">
+			<td  align="center" valign="middle">
+				<img src="images/main_logo.png">
 			</td>
 			<td  width="25%">
 			</td>
@@ -121,7 +132,7 @@
 
 	<!-- 전체를 감싸는 div -->
 	<div class="container"
-		style="margin: auto;  padding: 10px; text-align: center; margin-top: 100px;">
+		style="margin: auto;  padding: 10px; text-align: center; margin-top: 10px;">
 		<div class="outer">
 			<div class="inner">
 			
@@ -129,8 +140,8 @@
 <!-- 				<img src="images/main_logo.png"> -->
 <!-- 			</div> -->
 			<br><br> <br>
-			<div id="target2"
-				style="margin: 0 auto; margin-top: 100px; height: auto; ">
+			<div id="target2" 
+				style="margin: auto; line-height:250px; height:250px; vertical-align:middle;">
 				
 				<img src="images/mission.png" width="850px">
 <!-- 				<font style="font-family: 'Malgun Gothic';" color="#006098"> -->
@@ -149,67 +160,66 @@
 				<div class="page-header">
 					<h1><b>EXPERTISE</b></h1>
 				</div>
-				<div style="text-align:left; margin-left:15%">
-					<font>
-					<h3> 
-					<ul>
-						<li>Providing certified measurement solutions for chemicals and nanomaterials</li>
-						<li>Discovering knowledge & wisdoms on human health, safety, and environment</li>
-						<li>Developing predictive analytics technologies for better human life</li>
-						<li>Training & consulting service for consumers, business and goverment sectors</li>
-					</ul>
-						</h3>
-					</font>
+				
+				<div style="margin:auto;">
+					
+					<div style="text-align:left; width:900px; margin:auto;" >
+						<font>
+						<h3> 
+						<ul><b>
+							<li>Providing certified measurement solutions for chemicals and nanomaterials</li>
+							<li>Discovering knowledge & wisdoms on human health, safety, and environment</li>
+							<li>Developing predictive analytics technologies for better human life</li>
+							<li>Training & consulting service for consumers, business and goverment sectors</li>
+						</ul></b>
+							</h3>
+						</font>
+					</div>
 				</div>
 			</div>
-			<div id="target4" style="height: 300px; margin-top: 100px;">
+			
+			
+			<div id="target5" style="height: 300px; margin-top: 100px;">
+				<div class="page-header">
+					<h1><b>MEMBERS</b></h1>
+				</div>
+			</div>
+			
+			
+			
+			
+			<div id="target5" style="height: 300px; margin-top: 30px;">
 				<div class="page-header">
 					<h1><b>OPEN POSITIONS</b></h1>
 				</div>
-				<h3>
-				We have open positions for data curator and data analyst<br> 
-				who will work on the the predictive analytics of biomedical, safety and environmental data.<br>
-				If you are interested in this position,<br>
-				Send us your resume or CV directly to oscube.com@gmail.com.<br> 
-				</h3>
+				<h3><b>
+				We have open positions for data curators and analysts<br>
+who will work on the predictive analytics.<br>
+For application, send us your resume or CV directly to <br><br><font size=6pt>oscube.com@gmail.com</font><br> 
+				</h3></b>
 			</div>
 
 			<div id="target6"
-				style="margin: auto;  margin-top: 100px; text-align: center;">
+				style="margin: auto;  margin-top: 100px; text-align: center; align:center;">
 				<div class="page-header">
 					<h1><b>PARTNERS</b></h1>
 				</div>
-				<div class="row" style="text-align:center; margin:auto;">
-					<div class="col-sm-13 col-md-13">
-						<div class="">
-							<img
-								src="images/logos/hanyang_1.png" width="100%">
-						</div>
-					</div>
-<!-- 					<div class="col-sm-13 col-md-13"> -->
-<!-- 						<div class="imgclass1"> -->
-<!-- 						<img -->
-<!-- 								src="images/logos/s2nano.png" width=360> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
-<!-- 					<div class="col-sm-13 col-md-13"> -->
-<!-- 						<div class="imgclass1"> -->
-<!-- 							<img -->
-<!-- 								src="images/logos/to21.png" width=250> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
-<!-- 					<div class="col-sm-13 col-md-13"> -->
-<!-- 						<div class="imgclass1"> -->
-<!-- 							<img -->
-<!-- 								src="images/logos/kangwon.png" width=250> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
-					<div class="col-sm-13 col-md-13">
-						<div class="">
-							<img
-								src="images/logos/yonsei_1.png" width="100%">
-						</div>
-					</div>
+				<div class="row" style="text-align:center; margin:auto; align:center;">
+					<table align="center" text-align="center">
+						<tr>
+							<td><img src="images/logos/hanyang_1.png" width="50%"></td>
+							<td><img src="images/logos/s2nano_logo.png" width="115px" style="margin-bottom:10px;"></td>
+							<td><img src="images/logos/yonsei_1.png" width="50%"></td>		
+						</tr>
+						<tr><td height=30px></td></tr>
+<!-- 						<tr> -->
+<!-- 							<td><img src="images/logos/s2nano_logo.png" width="100px"></td> -->
+<!-- 						</tr> -->
+<!-- 						<tr><td height=30px></td></tr> -->
+<!-- 						<tr> -->
+<!-- 							<td><img src="images/logos/yonsei_1.png" width="50%"></td>							 -->
+<!-- 						</tr> -->
+					</table>
 				</div>
 			</div>
 
@@ -226,30 +236,29 @@
 		</div>	<!-- 		//outer -->
 	</div>	<!-- 		//container -->
 	
-	
-	<table id="target9"  align="center" style=" background-color: gray; marhin:auto; text-align:center; width:100%;" >
+	<div style="width:100%;  background-image:url('images/test2.png');"> 
+	<table id="target9"  align="center"  style="marhin:auto; text-align:center; width:700;" >
 		<tr>
-			<td width="25%">
+			
+			<td style="" align="right" valign="middle"  width="200px">
+				<img src="images/logo_H_2.png" width=200  align="left">
 			</td>
-			<td style="" align="right" valign="middle"  width="50%">
-				<img src="images/footer_logo.png" width=80  align="left">
+			<td width="500px" align="right">
 				<small>
-					<font color="white">OSCube Co., Ltd.<br>
-								#211, E&C Venture Dream Tower #2 Bldg., 55, Digital-ro 33-gil, Guro-gu, Seoul, 08376, Rep. of KOREA <br> 
+					<font color="white"><font size=4pt>OSCube Co., Ltd.</font><br>
+								#211, E&C Venture Dream Tower #2 Bldg., 55, Digital-ro 33-gil, <br>Guro-gu, Seoul, 08376, Rep. of KOREA <br> 
 								+82-2-855-3688 / oscube.com@gmail.com <br> COPYRIGHT ⓒ OSCube. ALL RIGHTS RESERVED.
 					</font>
-				 </small>
+				 </small>			
 			</td>
-			<td  width="25%">
-			</td>
+			
 		</tr>
 		<tr>
 			<td height="-1.9em">
 		
 			</td>
 		</tr>
-	
 	</table>
-
+	</div>
 </body>
 </html>
