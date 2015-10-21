@@ -34,9 +34,10 @@ public class SearchList {
 			stmt = con.createStatement();
 			rset = null;
 
+			// 특정 물질 검색 시 한글,영문,casno 에서 조회 - count 많은것이 위로
 			if (gubun.equals("searchList")) {
 				strQuery.setLength(0);
-				strQuery.append("select a.chemid, a.chemnamekor, a.chemnameeng, a.casno from normal_info a where chemid like \'%");
+				strQuery.append("select c.* from (select b.*, rownum rn from (select a.chemid, a.chemnamekor, a.chemnameeng, a.casno, a.count from normal_detail_info a where chemid like \'%");
 				strQuery.append(keyword);
 				strQuery.append("%\' or chemnamekor like \'%");
 				strQuery.append(keyword);
@@ -44,9 +45,10 @@ public class SearchList {
 				strQuery.append(keyword);
 				strQuery.append("%\' or upper(chemnameeng) like \'%\'|| upper(\'");
 				strQuery.append(keyword);
-				strQuery.append("\')||'%\'");
+				strQuery.append("\')||'%\' order by count desc) b) c");
 
 				String query = strQuery + "";
+				System.out.println(query);
 				rset = stmt.executeQuery(query);
 
 				while (rset.next()) {
@@ -63,7 +65,9 @@ public class SearchList {
 					searchList.add(hmsl);
 				}
 
-			} else if (gubun.equals("rankList")) {
+			}
+			// main화면에 나오는 검색순위 리스트 top3
+			else if (gubun.equals("rankList")) {
 
 				strQuery.setLength(0);
 				strQuery.append("select a.*, rownum rn from (select chemnamekor,chemnameeng,casno, count from normal_detail_info where casno !='null' order by count desc) a where rownum < 4");
@@ -75,7 +79,7 @@ public class SearchList {
 					chemNameEng = rset.getString("CHEMNAMEENG");
 					casNo = rset.getString("CASNO");
 					count = rset.getString("COUNT");
-					
+
 					hmrl.put("chemNameKor", chemNameKor);
 					hmrl.put("chemNameEng", chemNameEng);
 					hmrl.put("casNo", casNo);
@@ -83,32 +87,34 @@ public class SearchList {
 
 					searchList.add(hmrl);
 				}
-			} 
-			//selectCasNo 물질 선택 후 3.추가정보 부분
-			else if (gubun.equals("selectCasNo"))
-			{
+			}
+			// selectCasNo 물질 선택 후 3.추가정보 부분
+			else if (gubun.equals("selectCasNo")) {
 				strQuery.setLength(0);
-				strQuery.append("");
+				strQuery.append("select chemnamekor, chemnameeng, casno, molfor, molwgt, den from normal_detail_info where casno = '"+ keyword + "'");
 				String query = strQuery + "";
-				System.out.println(query);
+				// System.out.println(query);
 				rset = stmt.executeQuery(query);
 				while (rset.next()) {
-					HashMap<String, String> hmrl = new HashMap<String, String>();
+					HashMap<String, String> hmsc = new HashMap<String, String>();
 					chemNameKor = rset.getString("CHEMNAMEKOR");
 					chemNameEng = rset.getString("CHEMNAMEENG");
 					casNo = rset.getString("CASNO");
-					count = rset.getString("COUNT");
-					
-					hmrl.put("chemNameKor", chemNameKor);
-					hmrl.put("chemNameEng", chemNameEng);
-					hmrl.put("casNo", casNo);
-					hmrl.put("count", count);
+					String molfor = rset.getString("MOLFOR");
+					String molwgt = rset.getString("MOLWGT");
+					String den = rset.getString("DEN");
 
-					searchList.add(hmrl);
+					hmsc.put("chemNameKor", chemNameKor);
+					hmsc.put("chemNameEng", chemNameEng);
+					hmsc.put("casNo", casNo);
+					hmsc.put("molfor", molfor);
+					hmsc.put("molwgt", molwgt);
+					hmsc.put("den", den);
+
+					searchList.add(hmsc);
 				}
-				
-			}
-			else if (gubun.equals("selectView")) {
+
+			} else if (gubun.equals("selectView")) {
 
 			}
 
@@ -131,8 +137,7 @@ public class SearchList {
 			System.out.println(cnfe.getMessage());
 		}
 
-		try 
-		{
+		try {
 			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1523:scsdbnew", "scsdbrio2", "cube1234");
 			stmt = con.createStatement();
 			rset = null;
@@ -143,8 +148,7 @@ public class SearchList {
 			rset.close();
 			stmt.close();
 			con.close();
-		} catch (SQLException sqle)
-		{
+		} catch (SQLException sqle) {
 			sqle.printStackTrace();
 			System.out.println(sqle.getMessage());
 		}

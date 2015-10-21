@@ -4,6 +4,12 @@
 <%@ page import="java.util.*, java.text.*"%>
 <jsp:useBean id="searchList2" class="scs.SearchList"/>
 <% 
+
+	String chemNameKor = "";
+	String chemNameEng = "";
+	String molfor = "";
+	String molwgt = "";
+	String den = "";
 	String keyword="";
 	String casNo="";
 	if (request.getParameter("chemNameKor") != null) {
@@ -15,6 +21,7 @@
 	
 	searchList2.countUpdate(casNo);
 	ArrayList<HashMap<String, String>> selectCasNo = searchList2.searchList(casNo,"selectCasNo");	
+	
 %>
 
 <script type="text/javascript">
@@ -121,6 +128,9 @@
 	});
 	function searchBntClick() {
 		 var searchWord = $('#searchWord').val();
+		 $('html, body').animate({
+				scrollTop : 0
+			}, 0);
 		 $("#divAll").load("scs_searchResult.jsp", {chemNameKor:searchWord});
 		 
 	}
@@ -635,7 +645,7 @@ td {
 												<option value="LD">LD</option>
 										</select></td>
 										<td>&nbsp;독성수치 :</td>
-										<td>5,651 mg/L</td>
+										<td>648 mg/kg</td>
 									</tr>
 									<tr>
 										<td colspan="4" height=10px value="버튼간격"></td>
@@ -681,43 +691,83 @@ td {
 						<td colspan="2">
 							<div class="list-group listBox01" id="div3" style="display: none;">
 								
+								
+								<%
+								if(selectCasNo.size()>0){
+									for (int i = 0; i < selectCasNo.size(); i++) {
+										chemNameKor = selectCasNo.get(i).get("chemNameKor");
+										if(chemNameKor.equals("null"))
+										{
+											chemNameKor = "자료없음";
+										}
+										chemNameEng = selectCasNo.get(i).get("chemNameEng");
+										if(chemNameEng.equals("null"))
+										{
+											chemNameEng = "자료없음";
+										}
+										casNo = selectCasNo.get(i).get("casNo");
+										if(casNo.equals("null"))
+										{
+											casNo = "자료없음";
+										}
+										molfor = selectCasNo.get(i).get("molfor");
+										if(molfor.equals("null"))
+										{
+											molfor = "자료없음";
+										}
+										molwgt = selectCasNo.get(i).get("molwgt");
+										if(molwgt.equals("null"))
+										{
+											molwgt = "자료없음";
+										}
+										den = selectCasNo.get(i).get("den");
+										if(den.equals("null"))
+										{
+											den = "자료없음";
+										}
+										
+									}
+								}
+								
+								
+								%>
 								<table width="100%" class="mytable" style="text-align:center">
 									
 									<tr>
-										<td colspan="2" class="titleText titleTextLine">물질정보</td>
+										<td colspan="2" class="titleText">물질정보</td>
 									</tr>
 									<tr>
 										<td width=40% style="background: #dcdcdc">물질명</td>
-										<td width=60%>소르빈산 (Sorbic Acid)</td>
+										<td width=60%><%=chemNameKor%><br>(<%=chemNameEng%>)</td>
 									</tr>
 									<tr>
 										<td style="background: #dcdcdc">CasNo</td>
-										<td>110-44-1</td>
+										<td><%=casNo%></td>
 									</tr>
 									<tr>
 										<td style="background: #dcdcdc">분자식</td>
-										<td>C<sub>6</sub>H<sub>8</sub>O<sub>2</sub></td>
+										<td><%=molfor%></td>
 									</tr>
 									<tr>
 										<td style="background: #dcdcdc">분자량</td>
-										<td>112.13</td>
+										<td><%=molwgt%></td>
 									</tr>
 									<tr>
 										<td style="background: #dcdcdc">밀도</td>
-										<td>1.347 g/cm3</td>
+										<td><%=den%></td>
 									</tr>
-									<tr>
-										<td style="background: #dcdcdc">산성도</td>
-										<td>4.76</td>
-									</tr>
-									<tr>
-										<td style="background: #dcdcdc">유럽연합번호</td>
-										<td>203-768-7</td>
-									</tr>
-									<tr>
-										<td style="background: #dcdcdc">CCRIS번호</td>
-										<td>5748</td>
-									</tr>
+<!-- 									<tr> -->
+<!-- 										<td style="background: #dcdcdc">산성도</td> -->
+<!-- 										<td>4.76</td> -->
+<!-- 									</tr> -->
+<!-- 									<tr> -->
+<!-- 										<td style="background: #dcdcdc">유럽연합번호</td> -->
+<!-- 										<td>203-768-7</td> -->
+<!-- 									</tr> -->
+<!-- 									<tr> -->
+<!-- 										<td style="background: #dcdcdc">CCRIS번호</td> -->
+<!-- 										<td>5748</td> -->
+<!-- 									</tr> -->
 								</table>
 
 								<table width="100%" class="">
@@ -836,7 +886,7 @@ LD50은 유해화학물질관리법의 유독물과 특정유독물 지정기준
 						<span aria-hidden="true">&times;</span>
 					</button>
 					<h4 class="modal-title" id="myModalLabel">
-						소르빈산 의 섭취 허용량 산출
+						섭취 허용량 산출 방법
 					</h4>
 				</div>
 				<div class="modal-body">
@@ -894,7 +944,7 @@ LD50은 유해화학물질관리법의 유독물과 특정유독물 지정기준
 						<span aria-hidden="true">&times;</span>
 					</button>
 					<h4 class="modal-title" id="myModalLabel">
-						소르빈산 의 사용기준
+						<%=keyword%> 의 사용기준
 					</h4>
 				</div>
 				<div class="modal-body">

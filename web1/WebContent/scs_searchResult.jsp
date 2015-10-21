@@ -72,13 +72,15 @@
 	});
 	function searchBntClick() {
 		 var searchWord = $('#searchWord').val();
+		 $('html, body').animate({
+				scrollTop : 0
+			}, 0);
 		 $("#divAll").load("scs_searchResult.jsp", {chemNameKor:searchWord});
 		 
 	}
 	
  	$("#menuBarTable").attr('height',($(window).height()/9));
  	$("#logoImgId").attr('height',($(window).height()/11));
-	
 </script>
 
 
@@ -184,9 +186,9 @@ td {
 					</tr>
 					<tr>
 						<td colspan="2">
-							<div class="list-group" id="testdiv" style="">
+							<div class="list-group" id="searchListDiv" style="">
 								<% 
-// 									여기에 포문
+// 									검색 결과 리스트 출력
 									if(searchList.size()>0){
 										for (int i = 0; i < searchList.size(); i++) {
 											chemId = searchList.get(i).get("chemId");
@@ -222,10 +224,10 @@ td {
 										<span class="label label-info">국문명</span> <%=chemNameKor%><br>
 										<span class="label label-info">영문명</span> <%=chemNameEng%><br>
 										<span class="label label-info">CAS #</span> <%=casNo%></a>
-
-										
 										<%	
 										}
+										
+										
 									}
 								%>
 								

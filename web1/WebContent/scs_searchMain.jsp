@@ -45,9 +45,13 @@
 		});
 		function searchBntClick() {
 			 var searchWord = $('#searchWord').val();
+			 $('html, body').animate({
+					scrollTop : 0
+				}, 0);
 			 $("#divAll").load("scs_searchResult.jsp", {chemNameKor:searchWord});
 			 
 		}
+		
 </script>
 
 <body>

@@ -199,6 +199,7 @@ body{margin:0}
 			<div style="background-color:#4ba9f5; line-height:30px; vertical-align:middle;">
 			<font size=2.5pt color="white">COPYRIGHT ⓒ OSCube. ALL RIGHTS RESERVED. </font><img src="images/footer_logo_inverse.png" width=20px>
 		 </div>
+		 <div id="session" value=""></div>
 	</div>
 	<% 
 		}
