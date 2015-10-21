@@ -2,93 +2,19 @@
 	pageEncoding="utf-8"%> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ page import="java.util.*, java.text.*"%>
-<%@ page import="java.io.IOException"%>
-<%@ page
-	import="java.sql.SQLException, java.sql.DriverManager, 
-        java.sql.Connection, java.sql.Statement, java.sql.ResultSet"%>
-<%
-
-	Class.forName("oracle.jdbc.driver.OracleDriver");
-	Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1523:scsdbnew", "scsdbrio2", "cube1234");
-	Statement stmt = null;
-	ResultSet rs3 = null;
-	ResultSet rs4 = null;
-	
-	//일반물질 - 물질검색 / 상세검색 
-	String chemNameKor = ""; 
-	String chemNameEng = "";
-	String chemId = "";
-	String casNo = "";
-	String keyword = "";
-	 
+<jsp:useBean id="searchList2" class="scs.SearchList"/>
+<% 
+	String keyword="";
+	String casNo="";
 	if (request.getParameter("chemNameKor") != null) {
 		keyword = request.getParameter("chemNameKor");
 	}
 	if (request.getParameter("cas") != null) {
 		casNo= request.getParameter("cas");
 	}
-
-	List list = null;
-	ArrayList<HashMap<String, String>> searchList = new ArrayList<HashMap<String, String>>();
 	
-	StringBuffer strQuery = new StringBuffer();
-	StringBuffer strUpdateCountQuery = new StringBuffer();
-	strQuery.setLength(0);
-	strUpdateCountQuery.setLength(0);
-	
-	String test ="update normal_detail_info set count=count+1 where casno ='"+ casNo +"'";
-	strUpdateCountQuery.append("update normal_detail_info set count=count+1 where casno ='");	
-	strUpdateCountQuery.append(casNo+"'");
-	
-	String query2 = strUpdateCountQuery + "";
- 	System.out.println(test);
- 	
-	
-	strQuery.append("select chemid, chemnamekor, chemnameeng, casno from normal_detail_info where casno = '");
-	strQuery.append(casNo+"'");
-	
-	String query = strQuery + "";
-	System.out.println(query);
-
-	
-	try {
+	searchList2.countUpdate(casNo);
 		
-		stmt = conn.createStatement();
- 		rs3 = stmt.executeQuery(test);
- 		
- 		
- 		rs4 = stmt.executeQuery(query);
-		int i = 0; 
-		while (rs4.next()) {
-			
-			HashMap<String, String> hm = new HashMap<String, String>();
-			chemNameKor = rs4.getString("CHEMNAMEKOR");
-			chemNameEng = rs4.getString("CHEMNAMEENG");
-			chemId = rs4.getString("CHEMID");
-			casNo = rs4.getString("CASNO");
-			hm.put("chemNameKor", chemNameKor);
-			hm.put("chemNameEng", chemNameEng);
-			hm.put("chemId", chemId);
-			hm.put("casNo", casNo);
-			
-			searchList.add(hm);
-		}
-		System.out.println(searchList);
-	}
-
-finally {
-	try {
-		if (rs3 != null)
-			rs3.close();
-		if (rs4 != null)
-			rs4.close();
-		if (stmt != null)
-			stmt.close();
-		if (conn != null)
-			conn.close();
-	} catch (Exception e) {
-	}
-}
 %>
 
 <script type="text/javascript">
@@ -112,7 +38,7 @@ finally {
 		$('html, body').animate({
 			scrollTop : 0
 		}, 0);
-		$("#divAll").load("scs_searchResult.jsp",{param:'<%=keyword%>'});
+		$("#divAll").load("scs_searchResult.jsp",{chemNameKor:'<%=keyword%>'});
 	});
 
 	// Without JQuery
@@ -150,7 +76,7 @@ finally {
 			scrollTop : 0
 		}, 0);
 		var searchWord = $('#searchWord').val();
-		$("#divAll").load("scs_searchResult.jsp", {param : searchWord});
+		$("#divAll").load("scs_searchResult.jsp", {chemNameKor : searchWord});
 
 	}
 	function keydownFun() {
@@ -189,6 +115,18 @@ finally {
 			text1.style.display = "none";
 		}
 
+	}
+	$(function () {
+	    $("#searchWord").keydown(function (key) {
+	        if (key.keyCode == 13) {
+	            searchBntClick();
+	        }
+	    });
+	});
+	function searchBntClick() {
+		 var searchWord = $('#searchWord').val();
+		 $("#divAll").load("scs_searchResult.jsp", {chemNameKor:searchWord});
+		 
 	}
 </script>
 
@@ -303,7 +241,7 @@ td {
 
 						<td width=70%><input type="text" id="searchWord"
 							style="border-radius:2px 0px 0px 2px; height: 40px; width: 100%;" placeholder="  검색어를 입력하세요."
-							value="소르빈산"></td>
+							value="<%=keyword %>"></td>
 						<td width=30%><input type="button"
 							style="border-radius:0px 2px 2px 0px; height: 40px; width: 100%;" value="검색"
 							class="searchBut" onclick="searchBntClick();"></td>

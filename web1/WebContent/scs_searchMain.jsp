@@ -2,16 +2,20 @@
 	pageEncoding="utf-8"%> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ page import="java.util.*, java.text.*"%>
+<jsp:useBean id="searchList2" class="scs.SearchList"/>   
 <%
-// 	String s = request.getParameter("param");
-	// 	System.out.println(s);
+	String keyword = "";
+	String chemNameKor = ""; 
+	String chemNameEng = "";
+	String casNo = "";
+	ArrayList<HashMap<String, String>> searchList= searchList2.searchList("keyword","rankList");
 %>
 
 <script>
 		$(".searchResult").click(function(event) {
 			var th = $(this);
 			var th_cnk = th.attr('id');
-			var th_cas = th.attr('cas')
+			var th_cas = th.attr('cas');
 			$('html, body').animate({ 
 				scrollTop : 0
 			}, 0);
@@ -32,40 +36,18 @@
 			}, 450);
 			return false;
 		});
-		
-	$(document).bind('keydown', function(e) {
-		if (e.keyCode == 13) {
-			searchTest();
-			return false;
+		$(function () {
+		    $("#searchWord").keydown(function (key) {
+		        if (key.keyCode == 13) {
+		            searchBntClick();
+		        }
+		    });
+		});
+		function searchBntClick() {
+			 var searchWord = $('#searchWord').val();
+			 $("#divAll").load("scs_searchResult.jsp", {chemNameKor:searchWord});
+			 
 		}
-	});
-	
-	function searchTest(){
-		var searchVal = jQuery('#searchWord').val();
-		
-		if (searchVal != '' && searchVal != '검색어를 입력하세요.') {
-			jQuery('#keyword').val(jQuery('#searchWord').val());
-		} else {
-		}
-	}
-	
-	function searchBntClick() {
-		 var searchWord = $('#searchWord').val();
-		 $("#divAll").load("scs_searchResult.jsp", {chemNameKor:searchWord});
-		 
-	}
-	
-	
-	$(function () {
-		
-	    $("#searchWord").keydown(function (key) {
-	        if (key.keyCode == 13) {
-	            alert($("#searchWord").val());
-	            $("#searchWord").val("");
-	        }
-	    });
-	
-	});
 </script>
 
 <body>
@@ -95,9 +77,33 @@
 				<tr>
 					<td colspan="2">
 							<div class=""  id="">
-									<a href="#"	class="list-group-item searchResult listRank " id="소르빈산" cas="">1. 소르빈산<br>(Sorbic acid)</a>
-									<a href="#" class="list-group-item searchResult listRank" id="아질산 나트륨" cas="">2. 아질산 나트륨<br>(Sodium nitrite)</a> 
-									<a href="#"	class="list-group-item searchResult listRank" id="수크랄로스" cas="">3. 수크랄로스<br>(Sucralose)</a> 
+							
+								<% 
+								if(searchList.size()>0){
+									for (int i = 0; i < searchList.size(); i++) {
+										chemNameKor = searchList.get(i).get("chemNameKor");
+										if(chemNameKor.equals("null"))
+										{
+											chemNameKor = "자료없음";
+										}
+										chemNameEng = searchList.get(i).get("chemNameEng");
+										if(chemNameEng.equals("null"))
+										{
+											chemNameEng = "자료없음";
+										}
+										casNo = searchList.get(i).get("casNo");
+										if(casNo.equals("null"))
+										{
+											casNo = "자료없음";
+										}
+									%>
+									<a href="#"	class="list-group-item searchResult listRank " id="<%=chemNameKor%>" cas="<%=casNo%>"><%=i+1%>. <%=chemNameKor%><br>&nbsp;&nbsp;(<%=chemNameEng%>)</a>								
+									<%
+									}
+								}
+								
+								%>
+	
 						</div>
 					</td>
 				</tr>

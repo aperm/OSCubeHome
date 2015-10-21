@@ -2,79 +2,19 @@
 	pageEncoding="utf-8"%> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ page import="java.util.*, java.text.*"%>
-<%@ page import="java.io.IOException"%>
-<%@ page
-	import="java.sql.SQLException, java.sql.DriverManager, 
-        java.sql.Connection, java.sql.Statement, java.sql.ResultSet"%>
-        
+<jsp:useBean id="searchList2" class="scs.SearchList"/>   
 <%
-
-	Class.forName("oracle.jdbc.driver.OracleDriver");
-	Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1523:scsdbnew", "scsdbrio2", "cube1234");
-	Statement stmt = null;
-	ResultSet rs = null;
-	
-	//일반물질 - 물질검색 / 상세검색 
+	String keyword = "";
 	String chemNameKor = ""; 
 	String chemNameEng = "";
 	String chemId = "";
 	String casNo = "";
-	String keyword = "";
 	 
 	if (request.getParameter("chemNameKor") != null) {
 		keyword = request.getParameter("chemNameKor");
 	}
 
-	List list = null;
-	ArrayList<HashMap<String, String>> searchList = new ArrayList<HashMap<String, String>>();
-	
-	StringBuffer strQuery = new StringBuffer();
-	strQuery.append("select a.chemid, a.chemnamekor, a.chemnameeng, a.casno from normal_info a where chemid like \'%");
-	strQuery.append(keyword);
-	strQuery.append("%\' or chemnamekor like \'%");
-	strQuery.append(keyword);
-	strQuery.append("%\' or casno like \'%");
-	strQuery.append(keyword);
-	strQuery.append("%\' or upper(chemnameeng) like \'%\'|| upper(\'");
-	strQuery.append(keyword);
-	strQuery.append("\')||'%\'");
-	
-	String query = strQuery + "";
-// 	System.out.println(query);
-	try {
-	
-		stmt = conn.createStatement();
-		rs = stmt.executeQuery(query);
-		int i = 0; 
-		while (rs.next()) {
-			
-			HashMap<String, String> hm = new HashMap<String, String>();
-			chemNameKor = rs.getString("CHEMNAMEKOR");
-			chemNameEng = rs.getString("CHEMNAMEENG");
-			chemId = rs.getString("CHEMID");
-			casNo = rs.getString("CASNO");
-			hm.put("chemNameKor", chemNameKor);
-			hm.put("chemNameEng", chemNameEng);
-			hm.put("chemId", chemId);
-			hm.put("casNo", casNo);
-			
-			searchList.add(hm);
-		}
-// 		System.out.println(searchList);
-	}
-
-finally {
-	try {
-		if (rs != null)
-			rs.close();
-		if (stmt != null)
-			stmt.close();
-		if (conn != null)
-			conn.close();
-	} catch (Exception e) {
-	}
-}
-	
+	ArrayList<HashMap<String, String>> searchList= searchList2.searchList(keyword,"searchList");
 %>
 
 <script type="text/javascript">
@@ -123,9 +63,16 @@ finally {
 		alert("d");
 	}
 	
+	$(function () {
+	    $("#searchWord").keydown(function (key) {
+	        if (key.keyCode == 13) {
+	            searchBntClick();
+	        }
+	    });
+	});
 	function searchBntClick() {
 		 var searchWord = $('#searchWord').val();
-		 $("#divAll").load("scs_searchResult.jsp", {param:searchWord});
+		 $("#divAll").load("scs_searchResult.jsp", {chemNameKor:searchWord});
 		 
 	}
 	
