@@ -36,8 +36,7 @@ public class SearchList {
 
 			if (gubun.equals("searchList")) {
 				strQuery.setLength(0);
-				strQuery.append(
-						"select a.chemid, a.chemnamekor, a.chemnameeng, a.casno from normal_info a where chemid like \'%");
+				strQuery.append("select a.chemid, a.chemnamekor, a.chemnameeng, a.casno from normal_info a where chemid like \'%");
 				strQuery.append(keyword);
 				strQuery.append("%\' or chemnamekor like \'%");
 				strQuery.append(keyword);
@@ -67,8 +66,29 @@ public class SearchList {
 			} else if (gubun.equals("rankList")) {
 
 				strQuery.setLength(0);
-				strQuery.append(
-						"select a.*, rownum rn from (select chemnamekor,chemnameeng,casno, count from normal_detail_info where casno !='null' order by count desc) a where rownum < 4");
+				strQuery.append("select a.*, rownum rn from (select chemnamekor,chemnameeng,casno, count from normal_detail_info where casno !='null' order by count desc) a where rownum < 4");
+				String query = strQuery + "";
+				rset = stmt.executeQuery(query);
+				while (rset.next()) {
+					HashMap<String, String> hmrl = new HashMap<String, String>();
+					chemNameKor = rset.getString("CHEMNAMEKOR");
+					chemNameEng = rset.getString("CHEMNAMEENG");
+					casNo = rset.getString("CASNO");
+					count = rset.getString("COUNT");
+					
+					hmrl.put("chemNameKor", chemNameKor);
+					hmrl.put("chemNameEng", chemNameEng);
+					hmrl.put("casNo", casNo);
+					hmrl.put("count", count);
+
+					searchList.add(hmrl);
+				}
+			} 
+			//selectCasNo 물질 선택 후 3.추가정보 부분
+			else if (gubun.equals("selectCasNo"))
+			{
+				strQuery.setLength(0);
+				strQuery.append("");
 				String query = strQuery + "";
 				System.out.println(query);
 				rset = stmt.executeQuery(query);
@@ -86,8 +106,9 @@ public class SearchList {
 
 					searchList.add(hmrl);
 				}
-				System.out.println(searchList);
-			} else if (gubun.equals("selectView")) {
+				
+			}
+			else if (gubun.equals("selectView")) {
 
 			}
 
@@ -117,7 +138,6 @@ public class SearchList {
 			rset = null;
 
 			query = "update normal_detail_info set count=count+1 where casno ='" + casNo + "'";
-			System.out.println(query);
 			rset = stmt.executeQuery(query);
 
 			rset.close();

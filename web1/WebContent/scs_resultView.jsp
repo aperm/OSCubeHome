@@ -14,11 +14,10 @@
 	}
 	
 	searchList2.countUpdate(casNo);
-		
+	ArrayList<HashMap<String, String>> selectCasNo = searchList2.searchList(casNo,"selectCasNo");	
 %>
 
 <script type="text/javascript">
-	
 	$(window).scroll(function() {
 		if ($(this).scrollTop() > 0) {
 			$('.btnTop').fadeIn();
@@ -49,8 +48,6 @@
 	});
 
 	$("#ex1").on("slide", function(slideEvt) {
-		// 		$("#ex6SliderVal").text(slideEvt.value);
-
 		$("#weightValue").attr('value', slideEvt.value);
 
 		$("#value1").text((slideEvt.value * 25 / 3).toFixed(1));
@@ -68,7 +65,6 @@
 		$("#value13").text((slideEvt.value * 25 / 2).toFixed(1));
 		$("#value14").text((slideEvt.value * 25 / 1).toFixed(1));
 		$("#value15").text((slideEvt.value * 25 / 1).toFixed(1));
-
 	});
 
 	function searchBntClick() {
@@ -128,6 +124,8 @@
 		 $("#divAll").load("scs_searchResult.jsp", {chemNameKor:searchWord});
 		 
 	}
+	
+	
 </script>
 
 
