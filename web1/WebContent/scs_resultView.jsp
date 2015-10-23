@@ -19,8 +19,14 @@
 		casNo= request.getParameter("cas");
 	}
 	
-	searchList2.countUpdate(casNo);
-	ArrayList<HashMap<String, String>> selectCasNo = searchList2.searchList(casNo,"selectCasNo");	
+	searchList2.countUp(casNo);
+	
+	ArrayList<HashMap<String, String>> selectCasNo = searchList2.searchList(casNo,"selectCasNo");
+	
+	ArrayList<HashMap<String, String>> speciesList = searchList2.searchList(casNo,"species");	
+	ArrayList<HashMap<String, String>> routeList = searchList2.searchList(casNo,"route");	
+	ArrayList<HashMap<String, String>> endpointList = searchList2.searchList(casNo,"endpoint");
+	ArrayList<HashMap<String, String>> dosageList = searchList2.searchList(casNo,"dosage");
 	
 %>
 
