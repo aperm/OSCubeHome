@@ -158,7 +158,7 @@ body{margin:0}
 <SCRIPT src="/js/jquery-2.1.3.min.js"></SCRIPT>
 <script src="/js/bootstrap.js"></script>
 <script src="/js/bootstrap_slider.js"></script>
-<script src="/js/id_check.js"></script>
+<script src="/js/idcheck.js"></script>
 <%
 	if(session.getAttribute("userid") != null){
 %>

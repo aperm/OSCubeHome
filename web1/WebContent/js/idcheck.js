@@ -1,6 +1,5 @@
 function check() {
 	var id = document.login.id.value;
-	
 	var pw = document.login.pw.value;
 	var pw1 = document.login.pw1.value;
 	if (id == "") {
@@ -26,7 +25,6 @@ function check() {
 
 
 function overlap() {
-	alert("dd");
 	var id = document.login.id.value;
 	if (id != "") {
 		$("#check").load("checkid.jsp?id=" + id);

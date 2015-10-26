@@ -9,7 +9,6 @@ import java.sql.SQLException;
 public class Member {
 	
 	public int confirmid(String id) {
-		System.out.println("dddd2");
 		int result = -1;
 		String sql = "select * from member where id=?";
 		Connection conn = null;
@@ -24,7 +23,10 @@ public class Member {
 		}
 
 		try {
+			//my
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1523:scsdbnew", "scsdbrio2", "cube1234");
+			//server
+//			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:scsdbrio", "scsdbrio", "cube1234");
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
@@ -67,7 +69,10 @@ public class Member {
 		}
 
 		try {
+			//my
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1523:scsdbnew", "scsdbrio2", "cube1234");
+			//server
+//			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:scsdbrio", "scsdbrio", "cube1234");
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			pstmt.setString(2, pw);
@@ -113,7 +118,10 @@ public class Member {
 		}
 		
 		try {
+			//my
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1523:scsdbnew", "scsdbrio2", "cube1234");
+			//server
+//			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:scsdbrio", "scsdbrio", "cube1234");
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			pstmt.setString(2, pw);
