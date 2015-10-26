@@ -158,6 +158,7 @@ body{margin:0}
 <SCRIPT src="/js/jquery-2.1.3.min.js"></SCRIPT>
 <script src="/js/bootstrap.js"></script>
 <script src="/js/bootstrap_slider.js"></script>
+<script src="/js/id_check.js"></script>
 <%
 	if(session.getAttribute("userid") != null){
 %>
@@ -210,7 +211,7 @@ body{margin:0}
 			<br>
 			<input type="button" class="btn btn-primary " value="FACEBOOK 로그인" style="width:50%" class="but" ><br>
 			<input type="button" class="btn btn-success" value="NAVER 로그인" style="width:50%"><br>
-			<input type="button" class="btn btn-danger" value="Google 로그인"style="width:50%"><br>
+			<input type="button" class="btn btn-danger" value="Google 로그인"style="width:50%" onclick="overlap();"><br>
 			
 			
 			

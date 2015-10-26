@@ -1,6 +1,7 @@
-<%@page import="scs.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+<%@page import="scs.Member"%>
 <%
 	String id = request.getParameter("id");
 

@@ -15,7 +15,8 @@ table {
 	font-size: 15px;
 }
 </style>
-<script type="text/javascript" src="js/id_check.js"></script>
+<SCRIPT src="/js/id_check.js"></SCRIPT>
+
 </head>
 <body>
 
