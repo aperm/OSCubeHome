@@ -63,6 +63,18 @@
 	int count=0;
 
 		
+	String key1 = "2M2ml1OFz3uLrlRnWx3BaG5VjWdJ6uGW25aeAnXzUBUqbqfCwavBRDFUz9519qTyKpZRWerMjaERCi2qZhgQ6A%3D%3D";
+ 	String key2 = "%2FJFEORCpqzhn%2FOcyXw3WqyKDCZ%2FxTGxK3l2tfbLv3pTwOzsV63aHqL0cqqJl1X%2F%2FCSpPU04eMig%2FclQ1d2567Q%3D%3D";
+	String key3 = "drFk8VgT1T1Uv70JdHOnwdH7GE6JnsmUxzNHM5LjABgb0UQzsdjjDF9tDrVJjSRX7DHw9cIuFm5F77Dlh57z5w%3D%3D";
+	String key4 = "n%2BAIIoN0P8GHHhPVOWHLUHJdXANxhS3GWUPPC8D09Biar7es0apvksy0%2F6Ig5QUO8Mgnh1eFjXDFmZOAH6ZoZw%3D%3D";
+	String key5 = "cr50XEeTxfaDlQMRtEWtgq0Q0nvIeWuoiAXdHQ35PJ76RORq3psX8q6DdXuAu45a3kG56byAnmkRjPthoUweJg%3D%3D";
+	String key6 = "nhbWysI%2FxKFpQmVfN9wFALizbd8mlbxalYTTpn2zgzNhLNzhq9fkB6MuuCoSLB0O6dfozs%2BYNRhc9ZKfg9XdTA%3D%3D";
+	String key7 = "vKJZ%2Fgux501a3kCAoCPwWpPzHgE5pLTOQD52zGHCSJrtMl1ueABvlHH6RtWTaxCDoO%2BaaR1rz2haPpnvP30ndg%3D%3D";
+	String key8 = "pwP0HuQ%2By%2BJUamkc1bd7TuXnWhdnOJr%2BbOWggieTOVKmwDopVE%2BHpUEOZI4TpzPtgStYlUJW%2FKXY4Xdw%2BRaXtQ%3D%3D";
+	String key9 = "971C1hXOxrJCh%2FjeWTOkXOExyeYLwdmsc5Ko3IF4yDBrw%2B9%2BoMQLM%2FfuezUOJz93yKk0bkuBRQNytja1HH6GSg%3D%3D";
+	String key10 = "ymnM1d0wsWLZL7l2NYPAaE7zkrxGp%2BzkiAEMyf4HqtxgGYsrj693U5%2B1U9m0qv4bA6yWkHFuxCKrX%2FjLzYsYXA%3D%3D";
+	String key11 = "pcF0Bg87Q%2BXpNvGmudst2k7V8rmA18oA2ztMk46Oiqw0V6VPUjWDYY78QknLPTrZKOhWSE3rYTayffmT%2Blt1TA%3D%3D";
+	String key12 = "lwLBez9Jg8BSZPpb99z1XKZDvGejPNs7cXh%2FouTiLes2ej8MvCX2hoeOLhy6vkYLxktAL5Oyc7Bxo5FfHhxA6A%3D%3D";
 	StringBuffer strAddr = new StringBuffer();
 	strAddr.append("http://www.nifds.go.kr/toxinfo/openapi/openapi/service/rest/ChmclsGnrlToxctyInfoService/getNeuroToxctyInfoInqire?numOfRows=3&ServiceKey=");
 	strAddr.append(key3);

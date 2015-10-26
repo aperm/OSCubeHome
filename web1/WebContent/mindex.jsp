@@ -72,7 +72,19 @@ function imgClick(){
 function loginclick() {
 	$("#divAll").load("scs_searchMain.jsp");
 }
+//박현민 코드작성
+function singupClick(){
+	//$("#divAll").load("scs_sign_up.jsp");
+	$("#divAll").load("login.jsp");
+}
 
+function search(){
+	$("#divAll").load("scs_searchMain.jsp");
+}
+
+function back(){
+	$("#divAll").load("login.jsp");
+}
 </script>
 
 <style type="text/css">
@@ -146,7 +158,26 @@ body{margin:0}
 <SCRIPT src="/js/jquery-2.1.3.min.js"></SCRIPT>
 <script src="/js/bootstrap.js"></script>
 <script src="/js/bootstrap_slider.js"></script>
+<%
+	if(session.getAttribute("userid") != null){
+%>
+	<body onload="search()">
+	
+	</body>
 
+<%
+	}
+%>
+<%
+	if(session.getAttribute("message") != null){
+%>
+	<body onload="back()">
+	
+	</body>
+
+<%
+	}
+%>
 <body>
 <!-- 	탑버튼 -->
 
@@ -175,7 +206,7 @@ body{margin:0}
 			<br>
 			
 			<input type="button" class="btn " value="Guest 접속" style="width:50%; background-color:#ffdab9;" onclick="loginclick();"><br>
-			<input type="button" class="btn " value="회원가입"style="width:50%"><br>
+			<input type="button" class="btn " value="회원가입"style="width:50%" onclick="singupClick();"><br>
 			<br>
 			<input type="button" class="btn btn-primary " value="FACEBOOK 로그인" style="width:50%" class="but" ><br>
 			<input type="button" class="btn btn-success" value="NAVER 로그인" style="width:50%"><br>

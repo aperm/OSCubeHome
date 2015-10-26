@@ -139,7 +139,6 @@ public class SearchList {
 					hms.put("species", species);
 					hms.put("casNo", casNo);
 					searchList.add(hms);
-					System.out.println("i");
 				}
 			}
 			else if (gubun.equals("route")) {

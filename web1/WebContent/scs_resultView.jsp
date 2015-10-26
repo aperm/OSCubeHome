@@ -27,7 +27,6 @@
 	ArrayList<HashMap<String, String>> routeList = searchList2.searchList(casNo,"route");	
 	ArrayList<HashMap<String, String>> endpointList = searchList2.searchList(casNo,"endpoint");
 	ArrayList<HashMap<String, String>> dosageList = searchList2.searchList(casNo,"dosage");
-	
 %>
 
 <script type="text/javascript">
@@ -141,7 +140,26 @@
 		 
 	}
 	
+	$(document).ready(function(){
+	 	$('.sel2').attr('style','display:none'); 
+	 	$('.sel3').attr('style','display:none'); 
+	});
 	
+	
+	function change1(form){
+		var select = form.subject.value;
+  		$('.sel2').attr('style','display:none'); 
+		$('.'+select+'').attr('style','display:');
+		$(form.contents).val('first');
+		$(form.components).val('first');
+	}
+	
+	function change2(form){
+		var select = form.contents.value;
+		$('.sel3').attr('style','display:none');
+		$('.'+select+'').attr('style','display:');
+		$(form.components).val('first');
+	}
 </script>
 
 
@@ -578,45 +596,79 @@ td {
 									</div>
 								
 								<div  class="listBox02" >
-
+								<form name="form">
 								<table width="100%">
 									<tr>
 										<td colspan="4"><div class="titleText titleTextBox">안전성 결과(실험값)</div></td>
 									</tr>
+									<% 
+										if(speciesList.size()>0)
+										{
+									%>
 									<tr>
 										<td>동물종 :</td>
-										<td><select name="동물종" style="width:80px;">
-												<option value="Rat">Rat</option>
-												<option value="Mouse">Mouse</option>
-												<option value="Rabbit">Rabbit</option>
-												<option value="fethead minnow">fethead minnow</option>
-												<option value="Daphnia magna">Daphnia magna</option>
-												<option value="T.pyriformis">T.pyriformis</option>
-										</select></td>
+										<td>
+										 	<select name="subject" onchange="change1(this.form)" style="width:80px;"> 
+													<option class="select1" value="선택">선택</option>
+											  <%
+												  		for(int i=0; i<speciesList.size(); i++)
+												  		{
+												  			String species = speciesList.get(i).get("species");
+												  	%>
+												  <option name="s1" value="<%=species%>"><%=species%></option>
+												  <%
+												  		}
+											  %>
+											  </select>
+										  </td>
 										<td>&nbsp;투여경로 :</td>
-										<td><select name="경로">
-												<option value="피부">피부</option>
-												<option value="복강">복강</option>
-												<option value="경구">경구</option>
-												<option value="피하">피하</option>
-										</select></td>
+										<td>
+										<select name="contents" onchange="change2(this.form)" class="">
+											  <div class=""><option value="first">선택</option></div>
+											  	<%
+											  		for(int i=0; i<routeList.size(); i++)
+											  		{
+											  			String species = routeList.get(i).get("species");
+											  			String route = routeList.get(i).get("route");
+											  	%>
+											  	<option name="s2" class="<%=species%> sel2" value="<%=route%>"><%=route%></option>
+											  <%
+											  		}
+											  %>
+											  </select>
+											  </td>
 									</tr>
 									<tr>
 										<td>종말점 :</td>
-										<td><select name="종말점" style="width:80px;">
-												<option value="LD">LD</option>
-												<option value="LD50">LD50</option>
-												<option value="LC50">LC50</option>
-												<option value="IGC50">IGC50</option>
-										</select></td>
+										<td><select name="components" onChange="">
+											  <option value="first">선택</option>
+											  	<%
+											  		for(int i=0; i<endpointList.size(); i++)
+											  		{
+											  			String route = endpointList.get(i).get("route");
+											  			String endpoint = endpointList.get(i).get("endpoint");
+											  	%>
+											  <option name="s3" class="<%=route%> <%=endpoint%> sel3" value="<%=endpoint%>"><%=endpoint%></option>
+											  <%
+											  		}
+											  %>
+											  </select></td>
 										<td>&nbsp;독성수치 :</td>
 										<td>2,820 mg/kg</td>
 									</tr>
+									<%
+									}else{
+									%>
+									<tr>
+										<td colspan="4" height=30px>자료 준비중입니다.</td>
+									</tr>
+									<%} %>
 									<tr>
 										<td colspan="4" height=10px></td>
 									</tr>
 
 								</table>
+								</form>
 								</div>
 								<div style="margin-top:30px;"></div>
 								<div class="listBox02"> 
